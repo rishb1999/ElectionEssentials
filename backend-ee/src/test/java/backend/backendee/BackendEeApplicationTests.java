@@ -1,4 +1,4 @@
-package com.example.backendee;
+package backend.backendee;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
