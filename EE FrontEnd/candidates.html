@@ -4,13 +4,14 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
         <title>Election Essentials</title>
     </head>
     <body>
+            
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">EE</a>
@@ -49,7 +50,6 @@
         </nav>
         
        
-        <h1 id = "EETitle"> Election Essentials</h1>
 
         <style>
 
@@ -65,28 +65,105 @@
                 height: 100%;
             }
 
-            #EETitle {
-                color: white;
+            #des {
+                color: black;
             }
 
         </style>
 
 
 
-         <div class="jumbotron">
+         <div class="jumbotron" id="jmb">
             <div class="container">
-                <h1 class= "text-center">Election Essential Tools</h1>
+                <h1 class= "text-center">Election Essentials: Candidate Lookup</h1>
                 <br />
                  <div class="row">
                 <header class="col-12 text-center text-white tm-bg-black-transparent p-5 tm-app-header">
                     <input class = "text-center" type="text" id = "tmAbout-search" placeholder="Candidate Search..">
-                    <h2 class="text-uppercase mb-3 tm-app-feature-header">Search up a candidate right now.</h2>
+                    <button id="go" > enter  </button>
 
-                    <p class="mb-0 small">Election Essentials can help you compare candidates and their stances on issue you find passionate about. Just search up your specified candidate and see the magic.</p>
+                    <p id="des" class="mb-0 small">Election Essentials can help you compare candidates and their stances on issue you find passionate about. Just search up your specified candidate and see the magic.</p>
                 </header>
                  </div>
             </div>
         </div>
+
+        <style type="text/css">  
+            .container { 
+                width:975px; 
+                height:200px; 
+                padding-top:50px; 
+                padding-left:15px; 
+                padding-right:15px; 
+            } 
+            #st-box { 
+                float:left; 
+                width:300px; 
+                height:400px; 
+                background-color: black; 
+                border:solid black; 
+            } 
+            #nd-box { 
+                float:left; 
+                width:300px; 
+                height:400px; 
+                background-color:black;  
+                border:solid black; 
+                margin-left:20px; 
+            } 
+            #rd-box { 
+                float:right; 
+                width:300px; 
+                height:400px; 
+                background-color:black; 
+                border:solid black; 
+            }
+            p {
+                color: white
+            }  
+        </style>
+          <div class="container"> 
+            <div id="st-box"> 
+                
+            </div> 
+              
+            <div id="nd-box"> 
+                <p id="dump"> 
+                    We can create as many div as many we want side by 
+                    side with the same height and also with the 
+                    different heights. 
+                </p> 
+            </div> 
+              
+            <div id="rd-box"> 
+                
+            </div> 
+        </div> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+        $("#go").click(function () {
+                var candidateName = document.getElementById("tmAbout-search").value;
+                var nameSplit = candidateName.split(" ");
+                console.log(nameSplit[0] + " " + nameSplit[1]);
+                var key = "GzUkiqBYceNq107cHYQE8qabiHNXG1VUCtOTJWTP";
+                var url = "https://api.open.fec.gov/v1/candidates/?sort=name&per_page=20&sort_null_only=false&api_key=" + key + 
+                "&page=1&sort_nulls_last=false&sort_hide_null=false&name=" + nameSplit[0] + "%20" + nameSplit[1];
+                console.log(url);
+
+                //try {
+                    $.getJSON(url, function (data) {//gets JSON from the API server
+                        document.getElementById("dump").innerHTML = data["results"]["0"]["party"];
+                    });
+                //}
+                //catch (e) {
+                 //   alert("Please enter a valid Candidate Name");
+                //}
+
+            });
+        });
+        
+        </script>
 
        
 
@@ -96,7 +173,7 @@
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
