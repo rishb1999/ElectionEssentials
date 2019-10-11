@@ -1,5 +1,5 @@
 body {
-        background-image: url("https://www.citysegwaytours.com/uploads/3136/DC%20night_hero@2x.png");
+        background-image: url(https://i.pinimg.com/originals/52/08/0b/52080b709a106f66211770dfc75afb23.jpg);
         height: 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -15,6 +15,12 @@ html {
 #EETitle {
           color: white;
           }
+
+
+
+
+
+
 
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
