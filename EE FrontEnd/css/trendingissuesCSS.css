@@ -1,3 +1,8 @@
+body
+{
+    background-color: black;
+}
+
 html 
 {
     //height: 100%;
@@ -9,7 +14,12 @@ div.jumbotron
     padding: 15px;
 }
 
-div.container p
+p
+{
+    color: white;
+}
+
+div.movingWords
 {
     color: cornflowerblue;
 }
