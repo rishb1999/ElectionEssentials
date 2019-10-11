@@ -28,14 +28,14 @@ html      {
                 float:left; 
                 width:300px; 
                 height:400px; 
-                background-color: black; 
+                background: rgba(0,0,0, 0.75); 
                 border:solid black; 
             } 
             #nd-box { 
                 float:left; 
                 width:300px; 
                 height:400px; 
-                background-color:black;  
+                background: rgba(0,0,0, 0.75); 
                 border:solid black; 
                 margin-left:20px; 
             } 
@@ -43,7 +43,7 @@ html      {
                 float:right; 
                 width:300px; 
                 height:400px; 
-                background-color:black; 
+                background: rgba(0,0,0, 0.75); 
                 border:solid black; 
             }
             p {
