@@ -17,9 +17,11 @@ html {
           }
 
 
-
-
-
+div.jumbotron
+{
+    text-align: center;
+    padding: 15px;
+}
 
 
 ul {list-style-type: none;}
