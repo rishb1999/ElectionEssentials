@@ -1,10 +1,6 @@
-/*
-  Author: Jack Ducasse;
-  Version: 0.1.0;
-  (◠‿◠✿)
-*/
+
 var Calendar = function(model, options, date){
-  // Default Values
+  
   this.Options = {
     Color: '',
     LinkColor: '',
@@ -19,7 +15,7 @@ var Calendar = function(model, options, date){
     DisabledDays: [],
     ModelChange: model
   };
-  // Overwriting default values
+ 
   for(var key in options){
     this.Options[key] = typeof options[key]=='string'?options[key].toLowerCase():options[key];
   }
