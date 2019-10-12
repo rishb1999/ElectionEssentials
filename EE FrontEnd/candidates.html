@@ -60,6 +60,14 @@
         <div class = "jumbotron">
             <div class = "container">
                 <h1>Election Essentials: Candidate Information</h1>
+                <div class="row">
+                    <header class="col-12 text-center text-white tm-bg-black-transparent p-5 tm-app-header">
+                        <input class = "text-center" type="text" id = "tmAbout-search" placeholder="Candidate Name">
+                        <button id="go" >Search</button>
+
+                        <p id="des" class="mb-0 small">Election Essentials can help you compare candidates and their stances on issue you find passionate about. Just search up your specified candidate or click the Candidate Profiles below to see the magic.</p>
+                    </header>
+                </div>
             </div>
         </div>
         
@@ -275,45 +283,34 @@
             </a>
         </div>
         
-        <div class="jumbotron" id="jmb">
-            <div class="container">
-                <h1 class= "text-center">Election Essentials: Candidate Information</h1>
-                <div class="row">
-                    <header class="col-12 text-center text-white tm-bg-black-transparent p-5 tm-app-header">
-                        <input class = "text-center" type="text" id = "tmAbout-search" placeholder="Candidate Name">
-                        <button id="go" >Search</button>
 
-                        <p id="des" class="mb-0 small">Election Essentials can help you compare candidates and their stances on issue you find passionate about. Just search up your specified candidate or click the Candidate Profiles below to see the magic.</p>
-                    </header>
-                </div>
-            </div>
-        </div>
-
-        
-        
-        
-        
-        
         
           <div class="container_info"> 
             <div id="st-box"> 
+                <p>
+                    Current Election: 
+                </p>
+                <p id="curElection">
+                    temp
+                </p>
                 
             </div> 
               
             <div id="nd-box"> 
-                <p id = "politcalparty">
+                <p id = "politicalparty">
                     Political Party: 
                 </p>
-                <p id="dump"> 
-                    Search up a candidate and see their poltitcal party.
-                </p> 
             </div> 
               
             <div id="rd-box"> 
-                
+                <p>
+                    Past Elections: 
+                </p>
+                <p id="pElec">
+                    temp
+                </p>
             </div> 
         </div> 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
         $(document).ready(function(){
         $("#go").click(function () {
@@ -325,14 +322,36 @@
                 "&page=1&sort_nulls_last=false&sort_hide_null=false&name=" + nameSplit[0] + "%20" + nameSplit[1];
                 console.log(url);
 
-                //try {
+                try {
                     $.getJSON(url, function (data) {//gets JSON from the API server
-                        document.getElementById("dump").innerHTML = data["results"]["0"]["party"];
+                        document.getElementById("politicalparty").innerHTML = "Political Party: " + data["results"]["0"]["party"];
+                        var currentElection = "";
+                        var found = false;
+                        for(var prop in data["results"]) {
+                            //console.log(data["results"][prop]["election_years"]);
+                            for(var i in data["results"][prop]["election_years"]) {
+                                if(data["results"][prop]["election_years"][i] == "2020") {
+                                    //console.log("FOUND IT");
+                                    found = true;
+                                    currentElection = currentElection + "Year: 2020" + "<br>";
+                                    currentElection = currentElection + "Office: " + data["results"][prop]["office_full"] + "<br>";
+                                    currentElection = currentElection + "Candidate ID: " + data["results"][prop]["candidate_id"]+ "<br>";
+                                    currentElection = currentElection + "Currently Inactive: " + data["results"][prop]["candidate_inactive"]+ "<br>";
+                                    document.getElementById("politicalparty").innerHTML = "Political Party: " + data["results"][prop]["party"];
+                                    document.getElementById("curElection").innerHTML = currentElection;
+                                    
+
+                                }
+                            }
+                        }
+                        if(found == false) {
+                            document.getElementById("curElection").innerHTML = "This candidate is not currently standing for election";
+                        }
                     });
-                //}
-                //catch (e) {
-                 //   alert("Please enter a valid Candidate Name");
-                //}
+                }
+                catch (e) {
+                    alert("Please enter a valid Candidate Name");
+                }
 
             });
         });
