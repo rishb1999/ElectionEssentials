@@ -9,9 +9,10 @@ body    {
 */
 
 
-html      {
-          height: 100%;
-          }
+html     
+{
+    height: 100%;
+}
 
 div.jumbotron
 {
@@ -20,10 +21,59 @@ div.jumbotron
 }
 
 
-#EETitle  {
-          color: white;
-          }
 
+
+div.candidate_image 
+{
+    height: 130px;
+    width: 130px;
+}
+
+img.image 
+{
+    display: block;
+    height: inherit;
+    width: inherit;
+}
+
+.overlay 
+{
+    position: relative;
+    top: -130px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: inherit;
+    width: inherit;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: cornflowerblue;
+}
+
+.candidate_image:hover .overlay 
+{
+    opacity: 1;
+}
+
+.text 
+{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+
+
+
+#EETitle  
+{
+    color: white;
+}
 
 .container_info { 
                 width:975px; 
