@@ -332,8 +332,13 @@
                         document.getElementById("politicalparty").innerHTML = "Political Party: " + data["results"]["0"]["party"];
                         var currentElection = "";
                         var found = false;
+                        var years = "";
+                        var office = "";
+                        var pastElections = "";
+                        var count = 0;
                         for(var prop in data["results"]) {
                             //console.log(data["results"][prop]["election_years"]);
+                            office += data["results"][prop]["office_full"];
                             for(var i in data["results"][prop]["election_years"]) {
                                 if(data["results"][prop]["election_years"][i] == "2020") {
                                     //console.log("FOUND IT");
@@ -346,12 +351,25 @@
                                     document.getElementById("curElection").innerHTML = currentElection;
                                     
 
+                                } else {
+                                    if(data["results"][prop]["election_years"][i] < 2019) {
+                                        years += data["results"][prop]["election_years"][i] +  ",";
+                                    }
+                                    
                                 }
+                            }
+                            if(count < 3) {
+                                pastElections += "Years: " + years + "<br>";
+                                pastElections += "Office: " + office + "<br>";
+                                years = "";
+                                office = "";
                             }
                         }
                         if(found == false) {
                             document.getElementById("curElection").innerHTML = "This candidate is not currently standing for election";
                         }
+                        document.getElementById("pElec").innerHTML = pastElections;
+                        
                     });
                 }
                 catch (e) {
