@@ -20,7 +20,6 @@ div.jumbotron
     padding: 15px;
 }
 
-
 div.row
 {
     text-align: center;
@@ -72,7 +71,20 @@ img.image
     -ms-transform: translate(-50%, -50%);
 }
 
+#row_one
+{
+    margin-left: 55px;
+}
 
+#row_two
+{
+    margin-left: 55px;
+}
+
+#row_three
+{
+    margin-left: 143px;
+}
 
 
 #EETitle  
