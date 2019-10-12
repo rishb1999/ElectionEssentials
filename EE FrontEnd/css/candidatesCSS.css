@@ -13,13 +13,38 @@ html
 {
     height: 100%;
 }
+*/
 
 div.jumbotron
 {
     text-align: center;
     padding: 15px;
+    margin: 0px;
 }
 
+div.candidate_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.candidate_jumbotron p
+{
+    padding: 5px;
+    margin: 0px;
+}
+
+div.search_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
 
 div.row
 {
@@ -72,8 +97,25 @@ img.image
     -ms-transform: translate(-50%, -50%);
 }
 
+#row_one
+{
+    margin-left: 55px;
+}
 
+#row_two
+{
+    margin-left: 55px;
+}
 
+#row_three
+{
+    margin-left: 143px;
+}
+
+div.searchbar
+{
+    padding-bottom: 10px;
+}
 
 #EETitle  
 {

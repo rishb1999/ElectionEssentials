@@ -56,25 +56,19 @@
                 </ul>
             </div>
         </nav>
-        <!-- Jumbotron -->
-        <div class = "jumbotron">
+        
+        <!-- Candidate Jumbotron -->
+        <div class = "candidate_jumbotron">
             <div class = "container">
-                <h1>Election Essentials: Candidate Information</h1>
-                <div class="row">
-                    <header class="col-12 text-center text-white tm-bg-black-transparent p-5 tm-app-header">
-                        <input class = "text-center" type="text" id = "tmAbout-search" placeholder="Candidate Name">
-                        <button id="go" >Search</button>
-
-                        <p id="des" class="mb-0 small">Election Essentials can help you compare candidates and their stances on issue you find passionate about. Just search up your specified candidate or click the Candidate Profiles below to see the magic.</p>
-                    </header>
-                </div>
+                <h2>National Political Candidates</h2>
+                <p>Select a candidate to learn more about them.</p>
             </div>
         </div>
         
         <!-- List of Candidates -->
         <div class = "row">
             <a href="candidates/amyklobuchar.html">
-                <div class="candidate_image">
+                <div class="candidate_image" id = "row_one">
                     <img src="img/amyklobuchar.jpg" class="image">
                     <div class="overlay">
                         <div class="text">Amy Klobuchar</div>
@@ -147,7 +141,7 @@
         </div>
         <div class = "row">
             <a href="candidates/joesestak.html">
-                <div class="candidate_image">
+                <div class="candidate_image" id = "row_two">
                     <img src="img/joesestak.jpg" class="image">
                     <div class="overlay">
                         <div class="text">Joe Sestak</div>
@@ -220,7 +214,7 @@
         </div>
         <div class = "row">
             <a href="candidates/petebuttigieg.html">
-                <div class="candidate_image">
+                <div class="candidate_image" id = "row_three">
                     <img src="img/petebuttigieg.jpg" class="image">
                     <div class="overlay">
                         <div class="text">Pete Buttigieg</div>
@@ -283,7 +277,18 @@
             </a>
         </div>
         
-
+        <!-- Search Jumbotron -->
+        <div class = "search_jumbotron">
+            <div class = "container">
+                <h2>Search for Political Representatives</h2>
+                <p>Use the search bar to look for current political representatives and learn more about them.</p>
+                <div class="searchbar">
+                    <input class = "text-center" type="text" id = "tmAbout-search" placeholder="Candidate Name">
+                    <button id="go" >Search</button>
+                </div>
+            </div>
+        </div>
+        
         
           <div class="container_info"> 
             <div id="st-box"> 
