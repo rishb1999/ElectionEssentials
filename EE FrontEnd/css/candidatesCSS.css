@@ -1,3 +1,4 @@
+/*
 body    {
             background-image: url("https://www.citysegwaytours.com/uploads/3136/DC%20night_hero@2x.png");
             height: 100%;
@@ -5,11 +6,18 @@ body    {
             background-repeat: no-repeat;
             background-size: cover;
             }
+*/
 
 
 html      {
           height: 100%;
           }
+
+div.jumbotron
+{
+    text-align: center;
+    padding: 15px;
+}
 
 
 #EETitle  {
@@ -17,7 +25,7 @@ html      {
           }
 
 
-.container { 
+.container_info { 
                 width:975px; 
                 height:200px; 
                 padding-top:50px; 
