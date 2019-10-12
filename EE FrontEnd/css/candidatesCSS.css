@@ -21,12 +21,17 @@ div.jumbotron
 }
 
 
-
+div.row
+{
+    text-align: center;
+}
 
 div.candidate_image 
 {
-    height: 130px;
-    width: 130px;
+    height: 175px;
+    width: 175px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 img.image 
@@ -39,7 +44,7 @@ img.image
 .overlay 
 {
     position: relative;
-    top: -130px;
+    top: -175px;
     bottom: 0;
     left: 0;
     right: 0;
