@@ -37,8 +37,8 @@ div.row
 
 div.candidate_image 
 {
-    height: 155px;
-    width: 155px;
+    height: 175px;
+    width: 175px;
     margin-right: 5px;
     margin-bottom: 5px;
 }
@@ -53,7 +53,7 @@ img.image
 .overlay 
 {
     position: relative;
-    top: -155px;
+    top: -175px;
     bottom: 0;
     left: 0;
     right: 0;
