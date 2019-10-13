@@ -32,6 +32,7 @@ div.search_jumbotron
 div.row
 {
     text-align: center;
+    margin-left: 40px;
 }
 
 div.candidate_image 
@@ -78,21 +79,6 @@ img.image
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-}
-
-#row_one
-{
-    margin-left: 55px;
-}
-
-#row_two
-{
-    margin-left: 55px;
-}
-
-#row_three
-{
-    margin-left: 143px;
 }
 
 div.searchbar
