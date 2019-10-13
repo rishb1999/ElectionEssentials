@@ -118,8 +118,8 @@
                         <h3 class="card-title">Hubert Ning</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text"id="hubertCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: </p>
-                        <p class="card-text">Number of Unit Tests: </p>
+                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
                 <div class="card" style="width: 20rem;">
@@ -128,8 +128,8 @@
                         <h3 class="card-title">Aditya Khanna</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text"id="adityaCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: </p>
-                        <p class="card-text">Number of Unit Tests: </p>
+                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
                 <div class="card" style="width: 20rem;">
@@ -138,8 +138,8 @@
                         <h3 class="card-title">Rishabh Bhatnagar</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text"id="rishCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: </p>
-                        <p class="card-text">Number of Unit Tests: </p>
+                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
             </div>
@@ -150,8 +150,8 @@
                         <h3 class="card-title">Cristian Ascencio</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text" id="cristianCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: </p>
-                        <p class="card-text">Number of Unit Tests: </p>
+                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
                 <div class="card" style="width: 20rem;">
@@ -160,8 +160,8 @@
                         <h3 class="card-title">Jack Weakley</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text"id="jackCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: </p>
-                        <p class="card-text">Number of Unit Tests: </p>
+                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
                 <div class="card" style="width: 20rem;">
@@ -170,12 +170,57 @@
                         <h3 class="card-title">Kevin Hathaway</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text" id="kevinCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: </p>
-                        <p class="card-text">Number of Unit Tests: </p>
+                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- GitHub Jumbotron -->
+        <div class = "github_jumbotron">
+            <div class = "container">
+                <h2>GitHub Information</h2>
+            </div>
+        </div>
+        
+        <div class = "github_repo">
+            <h2>GitHub Repository: <a href = "https://github.com/rishb1999/ElectionEssentials">https://github.com/rishb1999/ElectionEssentials</a></h2>
+        </div>
+        
+        <div class = "list_descriptions">
+            <ol>
+                <h2>GitHub Statistics</h2>
+                <li id = "totalCommits"><b>Total Number of Commits:</b></li>
+                <li><b>Total Number of Issues: 0</b></li>
+                <li><b>Total Number of Unit Tests: 0</b></li>
+            </ol>
+        </div>
+        
+        <!-- Sources and Tools Jumbotron -->
+        <div class = "sources_jumbotron">
+            <div class = "container">
+                <h2>Sources and Tools</h2>
+            </div>
+        </div>
+        
+        
+        <div class = "list_descriptions">
+            <ol>
+                <h2>Sources</h2>
+                <li><b>Google Civic Information API:</b> Our team used this API to access and dynamically display information about current political representatives. Users can find this information by using the search bar on the Candidates page. We obtained a JSONObject from the API call that had information about political representatives; we then outputted that information on our Candidate page. More information about the Google Civic Information API can be found <a href = "https://developers.google.com/civic-information">here</a>.</li>
+                <li><b>OpenFEC API:</b> Our team used this API to access and dynamically display information about current political representatives. Users can find this information by using the search bar on the Candidates page. We obtained a JSONObject from the API call that had information about political representatives; we then outputted that information on our Candidate page. More information about the OpenFEC API can be found <a href = "https://api.open.fec.gov/developers/">here</a>.</li>
+                <li><b>GitHub Developer REST API v3:</b> Our team used this API to access and dynamically display GitHub statistics and contribution information on the About page. More information about the GitHub Developer REST API v3 can be found <a href = "https://developer.github.com/v3/repos/statistics/">here</a></li>
+            </ol>
+            <ol>
+                <h2>Tools</h2>
+                <li><b>Bootstrap:</b> Our team used this front-end development framework to create the foundational framework for the Election Essentials web application.</li>
+                <li><b>Google Cloud Platfrom:</b> Our team used this suite of cloud computing services to host the Election Essentials web application.</li>
+                <li><b>MongoDB:</b> Our team used this document-oriented database program to store information pulled from API's.</li>
+            </ol>
+        </div>
+        
+        <!-- Dynamically Update GitHub Information with JavaScript (GitHub API Call) -->
         <script>
             document.addEventListener("DOMContentLoaded", function(event) {
                 var url = "https://api.github.com/repos/rishb1999/ElectionEssentials/contributors"
@@ -189,6 +234,8 @@
                         var crisComs = 0;
                         var jackComs = 0;
                         var kevComs = 0;
+                        var total = 0;
+                        
                         for(var i = 0; i < data.length; i++) {
                             if(data[i]["login"] == "MyNameIsHubert") {
                                 hubComs += data[i]["contributions"];
@@ -209,56 +256,23 @@
                                 kevComs += data[i]["contributions"];
                             }
                         }
+                        total = hubComs + adiComs + rishComs + crisComs + jackComs + kevComs;
                         document.getElementById("hubertCommits").innerHTML = "Number of Commits: " + hubComs;
                         document.getElementById("adityaCommits").innerHTML = "Number of Commits: " + adiComs;
                         document.getElementById("rishCommits").innerHTML = "Number of Commits: " + rishComs;
                         document.getElementById("cristianCommits").innerHTML = "Number of Commits: " + crisComs;
                         document.getElementById("jackCommits").innerHTML = "Number of Commits: " + jackComs;
                         document.getElementById("kevinCommits").innerHTML = "Number of Commits: " + kevComs;
-
+                        document.getElementById("totalCommits").innerHTML = "Total Number of Commits: " + total;
+                        document.getElementById("totalCommits").style.fontWeight = "bold";
                     });
                 }
-                catch (e) {
-                    alert("Please enter a valid Candidate Name");
+                catch (e) 
+                {
                 }
-
             });
         </script>
-        
-        <!-- GitHub Jumbotron -->
-        <div class = "github_jumbotron">
-            <div class = "container">
-                <h2>GitHub Information</h2>
-            </div>
-        </div>
-        
-        <div class = "github_repo">
-            <h3>GitHub Repository: <a href = "https://github.com/rishb1999/ElectionEssentials">https://github.com/rishb1999/ElectionEssentials</a></h3>
-        </div>
-        
-        <!-- Sources and Tools Jumbotron -->
-        <div class = "sources_jumbotron">
-            <div class = "container">
-                <h2>Sources and Tools</h2>
-            </div>
-        </div>
-        
-        <div class = "list_descriptions">
-            <ol>
-                <h2>Sources</h2>
-                <li><b>Google Civic Information API:</b> Our team used this API to access and dynamically display information about current political representatives. Users can find this information by using the search bar on the Candidates page.</li>
-                <li><b>Open FEC API:</b> Our team used this API to access and dynamically display information about current political representatives. Users can find this information by using the search bar on the Candidates page.</li>
-                <li><b>GitHub Developer REST API v3:</b> Our team used this API to access and dynamically display GitHub statistics and contribution information on the About page.</li>
-            </ol>
-            <ol>
-                <h2>Tools</h2>
-                <li><b>Bootstrap:</b> Our team used this front-end development framework to create the foundational framework for the Election Essentials web application.</li>
-                <li><b>Google Cloud Platfrom:</b> Our team used this suite of cloud computing services to host the Election Essentials web application.</li>
-                <li><b>MongoDB:</b> Our team used this document-oriented database program to store information pulled from API's.</li>
-            </ol>
-        </div>
 
-        <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
