@@ -51,6 +51,14 @@ div.team_jumbotron
     margin-bottom: 5px;
 }
 
+div.team_name
+{
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
 div.github_jumbotron
 {
     text-align: center;
@@ -58,6 +66,14 @@ div.github_jumbotron
     background-color: black;
     color: white;
     margin-bottom: 5px;
+}
+
+div.github_repo
+{
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 div.sources_jumbotron
