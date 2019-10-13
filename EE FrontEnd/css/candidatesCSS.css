@@ -86,6 +86,24 @@ div.searchbar
     padding-bottom: 10px;
 }
 
+div.search_results
+{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+#name_result
+{
+    text-align: center;
+}
+
+div.search_results p
+{
+    color: black;
+}
+
 #EETitle  
 {
     color: white;
