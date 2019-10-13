@@ -42,6 +42,21 @@ div.list_descriptions
     color: black;
 }
 
+#totalCommits
+{
+    font-weight: bold;
+}
+
+#totalIssues
+{
+    font-weight: bold;
+}
+
+#totalTests
+{
+    font-weight: bold;
+}
+
 div.team_jumbotron
 {
     text-align: center;
