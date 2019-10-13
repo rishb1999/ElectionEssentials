@@ -2,4 +2,69 @@ div.jumbotron
 {
     text-align: center;
     padding: 15px;
+    margin: 0px;
+}
+
+div.vision_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+p
+{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+    color: black;
+}
+
+div.functionalities_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.team_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.github_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.sources_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.team_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
 }
