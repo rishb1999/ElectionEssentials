@@ -19,8 +19,8 @@ p
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 70px;
+    padding-right: 70px;
     color: black;
 }
 
@@ -31,6 +31,15 @@ div.functionalities_jumbotron
     background-color: black;
     color: white;
     margin-bottom: 5px;
+}
+
+div.functionalities
+{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    color: black;
 }
 
 div.team_jumbotron
