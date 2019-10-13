@@ -4,7 +4,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel = "stylesheet" type = "text/css" href="css/aboutCSS.css">
@@ -117,8 +117,7 @@
                     <div class="card-body">
                         <h3 class="card-title">Hubert Ning</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
-                        <p class="card-text">Front-End Developer</p>
-                        <p class="card-text">Number of Commits: </p>
+                        <p class="card-text"id="hubertCommits">Number of Commits: </p>
                         <p class="card-text">Number of Issues: </p>
                         <p class="card-text">Number of Unit Tests: </p>
                     </div>
@@ -128,8 +127,7 @@
                     <div class="card-body">
                         <h3 class="card-title">Aditya Khanna</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
-                        <p class="card-text">Full-Stack Developer</p>
-                        <p class="card-text">Number of Commits: </p>
+                        <p class="card-text"id="adityaCommits">Number of Commits: </p>
                         <p class="card-text">Number of Issues: </p>
                         <p class="card-text">Number of Unit Tests: </p>
                     </div>
@@ -139,8 +137,7 @@
                     <div class="card-body">
                         <h3 class="card-title">Rishabh Bhatnagar</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
-                        <p class="card-text">Full-Stack Developer</p>
-                        <p class="card-text">Number of Commits: </p>
+                        <p class="card-text"id="rishCommits">Number of Commits: </p>
                         <p class="card-text">Number of Issues: </p>
                         <p class="card-text">Number of Unit Tests: </p>
                     </div>
@@ -148,40 +145,85 @@
             </div>
             <div class = "row">
                 <div class="card" style="width: 20rem;">
-                    <img src = "img/Logo.png">
+                    <img src = "img/cristian.png">
                     <div class="card-body">
                         <h3 class="card-title">Cristian Ascencio</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
-                        <p class="card-text">Back-End Developer</p>
-                        <p class="card-text">Number of Commits: </p>
+                        <p class="card-text" id="cristianCommits">Number of Commits: </p>
                         <p class="card-text">Number of Issues: </p>
                         <p class="card-text">Number of Unit Tests: </p>
                     </div>
                 </div>
                 <div class="card" style="width: 20rem;">
-                    <img src = "img/Logo.png">
+                    <img src = "img/jack.png">
                     <div class="card-body">
                         <h3 class="card-title">Jack Weakley</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
-                        <p class="card-text">Back-End Developer</p>
-                        <p class="card-text">Number of Commits: </p>
+                        <p class="card-text"id="jackCommits">Number of Commits: </p>
                         <p class="card-text">Number of Issues: </p>
                         <p class="card-text">Number of Unit Tests: </p>
                     </div>
                 </div>
                 <div class="card" style="width: 20rem;">
-                    <img src = "img/Logo.png">
+                    <img src = "img/kevin.png">
                     <div class="card-body">
                         <h3 class="card-title">Kevin Hathaway</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
-                        <p class="card-text">Back-End Developer</p>
-                        <p class="card-text">Number of Commits: </p>
+                        <p class="card-text" id="kevinCommits">Number of Commits: </p>
                         <p class="card-text">Number of Issues: </p>
                         <p class="card-text">Number of Unit Tests: </p>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                var url = "https://api.github.com/repos/rishb1999/ElectionEssentials/contributors"
+                console.log(url);
+
+                try {
+                    $.getJSON(url, function (data) {//gets JSON from the API server
+                        var hubComs = 0;
+                        var adiComs = 0;
+                        var rishComs = 0;
+                        var crisComs = 0;
+                        var jackComs = 0;
+                        var kevComs = 0;
+                        for(var i = 0; i < data.length; i++) {
+                            if(data[i]["login"] == "MyNameIsHubert") {
+                                hubComs += data[i]["contributions"];
+                            }
+                            if(data[i]["login"] == "MyNameIsAditya") {
+                                adiComs += data[i]["contributions"];
+                            }
+                            if(data[i]["login"] == "rishb1999") {
+                                rishComs += data[i]["contributions"];
+                            }
+                            if(data[i]["login"] == "cristianascencio") {
+                                crisComs += data[i]["contributions"];
+                            }
+                            if(data[i]["login"] == "jackweakley") {
+                                jackComs += data[i]["contributions"];
+                            }
+                            if(data[i]["login"] == "KevinSHathaway") {
+                                kevComs += data[i]["contributions"];
+                            }
+                        }
+                        document.getElementById("hubertCommits").innerHTML = "Number of Commits: " + hubComs;
+                        document.getElementById("adityaCommits").innerHTML = "Number of Commits: " + adiComs;
+                        document.getElementById("rishCommits").innerHTML = "Number of Commits: " + rishComs;
+                        document.getElementById("cristianCommits").innerHTML = "Number of Commits: " + crisComs;
+                        document.getElementById("jackCommits").innerHTML = "Number of Commits: " + jackComs;
+                        document.getElementById("kevinCommits").innerHTML = "Number of Commits: " + kevComs;
+
+                    });
+                }
+                catch (e) {
+                    alert("Please enter a valid Candidate Name");
+                }
+
+            });
+        </script>
         
         <!-- GitHub Jumbotron -->
         <div class = "github_jumbotron">
