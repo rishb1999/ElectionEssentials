@@ -59,6 +59,38 @@ div.team_name
     padding-right: 70px;
 }
 
+div.team_cards
+{
+    padding-bottom: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+div.card
+{
+    margin-left: 45px;
+    margin-bottom: 45px;
+}
+
+div.card img
+{
+    padding-top: 10px;
+    height: 150px;
+    width: 150px;
+    align-self: center;
+}
+
+div.card-body h3
+{
+    text-align: center;
+}
+
+div.card-body p
+{
+    padding: 0px;
+    margin: 0px;
+}
+
 div.github_jumbotron
 {
     text-align: center;
