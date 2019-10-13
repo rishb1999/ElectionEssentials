@@ -113,14 +113,14 @@ div.searchbar
                 padding-left:15px; 
                 padding-right:15px; 
             } 
-            #st-box { 
+            #left-box { 
                 float:left; 
                 width:500px; 
                 height:250px; 
                 background: rgba(0,0,0, 0.75); 
                 border:solid black; 
             } 
-            #nd-box { 
+            #mid-box { 
                 float:left; 
                 width:500px; 
                 height:250px; 
@@ -128,7 +128,7 @@ div.searchbar
                 border:solid black; 
                 margin-left:20px; 
             } 
-            #rd-box { 
+            #right-box { 
                 float:right; 
                 width:500px; 
                 height:250px; 
