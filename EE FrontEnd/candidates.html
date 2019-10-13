@@ -310,7 +310,13 @@
               
             <div id="nd-box"> 
                 <p id = "politicalparty">
-                    Political Party: 
+                    Current Political Party: 
+                </p>
+                <p>
+                    Past Political Party Affiliations: 
+                </p>
+                <p id=popo>
+
                 </p>
             </div> 
               
@@ -341,11 +347,14 @@
                         var found = false;
                         var years = "";
                         var office = "";
+                        var popa = "";
                         var pastElections = "";
                         var count = 0;
+                        var poParty = "";
                         for(var prop in data["results"]) {
                             //console.log(data["results"][prop]["election_years"]);
                             office += data["results"][prop]["office_full"];
+                            popa += data["results"][prop]["party_full"];
                             for(var i in data["results"][prop]["election_years"]) {
                                 if(data["results"][prop]["election_years"][i] == "2020") {
                                     //console.log("FOUND IT");
@@ -354,7 +363,7 @@
                                     currentElection = currentElection + "Office: " + data["results"][prop]["office_full"] + "<br>";
                                     currentElection = currentElection + "Candidate ID: " + data["results"][prop]["candidate_id"]+ "<br>";
                                     currentElection = currentElection + "Currently Inactive: " + data["results"][prop]["candidate_inactive"]+ "<br>";
-                                    document.getElementById("politicalparty").innerHTML = "Political Party: " + data["results"][prop]["party"];
+                                    document.getElementById("politicalparty").innerHTML = "Current Political Party: " + data["results"][prop]["party"];
                                     document.getElementById("curElection").innerHTML = currentElection;
                                     
 
@@ -368,14 +377,20 @@
                             if(count < 3) {
                                 pastElections += "Years: " + years + "<br>";
                                 pastElections += "Office: " + office + "<br>";
-                                years = "";
-                                office = "";
+                                count++;
                             }
+                            poParty += "Years: " + years + "<br>";
+                            poParty += "Party: " + popa + "<br>";
+                            years = "";
+                            office = "";
+                            popa = "";
+                            
                         }
                         if(found == false) {
                             document.getElementById("curElection").innerHTML = "This candidate is not currently standing for election";
                         }
                         document.getElementById("pElec").innerHTML = pastElections;
+                        document.getElementById("popo").innerHTML = poParty;
                         
                     });
                 }

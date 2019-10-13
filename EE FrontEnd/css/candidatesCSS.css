@@ -107,7 +107,7 @@ div.searchbar
 
 .container_info { 
                 margin: auto;
-                width:675px; 
+                width:1570px; 
                 height:100px; 
                 padding-top:10px; 
                 padding-left:15px; 
@@ -115,14 +115,14 @@ div.searchbar
             } 
             #st-box { 
                 float:left; 
-                width:200px; 
+                width:500px; 
                 height:250px; 
                 background: rgba(0,0,0, 0.75); 
                 border:solid black; 
             } 
             #nd-box { 
                 float:left; 
-                width:200px; 
+                width:500px; 
                 height:250px; 
                 background: rgba(0,0,0, 0.75); 
                 border:solid black; 
@@ -130,7 +130,7 @@ div.searchbar
             } 
             #rd-box { 
                 float:right; 
-                width:200px; 
+                width:500px; 
                 height:250px; 
                 background: rgba(0,0,0, 0.75); 
                 border:solid black; 
