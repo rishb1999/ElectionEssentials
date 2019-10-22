@@ -81,32 +81,6 @@
         <div class = "google_map">
             <iframe id = "map" src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" align = "middle" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-
-         <p>Click the button to get your coordinates.</p>
-
-        <button onclick="getLocation()">Try It</button>
-
-        <p id="demo"></p>
-
-
-        <script>
-            var x = document.getElementById("demo");
-            function getLocation() {
-              if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-              } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-              }
-            }
-
-            function showPosition(position) {
-            var latlon = position.coords.latitude + "," + position.coords.longitude;
-            document.getElementById("map").src = "https://maps.google.com/maps?q="+latlon+"&t=&z=13&ie=UTF8&iwloc=&output=embed"
-
-           // x.innerHTML="Latitude: " + position.coords.latitude + 
-           // "<br>Longitude: " + position.coords.longitude;
-            }
-        </script>
         
         <!-- List of Locations -->
         <table class="table">
@@ -143,9 +117,7 @@
             function showPosition(position) 
             {
                 var coordinate = position.coords.latitude + "," + position.coords.longitude;
-                var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center=" + coordinate + "&zoom=14&size=400x300&sensor=false&key=AIzaSyBO_uqxcsMOtAVgThns48KYohpqJsW1Yuk";
-
-                document.getElementById("map").innerHTML = "<iframe id = '"map"' src = '" + imgURL + "' align = "middle" frameborder="0" style="border:0" allowfullscreen></iframe>";
+                document.getElementById("map").src = "https://maps.google.com/maps?q=" + coordinate + "&t=&z=13&ie=UTF8&iwloc=&output=embed";
             }
         </script>
 
