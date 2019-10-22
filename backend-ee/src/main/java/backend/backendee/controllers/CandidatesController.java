@@ -1,4 +1,4 @@
-package backend.backendee;
+package backend.backendee.controllers;
 
 import backend.backendee.models.Candidates;
 import backend.backendee.repositories.CandidatesRepository;
@@ -22,7 +22,6 @@ public class CandidatesController {
   public List<Candidates> getAllCandidates2() {
     return repository.findAll();
   }
-
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public List<Candidates> getAllCandidates() {
     return repository.findAll();
