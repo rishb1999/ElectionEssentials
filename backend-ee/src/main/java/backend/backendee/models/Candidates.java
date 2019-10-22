@@ -2,9 +2,9 @@ package backend.backendee.models;
 import java.util.HashMap;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.stereotype.Service;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Service
+@Document(collection = "candidates")
 public class Candidates {
   @Id
   public ObjectId _id;
