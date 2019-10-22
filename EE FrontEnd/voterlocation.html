@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -71,16 +72,14 @@
                 <button onclick = "getLocation()">Current Location</button>
                 <p>Use the search bar to look for registration and voting locations in a specific area.</p>
                 <div class="searchbar">
-                    <input class = "text-center" type="text" id = "tmAbout-search" placeholder="Location">
-                    <button id="go" >Search</button>
+                    <input class = "text-center" type="text" id = "searchInput" placeholder="Location">
+                    <button id="go" onclick = "codeAddress()">Search</button>
                 </div>
             </div>
         </div>
         
-        <!--Google map-->
-        <div class = "google_map">
-            <iframe id = "map" src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" align = "middle" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
+        <!--Google Map-->
+        <div id = "googleMap"></div>
         
         <!-- List of Locations -->
         <table class="table">
@@ -100,8 +99,77 @@
             </tbody>
         </table>
         
-        <!-- Current Location JavaScript -->
+        
+
+<!--
+//            function showSpecifiedPosition() 
+//            {
+//                var location = document.getElementById("searchInput").value;
+//                
+//                var coordinate = position.coords.latitude + "," + position.coords.longitude;
+//                document.getElementById("map").src = "https://maps.google.com/maps?q=" + coordinate + "&t=&z=13&ie=UTF8&iwloc=&output=embed";
+//            }
+//            
+//            
+//            
+//            
+//            var geocoder;
+//            var gMap;
+//            var location = "Austin";
+//            var array = [];
+//            
+//            
+//            
+//            
+//            
+//            
+//            Geocoder geocoder = new Geocoder(view.getContext());
+//        List<Address> list = new ArrayList<Address>();
+//        try
+//        {
+//            list = geocoder.getFromLocationName(MapAndWeatherActivity.locationString, 1);
+//        }
+//        catch (IOException e)
+//        {
+//        }
+//        if (list.size() > 0)
+//        {
+//            MapAndWeatherActivity.address = list.get(0);
+//
+//            //Update Weather Information
+//            WeatherTabFragment.coordinates = MapAndWeatherActivity.address.getLatitude() + "," + MapAndWeatherActivity.address.getLongitude();
+//            WeatherTabFragment.updateWeatherInformation();
+//
+//            //Move MapView to Location with Marker
+//            LatLng locationLatLng = new LatLng(MapAndWeatherActivity.address.getLatitude(), MapAndWeatherActivity.address.getLongitude());
+//            mapGoogle.addMarker(new MarkerOptions().position(locationLatLng).title("Marker in " + MapAndWeatherActivity.locationString));
+//            //mapGoogle.moveCamera(CameraUpdateFactory.newLatLng(locationLatLng));
+//            mapGoogle.moveCamera(CameraUpdateFactory.newLatLngZoom(locationLatLng, 10));
+//        }
+//        else                                                        //If the location does not exist
+//        {
+//            Toast locationErrorToast = Toast.makeText(view.getContext(), "Invalid Location", Toast.LENGTH_LONG);
+//            locationErrorToast.show();
+//        }
+-->
+        
         <script>
+            var geocoder;
+            var map;
+            
+            //Initialize Map
+            function initMap() 
+            {                
+                geocoder = new google.maps.Geocoder();
+                //Location
+                var latlng = new google.maps.LatLng(-25.344, 131.036);
+                var mapOptions = {zoom: 7, center: latlng}
+                //Map - Centered at Location
+                map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+                //Marker - Position at Location
+                var marker = new google.maps.Marker({position: latlng, map: map});
+            }
+            
             function getLocation() 
             {
                 if (navigator.geolocation) 
@@ -116,30 +184,51 @@
 
             function showPosition(position) 
             {
-                var coordinate = position.coords.latitude + "," + position.coords.longitude;
-                document.getElementById("map").src = "https://maps.google.com/maps?q=" + coordinate + "&t=&z=13&ie=UTF8&iwloc=&output=embed";
+                //Location
+                var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                var mapOptions = {zoom: 7, center: latlng}
+                //Map - Centered at Location
+                map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+                //Marker - Position at Location
+                var marker = new google.maps.Marker({position: latlng, map: map});
+            }
+            
+            function codeAddress() 
+            {
+                //Location String
+                var address = document.getElementById("searchInput").value;
+                //Geocoder
+//                geocoder.geocode({address: address}, function(results, status) 
+//                {
+//                    if (status == google.maps.GeocoderStatus.OK) 
+//                    {
+//                        map.setCenter(results[0].geometry.location);
+//                        var marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
+//                    } 
+//                    else 
+//                    {
+//                        //Error handling for Invalid Locations
+//                        alert("Invalid Location");
+//                    }
+//                });
+                geocoder.geocode("Houston", function(results, status) 
+                {
+                    if (status == google.maps.GeocoderStatus.OK) 
+                    {
+                        map.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
+                    } 
+                    else 
+                    {
+                        //Error handling for Invalid Locations
+                        alert("Invalid Location");
+                    }
+                });
             }
         </script>
-
-
-
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <script type="text/javascript">
-
-        var geocoder = new google.maps.Geocoder();
-        var x = document.getElementById("tmAbout-search");
-        var address = jQuery(x).val();
-
-        geocoder.geocode( { 'address': address}, function(results, status) {
-
-        if (status == google.maps.GeocoderStatus.OK) {
-            var latitude = results[0].geometry.location.lat();
-            var longitude = results[0].geometry.location.lng();
-            var coordinates = latitude + "," + longitude;
-           // jQuery(coordinates).val(latitude+', '+longitude);
-            } 
-        }); 
-        </script>
+        
+        <!-- Google Geolocation API -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM6YVObOh5Fwv2Bw71ATMEC1KeMR8F_b4&callback=initMap"></script>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

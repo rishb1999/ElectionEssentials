@@ -23,13 +23,7 @@ div.search_jumbotron button
     margin-bottom: 10px;
 }
 
-div.google_map
-{
-    height: 700px;
-    width: 100%;
-}
-
-#map
+#googleMap
 {
     height: 700px;
     width: 100%;
