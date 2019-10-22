@@ -67,6 +67,8 @@
         <!-- Search Jumbotron -->
         <div class = "search_jumbotron">
             <div class = "container">
+                <p>Use your current location to look for registration and voting locations nearby.</p>
+                <button onclick = "getLocation()">Current Location</button>
                 <p>Use the search bar to look for registration and voting locations in a specific area.</p>
                 <div class="searchbar">
                     <input class = "text-center" type="text" id = "tmAbout-search" placeholder="Location">
@@ -97,6 +99,29 @@
                 </tr>
             </tbody>
         </table>
+        
+        <!-- Current Location JavaScript -->
+        <script>
+            function getLocation() 
+            {
+                if (navigator.geolocation) 
+                {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } 
+                else 
+                {
+                    alert("This browser does not support Geolocation");
+                }
+            }
+
+            function showPosition(position) 
+            {
+                var coordinate = position.coords.latitude + "," + position.coords.longitude;
+                var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center=" + coordinate + "&zoom=14&size=400x300&sensor=false&key=AIzaSyBO_uqxcsMOtAVgThns48KYohpqJsW1Yuk";
+
+                document.getElementById("map").innerHTML = "<iframe id = '"map"' src = '" + imgURL + "' align = "middle" frameborder="0" style="border:0" allowfullscreen></iframe>";
+            }
+        </script>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
