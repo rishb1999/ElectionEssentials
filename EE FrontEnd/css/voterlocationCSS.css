@@ -1,34 +1,32 @@
-body {
-        background-image: url("https://www.citysegwaytours.com/uploads/3136/DC%20night_hero@2x.png");
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-
-html {
-      height: 100%;
-      }
+html 
+{      
+    height: 100%;
+}
 
 div.jumbotron
 {
     text-align: center;
     padding: 15px;
+    margin: 0px;
 }
 
-#EETitle {
-          color: white;
-          }
+div.search_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-color: black;
+    color: white;
+}
 
-.mapouter {
-      position:relative;
-      text-align:center;
-      height:500px;
-      width:600px;}
-      .gmap_canvas {
-      overflow:hidden;
-      background:none!important;
-      height:500px;
-      width:600px;
-      }
+div.google_map
+{
+    height: 700px;
+    width: 100%;
+}
+
+#map
+{
+    height: 700px;
+    width: 100%;
+}
