@@ -18,6 +18,10 @@ div.jumbotron
     padding: 15px;
 }
 
+.table tbody
+{
+    background-color: white;
+}
 
 ul {list-style-type: none;}
 
