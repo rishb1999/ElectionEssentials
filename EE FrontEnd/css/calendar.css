@@ -1,6 +1,4 @@
 body{
-  font-family: Calibri, sans-serif;
-  font-family: 'Roboto Condensed', sans-serif;
   color: black;
 }
 
@@ -103,7 +101,6 @@ body{
 
   #customers {
     padding-top:12px;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
