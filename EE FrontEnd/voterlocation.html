@@ -98,60 +98,6 @@
             </tbody>
         </table>
         
-        
-
-<!--
-//            function showSpecifiedPosition() 
-//            {
-//                var location = document.getElementById("searchInput").value;
-//                
-//                var coordinate = position.coords.latitude + "," + position.coords.longitude;
-//                document.getElementById("map").src = "https://maps.google.com/maps?q=" + coordinate + "&t=&z=13&ie=UTF8&iwloc=&output=embed";
-//            }
-//            
-//            
-//            
-//            
-//            var geocoder;
-//            var gMap;
-//            var location = "Austin";
-//            var array = [];
-//            
-//            
-//            
-//            
-//            
-//            
-//            Geocoder geocoder = new Geocoder(view.getContext());
-//        List<Address> list = new ArrayList<Address>();
-//        try
-//        {
-//            list = geocoder.getFromLocationName(MapAndWeatherActivity.locationString, 1);
-//        }
-//        catch (IOException e)
-//        {
-//        }
-//        if (list.size() > 0)
-//        {
-//            MapAndWeatherActivity.address = list.get(0);
-//
-//            //Update Weather Information
-//            WeatherTabFragment.coordinates = MapAndWeatherActivity.address.getLatitude() + "," + MapAndWeatherActivity.address.getLongitude();
-//            WeatherTabFragment.updateWeatherInformation();
-//
-//            //Move MapView to Location with Marker
-//            LatLng locationLatLng = new LatLng(MapAndWeatherActivity.address.getLatitude(), MapAndWeatherActivity.address.getLongitude());
-//            mapGoogle.addMarker(new MarkerOptions().position(locationLatLng).title("Marker in " + MapAndWeatherActivity.locationString));
-//            //mapGoogle.moveCamera(CameraUpdateFactory.newLatLng(locationLatLng));
-//            mapGoogle.moveCamera(CameraUpdateFactory.newLatLngZoom(locationLatLng, 10));
-//        }
-//        else                                                        //If the location does not exist
-//        {
-//            Toast locationErrorToast = Toast.makeText(view.getContext(), "Invalid Location", Toast.LENGTH_LONG);
-//            locationErrorToast.show();
-//        }
--->
-        
         <script>
             var geocoder;
             var map;
@@ -197,20 +143,7 @@
                 //Location String
                 var address = document.getElementById("searchInput").value;
                 //Geocoder
-//                geocoder.geocode({address: address}, function(results, status) 
-//                {
-//                    if (status == google.maps.GeocoderStatus.OK) 
-//                    {
-//                        map.setCenter(results[0].geometry.location);
-//                        var marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
-//                    } 
-//                    else 
-//                    {
-//                        //Error handling for Invalid Locations
-//                        alert("Invalid Location");
-//                    }
-//                });
-                geocoder.geocode("Houston", function(results, status) 
+                geocoder.geocode({address: address}, function(results, status) 
                 {
                     if (status == google.maps.GeocoderStatus.OK) 
                     {
