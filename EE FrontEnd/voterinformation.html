@@ -82,19 +82,19 @@
                 <tr>
                     <th id = "tabs" scope="col">
                         <div class = "tab">
-                            <button class="tablinks active" onclick = "">All</button>
-                            <button class="tablinks" onclick = "">Primary Election</button>
-                            <button class="tablinks" onclick = "">Primary Runoff</button>
-                            <button class="tablinks" onclick = "">Uniform Election</button>
-                            <button class="tablinks" onclick = "">Uniform Election - Limited</button>
+                            <button class="tablinks active" onclick = "switchDeadlineContent()">All</button>
+                            <button class="tablinks" onclick = "switchDeadlineContent()">Primary Election</button>
+                            <button class="tablinks" onclick = "switchDeadlineContent()">Primary Runoff</button>
+                            <button class="tablinks" onclick = "switchDeadlineContent()">Uniform Election</button>
+                            <button class="tablinks" onclick = "switchDeadlineContent()">Uniform Election - Limited</button>
                         </div>
                     </th>
                 </tr>
             </thead>
         </table> 
         
+        <!-- List of Deadlines -->
         <div>
-            <!-- List of Deadlines -->
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -103,7 +103,7 @@
                         <th scope="col">Date</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id = "tableBody">
                     <tr>
                         <th scope="row">1</th>
                         <td>(Uniform Election - Limited) Deadline to Post NEW HB 305 Notice</td>
@@ -304,15 +304,25 @@
                         <td>(Uniform Election) Last day to Receive Ballot by Mail</td>
                         <td>3 November 2020</td>
                     </tr>
-    <!--
-    //Create Different Tabs for Categorization
-
-    -->
-
                 </tbody>
             </table>
         </div>
         
+        <script>
+            function switchDeadlineContent()
+            {
+                var tableBody = document.getElementById("tableBody"); 
+//                while(tableBody.hasChildNodes)
+//                {
+//                    tableBody.removeChild(tableBody.firstChild);
+//                }
+                
+                
+                //tableBody.rows[0].cells[0].innerHTML = "TEST";
+                //alert(tableBody.rows[0].innerHTML);
+                tableBody.rows[0].innerHTML = "<th scope=\"row\">TEST</th><td>TEST</td><td>TEST</td>";
+            }
+        </script>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
