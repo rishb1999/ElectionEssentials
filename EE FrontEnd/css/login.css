@@ -3,6 +3,11 @@ form {
   border: 3px solid #f1f1f1;
 }
 
+#propic {
+  width: 200px;
+  height: 200px;
+}
+
 /* Full-width inputs */
 input[type=text], input[type=password] {
   width: 100%;

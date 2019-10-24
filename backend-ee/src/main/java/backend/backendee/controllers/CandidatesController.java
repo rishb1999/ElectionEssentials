@@ -19,13 +19,10 @@ public class CandidatesController {
   private CandidatesRepository repository;
 
   @RequestMapping(value = "/view", method = RequestMethod.GET)
-  public List<Candidates> getAllCandidates2() {
-    return repository.findAll();
-  }
-  @RequestMapping(value = "/", method = RequestMethod.GET)
   public List<Candidates> getAllCandidates() {
     return repository.findAll();
   }
+
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   public Candidates getCandidateById(@PathVariable("id") ObjectId id) {
     return repository.findBy_id(id);
