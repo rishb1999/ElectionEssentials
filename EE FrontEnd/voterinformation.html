@@ -312,15 +312,41 @@
             function switchDeadlineContent()
             {
                 var tableBody = document.getElementById("tableBody"); 
-//                while(tableBody.hasChildNodes)
-//                {
-//                    tableBody.removeChild(tableBody.firstChild);
-//                }
+                while(tableBody.hasChildNodes)
+                {
+                    //tableBody.removeChild(tableBody.firstChild);
+                    tableBody.deleteRow(0);
+                }
                 
                 
                 //tableBody.rows[0].cells[0].innerHTML = "TEST";
                 //alert(tableBody.rows[0].innerHTML);
-                tableBody.rows[0].innerHTML = "<th scope=\"row\">TEST</th><td>TEST</td><td>TEST</td>";
+                //tableBody.rows[0].innerHTML = "<th scope=\"row\">TEST</th><td>TEST</td><td>TEST</td>";
+                
+//                //Insert Row Into Table (At The End)
+//                var newRow   = tableBody.insertRow(-1);
+//                //Insert Cell Into Row
+//                var newCell  = newRow.insertCell(0);
+//                //Put TextNode in Cell
+//                var newText  = document.createTextNode("TEST");
+//                newCell.appendChild(newText);
+                
+//                var row = document.createElement("tr");
+//                var cell = document.createElement("th");
+//                var text = document.createTextNode("TEST");
+//                var cell2 = document.createElement("td");
+//                var text2 = document.createTextNode("TEST");
+//                var cell3 = document.createElement("td");
+//                var text3 = document.createTextNode("TEST");
+//
+//                cell.appendChild(text);
+//                cell2.appendChild(text2);
+//                cell3.appendChild(text3);
+//                row.appendChild(cell);
+//                row.appendChild(cell2);
+//                row.appendChild(cell3);
+//                tableBody.appendChild(row);
+                
             }
         </script>
 
