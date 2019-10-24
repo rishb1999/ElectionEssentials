@@ -136,6 +136,24 @@
                 map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
                 //Marker - Position at Location
                 var marker = new google.maps.Marker({position: latlng, map: map});
+                
+                
+                
+                //Reverse Geocoder - Find Address for Database Lookup
+                geocoder.geocode({'location': latlng}, function(results, status) 
+                {
+                    if (status == google.maps.GeocoderStatus.OK) 
+                    {
+                        if (results[0]) 
+                        {
+                            alert(results[0].formatted_address);/////////////////////////////////////////////////////////////////////////////////////////////
+                        } 
+                        else 
+                        {
+                            window.alert('No results found');
+                        }
+                    }
+                });
             }
             
             function codeAddress() 
