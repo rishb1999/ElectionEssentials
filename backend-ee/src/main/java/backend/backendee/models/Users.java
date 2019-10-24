@@ -19,11 +19,11 @@ public class Users {
     public String password;
     public String confirmPassword;
 
-//    public HashMap<String, Boolean> views;
+    public HashMap<String, String> issues;
 
     public Users(){}
 
-    public Users(ObjectId id, String firstName, String lastName, String company, String email, String timeZone, String userName, String password, String confirmPassword ){
+    public Users(ObjectId id, String firstName, String lastName, String company, String email, String timeZone, String userName, String password, String confirmPassword, HashMap<String, String> issues){
         this._id=id;
         this.firstName=firstName;
         this.lastName=lastName;
@@ -32,6 +32,7 @@ public class Users {
         this.userName=userName;
         this.password=password;
         this.confirmPassword=confirmPassword;
+        this.issues = issues;
     }
 
     public String get_id() { return _id.toHexString(); }

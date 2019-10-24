@@ -43,6 +43,12 @@ public class UsersController {
         repository.delete(repository.findById(id));
     }
 
+    @RequestMapping(value = "/{userName}/preferences", method = RequestMethod.POST)
+    public String setPreferences(@Valid @RequestBody Map<String, String> issues, String userName){
+        Users user = repository.findByUserName(userName);
+        user.issues = issues;
+    }
+
 
 
     public String verify(String userName, String password){
