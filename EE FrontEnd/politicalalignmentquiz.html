@@ -59,15 +59,195 @@
         
         <!-- Jumbotron -->
         <div class = "jumbotron">
-            <div class = "container">
+            <div class = "container" >
                 <h1>Election Essentials: Political Alignment Quiz</h1>
+                <div class="col-md-9 personal-info">
+                    <h3>Is this issue important to you?</h3>
+                    
+                    <form align="left" class="form-horizontal" role="form" >
+                      <div class="form-group">
+                        <label class="col-lg-3 control-label">Criminal Justice:</label>
+                        <div class="col-lg-8">
+                          <div class="ui-select">
+                            <select id="criminal_justice" class="form-control">
+                              <option value="No">No</option>
+                              <option value="Yes">Yes</option>
+                          </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Economy:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="economy" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Education:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="education" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Energy and Environment:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="energy_and_environment" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Gun Control:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="gun_control" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Healthcare:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="healthcare" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Immigration:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="immigration" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Military:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="military" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Taxes:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="taxes" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Technology:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="technology" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label class="col-lg-3 control-label">Trade:</label>
+                            <div class="col-lg-8">
+                              <div class="ui-select">
+                                <select id="trade" class="form-control">
+                                  <option value="No">No</option>
+                                  <option value="Yes">Yes</option>
+                              </select>
+                              </div>
+                            </div>
+                      </div>
+                                          
+                      <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                          <input type="button" onclick="sendUserIssues()" class="btn btn-primary" value="Save Changes">
+                          <span></span>
+                          <input type="reset" class="btn btn-default" value="Cancel">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
             </div>
         </div>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        function sendUserIssues() {
+            var criminal_justice = document.getElementById("criminal_justice").value;
+            var economy = document.getElementById("economy").value;
+            var education = document.getElementById("education").value;
+            var energy_and_environment = document.getElementById("energy_and_environment").value;
+            var gun_control = document.getElementById("gun_control").value;
+            var healthcare = document.getElementById("healthcare").value;
+            var immigration = document.getElementById("immigration").value;
+            var military = document.getElementById("military").value;
+            var taxes = document.getElementById("taxes").value;
+            var technology = document.getElementById("technology").value;
+            var trade = document.getElementById("trade").value;
+
+            var baseURL = "something.com";
+            var query = "blah";
+            var URL = baseURL + query;
+
+            data = {
+                criminalJustice: criminal_justice,
+                Economy : economy,
+                Education : education,
+                energyAndEnvironment: energy_and_environment,
+                gunControl : gun_control,
+                Healthcare : healthcare,
+                Immigration : immigration,
+                Military : military,
+                Taxes : taxes,
+                Technology : technology,
+                Trade : trade
+            }
+
+            //send to backend
+            $.post(URL, data, function(data) {
+                alert(data);
+            }).fail(function(){
+                alert("error");
+            });
+
+        }
+    </script>
     </body>
+        
 </html>

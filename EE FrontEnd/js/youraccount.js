@@ -4,7 +4,7 @@ function sendUserLoginDetails(){
     var last_Name = document.getElementById("lastName").value;
     var company_ = document.getElementById("company").value;
     var email_ = document.getElementById("email").value;
-    var time_Zone = document.getElementById("userr_time_zone").value;
+    var time_Zone = document.getElementById("user_time_zone").value;
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
     var confirm_Password = document.getElementById("confirmPassword").value;
@@ -26,7 +26,9 @@ function sendUserLoginDetails(){
 
     $.post(URL, data, function(data) {
         alert(data)
-    })
+    }).fail(function(){
+        alert("error");
+    });
 }
 
 function verifyLoginSuccess(){
@@ -44,5 +46,7 @@ function verifyLoginSuccess(){
 
     $.post(URL, data, function(data) {
         alert(data);
-    })
+    }).fail(function(){
+        alert("error");
+    });
 }
