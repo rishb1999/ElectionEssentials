@@ -23,7 +23,7 @@ public class Users {
 
     public Users(){}
 
-    public Users(ObjectId id, String firstName, String lastName, String company, String email, String timeZone, String userName, Stringd password, String confirmPassword ){
+    public Users(ObjectId id, String firstName, String lastName, String company, String email, String timeZone, String userName, String password, String confirmPassword ){
         this._id=id;
         this.firstName=firstName;
         this.lastName=lastName;
