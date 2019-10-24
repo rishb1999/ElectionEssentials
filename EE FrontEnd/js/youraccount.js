@@ -1,3 +1,4 @@
+
 function sendUserLoginDetails(){
     var first_Name = document.getElementById("firstName").value;
     var last_Name = document.getElementById("lastName").value;
@@ -23,10 +24,9 @@ function sendUserLoginDetails(){
         confirmPassword : confirm_Password
     };
 
-    $.post(URL, data)
-        .fail(function() {
-            alert("Please try again.");
-        });
+    $.post(URL, data, function(data) {
+        alert(data)
+    })
 }
 
 function verifyLoginSuccess(){
@@ -42,8 +42,7 @@ function verifyLoginSuccess(){
         password : password_
     }
 
-    $.post(URL, data)
-        .fail(function() {
-            alert("Please try again.");
-        });
+    $.post(URL, data, function(data) {
+        alert(data);
+    })
 }
