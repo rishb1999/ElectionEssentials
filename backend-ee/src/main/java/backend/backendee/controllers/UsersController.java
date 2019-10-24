@@ -30,7 +30,7 @@ public class UsersController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String createUsers (@Valid @RequestBody Users users) {
-        String response=verifyNew(users.userName, users.password);
+        String response=verifyNew(users);
         if(response=="Success") {
             users.set_id(ObjectId.get());
             repository.save(users);
@@ -44,11 +44,10 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/{userName}/preferences", method = RequestMethod.POST)
-    public String setPreferences(@Valid @RequestBody Map<String, String> issues, String userName){
+    public void setPreferences(@Valid @RequestBody Map<String, String> issues, String userName){
         Users user = repository.findByUserName(userName);
         user.issues = issues;
     }
-
 
 
     public String verify(String userName, String password){
@@ -66,15 +65,17 @@ public class UsersController {
         return response;
     }
 
-    public String verifyNew(String userName, String email){
+    public String verifyNew(Users user){
         String response="";
-        Users user = repository.findByUserName(userName);
-        Users user1 = repository.findByEmail(email);
+        String checkUserName = repository.findByUserName(user.userName);
+        String checkEmail = repository.findByEmail(user.email);
 
-        if(user.userName==userName) {
+        if(user.userName==checkUserName) {
             response = "Invalid. That username is already taken";
-        } else if(user1.email==email){
+        } else if(user.email==checkEmail){
             response = "Invalid. That email is already taken";
+        } else if(user.password!=user.confirmPassword){
+            response = "Passwords do not match";
         } else{
             response = "Success";
         }
