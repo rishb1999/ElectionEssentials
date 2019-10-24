@@ -82,11 +82,11 @@
                 <tr>
                     <th id = "tabs" scope="col">
                         <div class = "tab">
-                            <button class="tablinks active" onclick = "switchDeadlineContent()">All</button>
-                            <button class="tablinks" onclick = "switchDeadlineContent()">Primary Election</button>
-                            <button class="tablinks" onclick = "switchDeadlineContent()">Primary Runoff</button>
-                            <button class="tablinks" onclick = "switchDeadlineContent()">Uniform Election</button>
-                            <button class="tablinks" onclick = "switchDeadlineContent()">Uniform Election - Limited</button>
+                            <button class="tablinks active" onclick = "switchDeadlineContent("All")">All</button>
+                            <button class="tablinks" onclick = "switchDeadlineContent("Primary_Election")">Primary Election</button>
+                            <button class="tablinks" onclick = "switchDeadlineContent(Primary_Runoff)">Primary Runoff</button>
+                            <button class="tablinks" onclick = "switchDeadlineContent(Uniform_Election)">Uniform Election</button>
+                            <button class="tablinks" onclick = "addRowToTable(Uniform_Election_Limited)">Uniform Election - Limited</button>
                         </div>
                     </th>
                 </tr>
@@ -95,7 +95,7 @@
         
         <!-- List of Deadlines -->
         <div>
-            <table class="table">
+            <table class="table" id = "tableB">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
@@ -309,8 +309,9 @@
         </div>
         
         <script>
-            function switchDeadlineContent()
+            function switchDeadlineContent(conditional)
             {
+                var table = $("#tableB");
                 var tableBody = document.getElementById("tableBody"); 
                 while(tableBody.hasChildNodes)
                 {
@@ -318,35 +319,28 @@
                     tableBody.deleteRow(0);
                 }
                 
+                table.append("<tr><th>1</th><td>(Uniform Election - Limited) Deadline to Post NEW HB 305 Notice</td><td>1 September 2019</td></tr>");
                 
-                //tableBody.rows[0].cells[0].innerHTML = "TEST";
-                //alert(tableBody.rows[0].innerHTML);
-                //tableBody.rows[0].innerHTML = "<th scope=\"row\">TEST</th><td>TEST</td><td>TEST</td>";
-                
-//                //Insert Row Into Table (At The End)
-//                var newRow   = tableBody.insertRow(-1);
-//                //Insert Cell Into Row
-//                var newCell  = newRow.insertCell(0);
-//                //Put TextNode in Cell
-//                var newText  = document.createTextNode("TEST");
-//                newCell.appendChild(newText);
-                
-//                var row = document.createElement("tr");
-//                var cell = document.createElement("th");
-//                var text = document.createTextNode("TEST");
-//                var cell2 = document.createElement("td");
-//                var text2 = document.createTextNode("TEST");
-//                var cell3 = document.createElement("td");
-//                var text3 = document.createTextNode("TEST");
-//
-//                cell.appendChild(text);
-//                cell2.appendChild(text2);
-//                cell3.appendChild(text3);
-//                row.appendChild(cell);
-//                row.appendChild(cell2);
-//                row.appendChild(cell3);
-//                tableBody.appendChild(row);
-                
+//                if (conditional.equals("All"))
+//                {
+//                    table.append("<tr><th scope=\"row\">1</th><td>(Uniform Election - Limited) Deadline to Post NEW HB 305 Notice</td><td>1 September 2019</td></tr>");
+//                }
+//                else if (conditional.equals("Primary_Election"))
+//                {
+//                    
+//                }
+//                else if (conditional.equals("Primary_Runoff"))
+//                {
+//                    
+//                }
+//                else if (conditional.equals("Uniform_Election"))
+//                {
+//                    
+//                }
+//                else if (conditional.equals("Uniform_Election_Limited"))
+//                {
+//                    
+//                }
             }
         </script>
 
