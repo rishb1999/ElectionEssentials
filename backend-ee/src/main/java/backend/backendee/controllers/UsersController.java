@@ -26,7 +26,7 @@ public class UsersController {
     public Users getUserById(@PathVariable ObjectId id){ return repository.findById(id); }
 
     @RequestMapping(value="/", method = RequestMethod.GET)
-    public Users getAllUsers() { return repository.findAll(); }
+    public List<Users> getAllUsers() { return repository.findAll(); }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String createUsers (@Valid @RequestBody Users users) {
@@ -40,7 +40,7 @@ public class UsersController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteUsers(@PathVariable ObjectId id) {
-        repository.delete(repository.findBy_id(id));
+        repository.delete(repository.findById(id));
     }
 
 
@@ -52,7 +52,7 @@ public class UsersController {
             response = "Invalid. Unknown username";
         } else{
             if(user.password==password){
-                respsone = "Success";
+                response = "Success";
             } else{
                 response = "Invalid password";
             }
