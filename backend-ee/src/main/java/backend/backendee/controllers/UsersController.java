@@ -13,12 +13,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 
-final String SUCCESS = "Success";
-final String INVALID_USERNAME = "Invalid. Unknown username";
-final String INVALID_PASSWORD = "Invalid password";
-final String TAKEN_USERNAME = "Invalid. That username is already taken";
-final String TAKEN_EMAIL = "Invalid. That email is already taken";
-
 @RestController
 @RequestMapping(value = "/users")
 public class UsersController {
@@ -55,12 +49,12 @@ public class UsersController {
         String response="";
         Users user = repository.findByUserName(userName);
         if(user==null){
-            response = INVALID_USERNAME;
+            response = "Invalid. Unknown username";
         } else{
             if(user.password==password){
-                respsone = SUCCESS;
+                respsone = "Success";
             } else{
-                response = INVALID_PASSWORD;
+                response = "Invalid password";
             }
         }
         return response;
@@ -72,11 +66,11 @@ public class UsersController {
         Users user1 = repository.findByEmail(email);
 
         if(user.userName==userName) {
-            response = TAKEN_USERNAME;
+            response = "Invalid. That username is already taken";
         } else if(user1.email==email){
-            response = TAKEN_EMAIL;
+            response = "Invalid. That email is already taken";
         } else{
-            response = SUCCESS;
+            response = "Success";
         }
         return response;
     }
