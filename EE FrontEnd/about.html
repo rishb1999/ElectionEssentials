@@ -275,12 +275,14 @@
             document.addEventListener("DOMContentLoaded", function(event) {
                 var url = "https://api.github.com/repos/rishb1999/ElectionEssentials/issues"
                 console.log(url);
-
+                
                 try 
                 {
                     //Get JSON From API
                     $.getJSON(url, function (data) 
                     {
+                        alert(data != null);
+                        alert(data[i]["user"]["login"]);
                         var hubIssues = 0;
                         var adiIssues = 0;
                         var rishIssues = 0;
@@ -291,29 +293,29 @@
                         
                         for(var i = 0; i < data.length; i++) 
                         {
-                            if(data[i]["login"] == "MyNameIsHubert") 
+                            if(data[i]["user"]["login"] == "MyNameIsHubert") 
                             {
-                                hubComs++;
+                                hubIssues++;
                             }
-                            if(data[i]["login"] == "MyNameIsAditya") 
+                            if(data[i]["user"]["login"] == "MyNameIsAditya") 
                             {
-                                adiComs++;
+                                adiIssues++;
                             }
-                            if(data[i]["login"] == "rishb1999") 
+                            if(data[i]["user"]["login"] == "rishb1999") 
                             {
-                                rishComs++;
+                                rishIssues++;
                             }
-                            if(data[i]["login"] == "cristianascencio") 
+                            if(data[i]["user"]["login"] == "cristianascencio") 
                             {
-                                crisComs++;
+                                crisIssues++;
                             }
-                            if(data[i]["login"] == "jackweakley") 
+                            if(data[i]["user"]["login"] == "jackweakley") 
                             {
-                                jackComs++;
+                                jackIssues++;
                             }
-                            if(data[i]["login"] == "KevinSHathaway") 
+                            if(data[i]["user"]["login"] == "KevinSHathaway") 
                             {
-                                kevComs++;
+                                kevIssues++;
                             }
                         }
                         document.getElementById("hubertIssues").innerHTML = "Number of Issues: " + hubIssues;
