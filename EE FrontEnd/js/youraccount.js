@@ -11,23 +11,7 @@ function sendUserLoginDetails(){
     var baseURL = "http://localhost:8080";
     var query = "/users/";
     var URL = baseURL + query;
-/*
-    var data = {
-        "firstName" : first_Name,
-        "lastName" : last_Name,
-        "email" : email_,
-        "timeZone" : time_Zone,
-        "userName" : username_,
-        "password" : password_,
-        "confirmPassword" : confirm_Password
-    };
 
-    $.post(URL, data, function(data) {
-        console.log(data);
-    }).fail(function(){
-        alert("error");
-    });
-*/
     $.ajax({
         url: URL,
         type: "post",
@@ -49,7 +33,7 @@ function sendUserLoginDetails(){
             alert(data);
         }
 
-    })
+    });
 }
 
 function verifyLoginSuccess(){
@@ -57,17 +41,28 @@ function verifyLoginSuccess(){
     var password_ = document.getElementById("password").value;
 
     var baseURL = "http://localhost:8080";
-    var query = "idk";
+    var query = "/users/verify";
     var URL = baseURL + query;
 
-    var data = {
-        username : username_,
-        password : password_
-    }
-
-    $.post(URL, data, function(data) {
-        alert(data);
-    }).fail(function(){
-        alert("error");
+    $.ajax({
+        url: URL,
+        type: "post",
+        data: {
+            "firstName" : null,
+            "lastName" : null,
+            "email" : null,
+            "timeZone" : null,
+            "userName" : username_,
+            "password" : password_,
+            "confirmPassword" : null
+        },
+        headers: {
+            "Access-Control-Allow-Origin" : "*"
+        },
+        dataType: "json", 
+        success: function (data) {
+            console.log(data);
+            alert(data);
+        }
     });
 }
