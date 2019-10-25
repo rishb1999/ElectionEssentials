@@ -192,7 +192,7 @@
             <ol>
                 <h2>GitHub Statistics</h2>
                 <li id = "totalCommits">Total Number of Commits:</li>
-                <li id = "totalIssues">Total Number of Issues: 0</li>
+                <li id = "totalIssues">Total Number of Issues:</li>
                 <li id = "totalTests">Total Number of Unit Tests: 0</li>
             </ol>
         </div>
@@ -281,8 +281,9 @@
                     //Get JSON From API
                     $.getJSON(url, function (data) 
                     {
-                        alert(data != null);
-                        alert(data[i]["user"]["login"]);
+                        //alert(data != null);//exists
+                        //alert(data.length);//2
+                        //alert(data[0]["user"]["login"]);//MyNameIsAditya
                         var hubIssues = 0;
                         var adiIssues = 0;
                         var rishIssues = 0;
@@ -318,13 +319,14 @@
                                 kevIssues++;
                             }
                         }
+                        //alert(adiIssues);//2
                         document.getElementById("hubertIssues").innerHTML = "Number of Issues: " + hubIssues;
                         document.getElementById("adityaIssues").innerHTML = "Number of Issues: " + adiIssues;
                         document.getElementById("rishIssues").innerHTML = "Number of Issues: " + rishIssues;
                         document.getElementById("cristianIssues").innerHTML = "Number of Issues: " + crisIssues;
                         document.getElementById("jackIssues").innerHTML = "Number of Issues: " + jackIssues;
                         document.getElementById("kevinIssues").innerHTML = "Number of Issues: " + kevIssues;
-                        document.getElementById("totalIssues").innerHTML = "Total Number of Issues: " + total;
+                        document.getElementById("totalIssues").innerHTML = "Total Number of Issues: " + totalIssues;
                         document.getElementById("totalIssues").style.fontWeight = "bold";
                     });
                 }
