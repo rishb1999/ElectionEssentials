@@ -1,10 +1,9 @@
 body 
 {
     background-image: url(https://i.pinimg.com/originals/52/08/0b/52080b709a106f66211770dfc75afb23.jpg);
-    height: 100%;
-    background-position: center;
+    background-position: left top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 1000px;
 }
 
 #EETitle {

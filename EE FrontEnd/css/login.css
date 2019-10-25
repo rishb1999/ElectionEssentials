@@ -1,7 +1,21 @@
-
-form {
-  border: 3px solid #f1f1f1;
+div.jumbotron
+{
+    text-align: center;
+    padding: 15px;
 }
+
+.button {
+         background-color: #1c87c9;
+         border: none;
+         color: white;
+         padding: 20px 34px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 20px;
+         margin: 4px 2px;
+         cursor: pointer;
+  }
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
@@ -11,6 +25,7 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 /* Set a style for all buttons */
@@ -36,21 +51,11 @@ button:hover {
   background-color: #f44336;
 }
 
-/* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
 
 /* Avatar image */
 img.avatar {
   width: 40%;
   border-radius: 50%;
-}
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
 }
 
 /* The "Forgot password" text */
