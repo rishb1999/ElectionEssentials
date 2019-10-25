@@ -1,2 +1,6 @@
+service: dbrest
 runtime: java
 env: flex
+
+env_variables:
+  SPRING_DATA_MONGODB_URI: mongodb+srv://eedb:admin@cluster0-3mgem.gcp.mongodb.net/test?retryWrites=true&w=majority
