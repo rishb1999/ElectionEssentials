@@ -117,8 +117,8 @@
                     <div class="card-body">
                         <h3 class="card-title">Hubert Ning</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
-                        <p class="card-text"id="hubertCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text" id="hubertCommits">Number of Commits: </p>
+                        <p class="card-text" id="hubertIssues">Number of Issues: 0</p>
                         <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                         <h3 class="card-title">Aditya Khanna</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text"id="adityaCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text" id="adityaIssues">Number of Issues: 0</p>
                         <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                         <h3 class="card-title">Rishabh Bhatnagar</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text"id="rishCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text" id="rishIssues">Number of Issues: 0</p>
                         <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                         <h3 class="card-title">Cristian Ascencio</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text" id="cristianCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text" id="cristianIssues">Number of Issues: 0</p>
                         <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                         <h3 class="card-title">Jack Weakley</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text"id="jackCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text" id="jackIssues">Number of Issues: 0</p>
                         <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                         <h3 class="card-title">Kevin Hathaway</h3>
                         <p class="card-text">Electrical and Computer Engineering</p>
                         <p class="card-text" id="kevinCommits">Number of Commits: </p>
-                        <p class="card-text">Number of Issues: 0</p>
+                        <p class="card-text" id="kevinIssues">Number of Issues: 0</p>
                         <p class="card-text">Number of Unit Tests: 0</p>
                     </div>
                 </div>
@@ -210,7 +210,7 @@
                 <h2>Sources</h2>
                 <li><b>Google Civic Information API:</b> Our team used this API to access and dynamically display information about current political representatives. Users can find this information by using the search bar on the Candidates page. We obtained a JSONObject from the API call that had information about political representatives; we then outputted that information on our Candidate page. More information about the Google Civic Information API can be found <a href = "https://developers.google.com/civic-information">here</a>.</li>
                 <li><b>OpenFEC API:</b> Our team used this API to access and dynamically display information about current political representatives. Users can find this information by using the search bar on the Candidates page. We obtained a JSONObject from the API call that had information about political representatives; we then outputted that information on our Candidate page. More information about the OpenFEC API can be found <a href = "https://api.open.fec.gov/developers/">here</a>.</li>
-                <li><b>GitHub Developer REST API v3:</b> Our team used this API to access and dynamically display GitHub statistics and contribution information on the About page. More information about the GitHub Developer REST API v3 can be found <a href = "https://developer.github.com/v3/repos/statistics/">here</a></li>
+                <li><b>GitHub Developer REST API v3:</b> Our team used this API to access and dynamically display GitHub statistics, contribution information, issue information, and testing information on the About page. More information about the GitHub Developer REST API v3 can be found <a href = "https://developer.github.com/v3/repos/statistics/">here</a></li>
             </ol>
             <ol>
                 <h2>Tools</h2>
@@ -265,6 +265,65 @@
                         document.getElementById("kevinCommits").innerHTML = "Number of Commits: " + kevComs;
                         document.getElementById("totalCommits").innerHTML = "Total Number of Commits: " + total;
                         document.getElementById("totalCommits").style.fontWeight = "bold";
+                    });
+                }
+                catch (e) 
+                {
+                }
+            });
+            
+            document.addEventListener("DOMContentLoaded", function(event) {
+                var url = "https://api.github.com/repos/rishb1999/ElectionEssentials/issues"
+                console.log(url);
+
+                try 
+                {
+                    //Get JSON From API
+                    $.getJSON(url, function (data) 
+                    {
+                        var hubIssues = 0;
+                        var adiIssues = 0;
+                        var rishIssues = 0;
+                        var crisIssues = 0;
+                        var jackIssues = 0;
+                        var kevIssues = 0;
+                        var totalIssues = data.length;
+                        
+                        for(var i = 0; i < data.length; i++) 
+                        {
+                            if(data[i]["login"] == "MyNameIsHubert") 
+                            {
+                                hubComs++;
+                            }
+                            if(data[i]["login"] == "MyNameIsAditya") 
+                            {
+                                adiComs++;
+                            }
+                            if(data[i]["login"] == "rishb1999") 
+                            {
+                                rishComs++;
+                            }
+                            if(data[i]["login"] == "cristianascencio") 
+                            {
+                                crisComs++;
+                            }
+                            if(data[i]["login"] == "jackweakley") 
+                            {
+                                jackComs++;
+                            }
+                            if(data[i]["login"] == "KevinSHathaway") 
+                            {
+                                kevComs++;
+                            }
+                        }
+                        document.getElementById("hubertIssues").innerHTML = "Number of Issues: " + hubIssues;
+                        document.getElementById("adityaIssues").innerHTML = "Number of Issues: " + adiIssues;
+                        document.getElementById("rishIssues").innerHTML = "Number of Issues: " + rishIssues;
+                        document.getElementById("cristianIssues").innerHTML = "Number of Issues: " + crisIssues;
+                        document.getElementById("jackIssues").innerHTML = "Number of Issues: " + jackIssues;
+                        document.getElementById("kevinIssues").innerHTML = "Number of Issues: " + kevIssues;
+                        document.getElementById("totalIssues").innerHTML = "Total Number of Issues: " + total;
+                        document.getElementById("totalIssues").style.fontWeight = "bold";
                     });
                 }
                 catch (e) 
