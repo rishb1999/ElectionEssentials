@@ -62,4 +62,7 @@ public class Users {
     public String getConfirmPassword() { return confirmPassword; }
     public void setConfirmPassword(String confirmPassword) { this.confirmPassword = confirmPassword; }
 
+    public HashMap<String, String> getIssues() { return issues; }
+    public void setIssues(HashMap<String, String> issues){ this.issues = issues};
+
 }
