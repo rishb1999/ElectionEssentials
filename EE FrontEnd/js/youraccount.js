@@ -48,8 +48,13 @@ function verifyLoginSuccess(){
         url: URL,
         type: "post",
         data: {
+            "firstName" : null,
+            "lastName" : null,
+            "email" : null,
+            "timeZone" : null,
             "userName" : username_,
-            "password" : password_
+            "password" : password_,
+            "confirmPassword" : null
         },
         headers: {
             "Access-Control-Allow-Origin" : "*"
