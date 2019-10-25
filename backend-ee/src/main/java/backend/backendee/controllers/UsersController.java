@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -20,10 +21,18 @@ public class UsersController {
     private UsersRepository repository;
 
     @RequestMapping(value="/{userName}", method = RequestMethod.GET)
-    public Users getUserByUserName(@PathVariable String userName){ return repository.findByUserName(userName); }
+    public Users getUserByUserName(@PathVariable String userName){
+        List<Users> collection = repository.findAll();
+        for(Users user:collection){
+            if(user.getUserName().equals(userName)){
+                return user;
+            }
+        }
+        return null;
+    }
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public Users getUserById(@PathVariable ObjectId id){ return repository.findById(id); }
+    public Users getUserById(@PathVariable ObjectId id){ return repository.findBy_id(id); }
 
     @RequestMapping(value="/", method = RequestMethod.GET)
     public List<Users> getAllUsers() { return repository.findAll(); }
@@ -40,19 +49,30 @@ public class UsersController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteUsers(@PathVariable ObjectId id) {
-        repository.delete(repository.findById(id));
+        repository.delete(repository.findBy_id(id));
     }
 
     @RequestMapping(value = "/{userName}/preferences", method = RequestMethod.POST)
-    public void setPreferences(@Valid @RequestBody Map<String, String> issues, String userName){
-        Users user = repository.findByUserName(userName);
-        user.issues = issues;
+    public void setPreferences(@Valid @RequestBody HashMap<String, String> issues, String userName){
+        List<Users> collection = repository.findAll();
+        for(Users user:collection){
+            if(user.getUserName().equals(userName)){
+                user.issues = issues;
+                break;
+            }
+        }
     }
 
 
     public String verify(String userName, String password){
         String response="";
-        Users user = repository.findByUserName(userName);
+        Users user = null;
+        List<Users> collection = repository.findAll();
+        for(Users iter:collection){
+            if(iter.getUserName().equals(userName)){
+                user = iter;
+            }
+        }
         if(user==null){
             response = "Invalid. Unknown username";
         } else{
@@ -67,14 +87,26 @@ public class UsersController {
 
     public String verifyNew(Users user){
         String response="";
-        String checkUserName = repository.findByUserName(user.userName);
-        String checkEmail = repository.findByEmail(user.email);
+        String checkUserName = null;
+        String checkEmail = null;
 
-        if(user.userName==checkUserName) {
+        List<Users> collection = repository.findAll();
+        for(Users iter:collection){
+            if(iter.getUserName().equals(user.userName)){
+                checkUserName = user.userName;
+            }
+        }
+        for(Users iter:collection){
+            if(iter.getEmail().equals(user.email)){
+                checkEmail = user.email;
+            }
+        }
+
+        if(user.userName.equals(checkUserName)) {
             response = "Invalid. That username is already taken";
-        } else if(user.email==checkEmail){
+        } else if((user.email).equals(checkEmail)){
             response = "Invalid. That email is already taken";
-        } else if(user.password!=user.confirmPassword){
+        } else if(!user.password.equals(user.confirmPassword)){
             response = "Passwords do not match";
         } else{
             response = "Success";
