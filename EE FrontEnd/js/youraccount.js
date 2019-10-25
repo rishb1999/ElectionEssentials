@@ -11,7 +11,7 @@ function sendUserLoginDetails(){
     var baseURL = "http://localhost:8080";
     var query = "/users/";
     var URL = baseURL + query;
-
+/*
     var data = {
         "firstName" : first_Name,
         "lastName" : last_Name,
@@ -27,6 +27,29 @@ function sendUserLoginDetails(){
     }).fail(function(){
         alert("error");
     });
+*/
+    $.ajax({
+        url: URL,
+        type: "post",
+        data: {
+            "firstName" : first_Name,
+            "lastName" : last_Name,
+            "email" : email_,
+            "timeZone" : time_Zone,
+            "userName" : username_,
+            "password" : password_,
+            "confirmPassword" : confirm_Password
+        },
+        headers: {
+            "Access-Control-Allow-Origin" : "*"
+        },
+        dataType: "json", 
+        success: function (data) {
+            console.log(data);
+            alert(data);
+        }
+
+    })
 }
 
 function verifyLoginSuccess(){
