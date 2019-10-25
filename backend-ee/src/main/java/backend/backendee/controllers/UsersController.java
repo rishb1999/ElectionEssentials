@@ -57,7 +57,7 @@ public class UsersController {
         List<Users> collection = repository.findAll();
         for(Users user:collection){
             if(user.getUserName().equals(userName)){
-                //user.issues = issues;
+                //user.setIssues(issues);
                 break;
             }
         }
@@ -76,7 +76,7 @@ public class UsersController {
         if(user==null){
             response = "Invalid. Unknown username";
         } else{
-            if(user.password==password){
+            if(user.getPassword()==password){
                 response = "Success";
             } else{
                 response = "Invalid password";
@@ -93,20 +93,20 @@ public class UsersController {
         List<Users> collection = repository.findAll();
         for(Users iter:collection){
             if(iter.getUserName().equals(user.userName)){
-                checkUserName = user.userName;
+                checkUserName = user.getUserName();
             }
         }
         for(Users iter:collection){
-            if(iter.getEmail().equals(user.email)){
-                checkEmail = user.email;
+            if(iter.getEmail().equals(user.getEmail())){
+                checkEmail = user.getEmail();
             }
         }
 
-        if(user.userName.equals(checkUserName)) {
+        if(user.getUserName().equals(checkUserName)) {
             response = "Invalid. That username is already taken";
-        } else if((user.email).equals(checkEmail)){
+        } else if(user.getEmail().equals(checkEmail)){
             response = "Invalid. That email is already taken";
-        } else if(!user.password.equals(user.confirmPassword)){
+        } else if(!user.getPassword().equals(user.getConfirmPassword())){
             response = "Passwords do not match";
         } else{
             response = "Success";
