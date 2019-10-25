@@ -12,7 +12,6 @@ public class Users {
 
     public String firstName;
     public String lastName;
-    public String company;
     public String email;
     public String timeZone;
     public String userName;
@@ -22,11 +21,10 @@ public class Users {
 
     public Users(){}
 
-    public Users(ObjectId id, String firstName, String lastName, String company, String email, String timeZone, String userName, String password, String confirmPassword, HashMap<String, String> issues){
+    public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword, HashMap<String, String> issues){
         this._id=id;
         this.firstName=firstName;
         this.lastName=lastName;
-        this.company=company;
         this.timeZone=timeZone;
         this.userName=userName;
         this.password=password;
@@ -41,9 +39,6 @@ public class Users {
 
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
-
-    public String getCompany() { return company; }
-    public void setCompany(String company) { this.company = company; }
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }

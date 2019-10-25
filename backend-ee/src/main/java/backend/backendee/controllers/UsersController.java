@@ -20,7 +20,7 @@ public class UsersController {
     @Autowired
     private UsersRepository repository;
 
-    @RequestMapping(value="/{userName}", method = RequestMethod.GET)
+    @RequestMapping(value="/username/{userName}", method = RequestMethod.GET)
     public Users getUserByUserName(@PathVariable String userName){
         List<Users> collection = repository.findAll();
         for(Users user:collection){
@@ -31,7 +31,7 @@ public class UsersController {
         return null;
     }
 
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
+    @RequestMapping(value="/id/{id}", method = RequestMethod.GET)
     public Users getUserById(@PathVariable ObjectId id){ return repository.findBy_id(id); }
 
     @RequestMapping(value="/", method = RequestMethod.GET)
@@ -47,7 +47,7 @@ public class UsersController {
         return response;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/del/{id}", method = RequestMethod.DELETE)
     public void deleteUsers(@PathVariable ObjectId id) {
         repository.delete(repository.findBy_id(id));
     }
