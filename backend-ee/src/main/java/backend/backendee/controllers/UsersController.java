@@ -57,7 +57,7 @@ public class UsersController {
         List<Users> collection = repository.findAll();
         for(Users user:collection){
             if(user.getUserName().equals(userName)){
-                user.getIssues() = issues;
+                user.setIssues(issues);
                 break;
             }
         }
@@ -93,7 +93,7 @@ public class UsersController {
         List<Users> collection = repository.findAll();
         for(Users iter:collection){
             if(iter.getUserName().equals(user.userName)){
-                checkUserName = user.userName;
+                checkUserName = user.getUserName();
             }
         }
         for(Users iter:collection){
@@ -104,7 +104,7 @@ public class UsersController {
 
         if(user.getUserName().equals(checkUserName)) {
             response = "Invalid. That username is already taken";
-        } else if((user.getEmail()).equals(checkEmail)){
+        } else if(user.getEmail().equals(checkEmail)){
             response = "Invalid. That email is already taken";
         } else if(!user.getPassword().equals(user.getConfirmPassword())){
             response = "Passwords do not match";
