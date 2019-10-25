@@ -9,23 +9,23 @@ function sendUserLoginDetails(){
     var password_ = document.getElementById("password").value;
     var confirm_Password = document.getElementById("confirmPassword").value;
 
-    var baseURL = "something.com";
+    var baseURL = "localhost:8080";
     var query = "/users/";
     var URL = baseURL + query;
 
     var data = {
-        firstName : first_Name,
-        lastName : last_Name,
-        company : company_,
-        email : email_,
-        timeZone : time_Zone,
-        username : username_,
-        password : password_,
-        confirmPassword : confirm_Password
+        "firstName" : first_Name,
+        "lastName" : last_Name,
+        "company" : company_,
+        "email" : email_,
+        "timeZone" : time_Zone,
+        "userName" : username_,
+        "password" : password_,
+        "confirmPassword" : confirm_Password
     };
 
     $.post(URL, data, function(data) {
-        alert(data)
+        alert(data);
     }).fail(function(){
         alert("error");
     });
