@@ -27,30 +27,27 @@ public class Locations {
 //        public void setLongitude(int longitude){ this.longitude = longitude; }
 //    }
 
-    public int latitude;
-    public int longitude;
+    public String address;
     //Add a date?
 
     public Locations() {}
 
-    public Locations(ObjectId _id, String name, int latitude, int longitude) {
+    public Locations(ObjectId _id, String name, String address) {
         this._id = _id;
         this.name = name;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.address = address;
     }
 
     // ObjectId needs to be converted to string
     public String get_id() { return _id.toHexString(); }
     public void set_id(ObjectId _id) { this._id = _id; }
 
+    public ObjectId getId() {return _id;}
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public int getLatitude(){ return latitude; }
-    public void setLatitude(int latitude){ this.latitude = latitude;}
-
-    public int getLongitude(){ return longitude; }
-    public void setLongitude(int longitude){ this.longitude = longitude; }
+    public String getAddress() { return this.address;}
+    public void setAddress(String address) {this.address = address;}
 
 }
