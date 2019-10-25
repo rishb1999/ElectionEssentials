@@ -2,7 +2,6 @@
 function sendUserLoginDetails(){
     var first_Name = document.getElementById("firstName").value;
     var last_Name = document.getElementById("lastName").value;
-    var company_ = document.getElementById("company").value;
     var email_ = document.getElementById("email").value;
     var time_Zone = document.getElementById("user_time_zone").value;
     var username_ = document.getElementById("username").value;
@@ -16,7 +15,6 @@ function sendUserLoginDetails(){
     var data = {
         "firstName" : first_Name,
         "lastName" : last_Name,
-        "company" : company_,
         "email" : email_,
         "timeZone" : time_Zone,
         "userName" : username_,
@@ -25,7 +23,7 @@ function sendUserLoginDetails(){
     };
 
     $.post(URL, data, function(data) {
-        alert(data);
+        console.log(data);
     }).fail(function(){
         alert("error");
     });
