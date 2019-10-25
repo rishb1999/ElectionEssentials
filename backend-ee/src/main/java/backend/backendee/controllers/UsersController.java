@@ -40,10 +40,16 @@ public class UsersController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String createUsers (@Valid @RequestBody Users users) {
         String response=verifyNew(users);
-        if(response=="Success") {
+        if(response.equals("Success")) {
             users.set_id(ObjectId.get());
             repository.save(users);
         }
+        return response;
+    }
+
+    @RequestMapping(value="/verify", method = RequestMethod.POST)
+    public String verifyUser(@Valid @RequestBody Users users) {
+        String response = verify(users.userName, users.password);
         return response;
     }
 
@@ -76,7 +82,7 @@ public class UsersController {
         if(user==null){
             response = "Invalid. Unknown username";
         } else{
-            if(user.getPassword()==password){
+            if(user.getPassword().equals(password)){
                 response = "Success";
             } else{
                 response = "Invalid password";
