@@ -9,7 +9,7 @@ function sendUserLoginDetails(){
     var password_ = document.getElementById("password").value;
     var confirm_Password = document.getElementById("confirmPassword").value;
 
-    var baseURL = "something.com";
+    var baseURL = "http://localhost:8080";
     var query = "/users/";
     var URL = baseURL + query;
 
@@ -35,7 +35,7 @@ function verifyLoginSuccess(){
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
 
-    var baseURL = "something.com";
+    var baseURL = "http://localhost:8080";
     var query = "idk";
     var URL = baseURL + query;
 

@@ -57,7 +57,7 @@ public class UsersController {
         List<Users> collection = repository.findAll();
         for(Users user:collection){
             if(user.getUserName().equals(userName)){
-                user.issues = issues;
+                //user.issues = issues;
                 break;
             }
         }

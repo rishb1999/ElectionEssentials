@@ -19,7 +19,6 @@ public class Users {
     public String password;
     public String confirmPassword;
 
-    public HashMap<String, String> issues;
 
     public Users(){}
 
@@ -32,7 +31,6 @@ public class Users {
         this.userName=userName;
         this.password=password;
         this.confirmPassword=confirmPassword;
-        this.issues = issues;
     }
 
     public String get_id() { return _id.toHexString(); }
