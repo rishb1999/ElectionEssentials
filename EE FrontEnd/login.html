@@ -74,7 +74,15 @@
             <input id="pasword" type="text" placeholder="Enter Password" name="psw" required>
 
            <!-- <button type="submit" onclick = "window.location.href='homepage.html';">Login</button> -->
-             <a href="politicalalignmentquiz.html" class="button">Login</a>
+<!--             <a href="politicalalignmentquiz.html" class="button" onclick=verifyLoginSuccess()>Login</a>-->
+              <div class="form-group">
+                  <label class="col-md-3 control-label"></label>
+                  <div class="col-md-8">
+                      <input type="button" onclick=verifyLoginSuccess() class="btn btn-primary" value="Login">
+                      <span></span>
+                      <input type="reset" class="btn btn-default" value="Cancel">
+                  </div>
+              </div>
             
           </div>
         </form>
