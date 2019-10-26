@@ -59,7 +59,7 @@ public class UsersController {
 //        }
 //        return response;
         Users user = new Users(ObjectId.get(), "test", "test", "testT", "test", "test", "test");
-        repository.save(users);
+        repository.save(user);
         return  "hello";
     }
 
