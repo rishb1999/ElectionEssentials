@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
          <link rel = "stylesheet" type = "text/css" href="css/voterlocationCSS.css">
         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
         <!-- Website Title -->
         <title>Election Essentials</title>
         <!-- Website Image -->
@@ -81,20 +83,15 @@
         <div id = "googleMap"></div>
         
         <!-- List of Locations -->
-        <table class="table">
+        <table class="table" id = "tableB">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Location</th>
-                    <th scope="col">Type</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Test Location</td>
-                    <td>Test Type</td>
-                </tr>
+            <tbody id = "tableBody">
+                <!-- Rows Dynamically Added Here -->
             </tbody>
         </table>
         
@@ -156,25 +153,87 @@
                 });
             }
             
-            function codeAddress() 
+            function codeAddress()
             {
+                //Clear Table
+//                var table = $("#tableB");
+//                var tableBody = document.getElementById("tableBody");
+//                var newBody = document.createElement('tbody');
+//                tableBody.parentNode.replaceChild(newBody, tableBody);
+                
                 //Location String
                 var address = document.getElementById("searchInput").value;
-                //Geocoder
-                geocoder.geocode({address: address}, function(results, status) 
+                var addr = address;
+                while(addr.includes(" ")) 
                 {
-                    if (status == google.maps.GeocoderStatus.OK) 
+  	                addr = addr.replace(" ", "%20");
+                }
+                var url = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com/locations/" + addr;
+                console.log("location = " + url);
+                try 
+                {
+                    $.getJSON(url, function (data) 
+                    {//gets JSON from the API server
+                        var addresses = [];
+                        for(var x = 0; x < data.length; x++) 
+                        {
+                            addresses.push(data[x]["address"]);
+                        }
+                        console.log(addresses);
+                        
+                        //Clear Table
+                        var table = $("#tableB");
+                        var tableBody = document.getElementById("tableBody");
+                        var newBody = document.createElement('tbody');
+                        tableBody.parentNode.replaceChild(newBody, tableBody);
+                        
+                        //Populates List
+                        for (var index = 0; index < addresses.length; index++)
+                        {
+                            table.append("<tbody id = \"tableBody\"><tr><td>" + (index + 1) + "</td><td>" + addresses[index] + "</td></tr></tbody>");
+                        }
+                        
+                        //Geocoder for Addresses returned from Database
+                        for (var index = 0; index < addresses.length; index++)
+                        {
+                            geocoder.geocode({address: addresses[index]}, function(results, status)
+                            {
+                                if (status == google.maps.GeocoderStatus.OK)
+                                {
+                                    map.setCenter(results[0].geometry.location);
+                                    var marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
+
+                                }
+                                else
+                                {
+                                    //Error handling for Invalid Locations
+                                }
+                            });
+                        }
+                    });
+                }
+                catch (e) 
+                {
+                    alert("Please enter a valid Location");
+                }
+                //Geocoder fro Address Inputted
+                geocoder.geocode({address: address}, function(results, status)
+                {
+                    if (status == google.maps.GeocoderStatus.OK)
                     {
                         map.setCenter(results[0].geometry.location);
                         var marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
-                    } 
-                    else 
+
+                    }
+                    else
                     {
                         //Error handling for Invalid Locations
                         alert("Invalid Location");
                     }
                 });
             }
+            
+//            
         </script>
         
         <!-- Google Geolocation API -->
@@ -182,7 +241,6 @@
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
