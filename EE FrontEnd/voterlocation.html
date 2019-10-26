@@ -83,20 +83,15 @@
         <div id = "googleMap"></div>
         
         <!-- List of Locations -->
-        <table class="table">
+        <table class="table" id = "tableB">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Location</th>
-                    <th scope="col">Type</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Test Location</td>
-                    <td>Test Type</td>
-                </tr>
+            <tbody id = "tableBody">
+                <!-- Rows Dynamically Added Here -->
             </tbody>
         </table>
         
@@ -160,6 +155,12 @@
             
             function codeAddress()
             {
+                //Clear Table
+                var table = $("#tableB");
+                var tableBody = document.getElementById("tableBody");
+                var newBody = document.createElement('tbody');
+                tableBody.parentNode.replaceChild(newBody, tableBody);
+                
                 //Location String
                 var address = document.getElementById("searchInput").value;
                 var addr = address;
@@ -179,13 +180,37 @@
                             addresses.push(data[x]["address"]);
                         }
                         console.log(addresses);
+                        
+                        //Populates List
+                        for (var index = 0; index < addresses.length; index++)
+                        {
+                            table.append("<tbody id = \"tableBody\"><tr><td>" + (index + 1) + "</td><td>" + addresses[index] + "</td></tr></tbody>");
+                        }
+                        
+                        //Geocoder for Addresses returned from Database
+                        for (var index = 0; index < addresses.length; index++)
+                        {
+                            geocoder.geocode({address: addresses[index]}, function(results, status)
+                            {
+                                if (status == google.maps.GeocoderStatus.OK)
+                                {
+                                    map.setCenter(results[0].geometry.location);
+                                    var marker = new google.maps.Marker({position: results[0].geometry.location, map: map});
+
+                                }
+                                else
+                                {
+                                    //Error handling for Invalid Locations
+                                }
+                            });
+                        }
                     });
                 }
                 catch (e) 
                 {
                     alert("Please enter a valid Location");
                 }
-                //Geocoder
+                //Geocoder fro Address Inputted
                 geocoder.geocode({address: address}, function(results, status)
                 {
                     if (status == google.maps.GeocoderStatus.OK)
@@ -201,6 +226,8 @@
                     }
                 });
             }
+            
+//            
         </script>
         
         <!-- Google Geolocation API -->
