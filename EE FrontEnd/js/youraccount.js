@@ -29,7 +29,7 @@ function sendUserLoginDetails(){
         },
         dataType: "json", 
         success: function (data) {
-            console.log(data);
+            console.log("Success "+data);
             alert(data);
         },
         error: function(data){
@@ -64,7 +64,7 @@ function verifyLoginSuccess(){
         },
         dataType: "json", 
         success: function (data) {
-            console.log(data);
+            console.log("Success: "+ data);
             alert(data);
         },
         error: function(data){
