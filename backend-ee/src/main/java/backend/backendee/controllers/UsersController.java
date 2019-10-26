@@ -34,7 +34,7 @@ public class UsersController {
     @RequestMapping(value="/", method = RequestMethod.GET)
     public List<Users> getAllUsers() { return repository.findAll(); }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String createUsers (@Valid @RequestBody Users users) {
         String response=verifyNew(users);
         if(response.equals("Success")) {
@@ -44,7 +44,7 @@ public class UsersController {
         return response;
     }
 
-    @RequestMapping(value="/verify", method = RequestMethod.POST)
+    @RequestMapping(value="/verify", method = RequestMethod.GET)
     public String verifyUser(@Valid @RequestBody Users users) {
         String response = verify(users.userName, users.password);
         return response;
