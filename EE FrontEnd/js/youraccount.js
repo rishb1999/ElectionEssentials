@@ -40,7 +40,7 @@ function verifyLoginSuccess(){
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
 
-    var baseURL = "http://localhost:8080";
+    var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     var query = "/users/verify";
     var URL = baseURL + query;
 
