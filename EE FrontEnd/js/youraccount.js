@@ -31,8 +31,11 @@ function sendUserLoginDetails(){
         success: function (data) {
             console.log(data);
             alert(data);
+        },
+        error: function(data){
+            console.log("Error in verify login success");
+            alert(data);
         }
-
     });
 }
 
@@ -62,6 +65,10 @@ function verifyLoginSuccess(){
         dataType: "json", 
         success: function (data) {
             console.log(data);
+            alert(data);
+        },
+        error: function(data){
+            console.log("Error in verify login success");
             alert(data);
         }
     });
