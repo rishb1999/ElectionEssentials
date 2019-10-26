@@ -26,15 +26,7 @@ function sendUserLoginDetails(){
     $.ajax({
         url: URL,
         type: 'GET',
-        data: {
-            "firstName" : first_Name,
-            "lastName" : last_Name,
-            "email" : email_,
-            "timeZone" : time_Zone,
-            "userName" : username_,
-            "password" : password_,
-            "confirmPassword" : confirm_Password
-        },
+        data: JSON.stringify(dataa),
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
