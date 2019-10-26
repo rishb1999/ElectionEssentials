@@ -12,6 +12,17 @@ function sendUserLoginDetails(){
     var query = "/users/create";
     var URL = baseURL + query;
 
+    var dataa= {
+        "firstName" : first_Name,
+        "lastName" : last_Name,
+        "email" : email_,
+        "timeZone" : time_Zone,
+        "userName" : username_,
+        "password" : password_,
+        "confirmPassword" : confirm_Password
+    }
+    console.log(dataa);
+
     $.ajax({
         url: URL,
         type: 'GET',
