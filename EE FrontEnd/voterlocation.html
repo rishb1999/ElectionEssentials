@@ -156,10 +156,10 @@
             function codeAddress()
             {
                 //Clear Table
-                var table = $("#tableB");
-                var tableBody = document.getElementById("tableBody");
-                var newBody = document.createElement('tbody');
-                tableBody.parentNode.replaceChild(newBody, tableBody);
+//                var table = $("#tableB");
+//                var tableBody = document.getElementById("tableBody");
+//                var newBody = document.createElement('tbody');
+//                tableBody.parentNode.replaceChild(newBody, tableBody);
                 
                 //Location String
                 var address = document.getElementById("searchInput").value;
@@ -180,6 +180,12 @@
                             addresses.push(data[x]["address"]);
                         }
                         console.log(addresses);
+                        
+                        //Clear Table
+                        var table = $("#tableB");
+                        var tableBody = document.getElementById("tableBody");
+                        var newBody = document.createElement('tbody');
+                        tableBody.parentNode.replaceChild(newBody, tableBody);
                         
                         //Populates List
                         for (var index = 0; index < addresses.length; index++)
