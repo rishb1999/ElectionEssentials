@@ -23,7 +23,7 @@
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
 	</properties>
 
-	<dependencyManagement>
+	<!-- <dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>com.google.cloud</groupId>
@@ -33,7 +33,7 @@
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
-	</dependencyManagement>
+	</dependencyManagement> -->
 
 	<dependencies>
 		<!-- Test Dependencies -->
@@ -78,7 +78,7 @@
 		<!-- for hot reload of the web application-->
 		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
 		<plugins>
-			<plugin>
+			<!-- <plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>${appengine.maven.plugin.version}</version>
@@ -100,7 +100,7 @@
 						</goals>
 						<configuration>
 							<rules>
-								<!-- appengine-maven-plugin requires Maven 3.5.0 -->
+								<- appengine-maven-plugin requires Maven 3.5.0
 								<requireMavenVersion>
 									<version>3.5.0</version>
 								</requireMavenVersion>
@@ -108,7 +108,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 
 			<!-- spring boot stuff -->
 			<plugin>
