@@ -27,10 +27,11 @@ function sendUserLoginDetails(){
         url: URL,
         type: 'GET',
         data: JSON.stringify(dataa),
+        crossDomain: true,
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        dataType: 'json',
+        dataType: 'jsonp',
         success: function (data) {
             console.log("Success "+data);
             alert(data);

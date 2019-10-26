@@ -46,21 +46,18 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/del/{id}", method = RequestMethod.DELETE)
-    public void deleteUsers(@PathVariable ObjectId id) {
+    public void deleteUsers(@Valid @RequestBody ObjectId id) {
         repository.delete(repository.findBy_id(id));
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String createUsers (@PathVariable Users users) {
-//        String response=verifyNew(users);
-//        if(response.equals("Success")) {
-//            users.set_id(ObjectId.get());
-//            repository.save(users);
-//        }
-//        return response;
-        Users user = new Users(ObjectId.get(), "test", "test", "testT", "test", "test", "test");
-        repository.save(user);
-        return  "hello";
+    public String createUsers (@Valid @RequestBody Users users) {
+        String response=verifyNew(users);
+        if(response.equals("Success")) {
+            users.set_id(ObjectId.get());
+            repository.save(users);
+        }
+        return response;
     }
 
     @RequestMapping(value="/verify", method = RequestMethod.GET)
