@@ -8,7 +8,7 @@ function sendUserLoginDetails(){
     var password_ = document.getElementById("password").value;
     var confirm_Password = document.getElementById("confirmPassword").value;
 
-    var baseURL = "http://localhost:8080";
+    var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     var query = "/users/";
     var URL = baseURL + query;
 
