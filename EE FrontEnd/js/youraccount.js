@@ -65,11 +65,11 @@ function verifyLoginSuccess(){
         dataType: "json", 
         success: function (data) {
             console.log("Success: "+ data);
-            alert(data);
+            alert("Success"+data);
         },
         error: function(data){
             console.log("Error in verify login success");
-            alert(data);
+            alert("Success"+data);
         }
     });
 }

@@ -34,27 +34,6 @@ public class UsersController {
     @RequestMapping(value="/", method = RequestMethod.GET)
     public List<Users> getAllUsers() { return repository.findAll(); }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String createUsers (@Valid @RequestBody Users users) {
-        String response=verifyNew(users);
-        if(response.equals("Success")) {
-            users.set_id(ObjectId.get());
-            repository.save(users);
-        }
-        return response;
-    }
-
-    @RequestMapping(value="/verify", method = RequestMethod.GET)
-    public String verifyUser(@Valid @RequestBody Users users) {
-        String response = verify(users.userName, users.password);
-        return response;
-    }
-
-    @RequestMapping(value = "/del/{id}", method = RequestMethod.DELETE)
-    public void deleteUsers(@PathVariable ObjectId id) {
-        repository.delete(repository.findBy_id(id));
-    }
-
     @RequestMapping(value = "/{userName}/preferences", method = RequestMethod.POST)
     public void setPreferences(@Valid @RequestBody HashMap<String, String> issues, String userName){
         List<Users> collection = repository.findAll();
@@ -64,6 +43,30 @@ public class UsersController {
                 break;
             }
         }
+    }
+
+    @RequestMapping(value = "/del/{id}", method = RequestMethod.DELETE)
+    public void deleteUsers(@PathVariable ObjectId id) {
+        repository.delete(repository.findBy_id(id));
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public String createUsers (@Valid @RequestBody Users users) {
+//        String response=verifyNew(users);
+//        if(response.equals("Success")) {
+//            users.set_id(ObjectId.get());
+//            repository.save(users);
+//        }
+//        return response;
+        Users user = new Users(ObjectId.get(), "test", "test", "testT", "test", "test", "test");
+        repository.save(users);
+        return  "hello";
+    }
+
+    @RequestMapping(value="/verify", method = RequestMethod.GET)
+    public String verifyUser(@Valid @RequestBody Users users) {
+        String response = verify(users.userName, users.password);
+        return response;
     }
 
 
