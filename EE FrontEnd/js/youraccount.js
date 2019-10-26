@@ -14,7 +14,7 @@ function sendUserLoginDetails(){
 
     $.ajax({
         url: URL,
-        type: 'POST',
+        type: 'GET',
         data: {
             "firstName" : first_Name,
             "lastName" : last_Name,
@@ -49,7 +49,7 @@ function verifyLoginSuccess(){
 
     $.ajax({
         url: URL,
-        type: 'POST',
+        type: 'GET',
         data: {
             "firstName" : null,
             "lastName" : null,

@@ -50,8 +50,8 @@ public class UsersController {
         repository.delete(repository.findBy_id(id));
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String createUsers (@Valid @RequestBody Users users) {
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    public String createUsers (@PathVariable Users users) {
 //        String response=verifyNew(users);
 //        if(response.equals("Success")) {
 //            users.set_id(ObjectId.get());
