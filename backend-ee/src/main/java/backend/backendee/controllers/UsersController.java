@@ -17,7 +17,7 @@ public class UsersController {
     @Autowired
     private UsersRepository repository;
 
-    @RequestMapping(value="/username/{userName}", method = RequestMethod.GET)
+    @RequestMapping(value="/username/{userName}", method = RequestMethod.POST)
     public Users getUserByUserName(@PathVariable String userName){
         List<Users> collection = repository.findAll();
         for(Users user:collection){
@@ -34,7 +34,7 @@ public class UsersController {
     @RequestMapping(value="/", method = RequestMethod.GET)
     public List<Users> getAllUsers() { return repository.findAll(); }
 
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String createUsers (@Valid @RequestBody Users users) {
         String response=verifyNew(users);
         if(response.equals("Success")) {
