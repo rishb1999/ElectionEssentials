@@ -14,7 +14,7 @@ function sendUserLoginDetails(){
 
     $.ajax({
         url: URL,
-        type: "post",
+        type: 'POST',
         data: {
             "firstName" : first_Name,
             "lastName" : last_Name,
@@ -27,7 +27,7 @@ function sendUserLoginDetails(){
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        dataType: "json", 
+        dataType: 'json',
         success: function (data) {
             console.log("Success "+data);
             alert(data);
@@ -49,7 +49,7 @@ function verifyLoginSuccess(){
 
     $.ajax({
         url: URL,
-        type: "post",
+        type: 'POST',
         data: {
             "firstName" : null,
             "lastName" : null,
@@ -62,7 +62,7 @@ function verifyLoginSuccess(){
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        dataType: "json", 
+        dataType: 'json',
         success: function (data) {
             console.log("Success: "+ data);
             alert("Success"+data);
