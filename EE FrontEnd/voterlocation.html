@@ -169,20 +169,22 @@
                 }
                 var url = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com/locations/" + addr;
                 console.log("location = " + url);
-                try {
-                            $.getJSON(url, function (data) {//gets JSON from the API server
-                                var addresses = [];
-                                for(var x = 0; x < data.length; x++) 
-                                {
-                                    addresses.push(data[x]["address"]);
-                                }
-                                console.log(addresses);
-                            });
-                        }
-                        catch (e) 
+                try 
+                {
+                    $.getJSON(url, function (data) 
+                    {//gets JSON from the API server
+                        var addresses = [];
+                        for(var x = 0; x < data.length; x++) 
                         {
-                            alert("Please enter a valid Location");
+                            addresses.push(data[x]["address"]);
                         }
+                        console.log(addresses);
+                    });
+                }
+                catch (e) 
+                {
+                    alert("Please enter a valid Location");
+                }
                 //Geocoder
                 geocoder.geocode({address: address}, function(results, status)
                 {
@@ -198,7 +200,6 @@
                         alert("Invalid Location");
                     }
                 });
-            }
             }
         </script>
         
