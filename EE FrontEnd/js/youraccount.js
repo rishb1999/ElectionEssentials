@@ -9,7 +9,7 @@ function sendUserLoginDetails(){
     var confirm_Password = document.getElementById("confirmPassword").value;
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    var query = "/users/";
+    var query = "/users/create";
     var URL = baseURL + query;
 
     var dataa= {
@@ -50,7 +50,7 @@ function verifyLoginSuccess(){
     var password_ = document.getElementById("password").value;
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    var query = "/users/";
+    var query = "/users/verify";
     var URL = baseURL + query;
 
     $.ajax({
