@@ -10,6 +10,7 @@ public class Users {
     @Id
     public ObjectId _id;
 
+
     public String firstName;
     public String lastName;
     public String email;
@@ -21,8 +22,9 @@ public class Users {
 
     public Users(){}
 
-    public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword, HashMap<String, String> issues){
-        this._id=id;
+    public Users(/*ObjectId id,*/ String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword/*, HashMap<String, String> issues*/){
+       // this._id=id;
+       // this._id=userName;
         this.firstName=firstName;
         this.lastName=lastName;
         this.timeZone=timeZone;

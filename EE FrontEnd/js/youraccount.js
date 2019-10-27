@@ -8,22 +8,16 @@ function sendUserLoginDetails(){
     var password_ = document.getElementById("password").value;
     var confirm_Password = document.getElementById("confirmPassword").value;
 
-    var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
+    //var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
+    var baseURL = "http://localhost:8080"
     var query = "/users/create";
     var URL = baseURL + query;
 
-    var dataa= {
-        "firstName" : first_Name,
-        "lastName" : last_Name,
-        "email" : email_,
-        "timeZone" : time_Zone,
-        "userName" : username_,
-        "password" : password_,
-        "confirmPassword" : confirm_Password
-    }
+    var dataa= first_Name+ "," +last_Name+ "," + email_+ "," + time_Zone +"," + username_+ "," + password_ + "," + confirm_Password;
+    query = query+dataa;
     console.log(dataa);
 
-    $.ajax({
+   /* $.ajax({
         url: URL,
         type: 'GET',
         data: JSON.stringify(dataa),
@@ -39,18 +33,34 @@ function sendUserLoginDetails(){
         },
         error: function(data){
             console.log("Error in verify login success");
-            console.log(data);
+            //console.log(data);
             alert("Error Creating Account");
             alert(data);
         }
-    });
+    });*/
+
+    $.getJSON(baseURL+query, 
+     //{
+       /* "firstName" : first_Name,
+        "lastName" : last_Name,
+    "email" : email_,
+    "userName" : username_,
+    "password" : password_,
+    "confirmPassword" : confirm_Password*/
+
+        
+    // }, 
+     function(data) {
+         alert("IT WORKED");
+     });
 }
 
 function verifyLoginSuccess(){
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
 
-    var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
+   // var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
+    var baseURL = "http://localhost:8080"
     var query = "/users/verify";
     var URL = baseURL + query;
 

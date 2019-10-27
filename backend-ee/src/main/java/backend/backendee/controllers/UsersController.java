@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @CrossOrigin
 @RestController
@@ -50,14 +50,18 @@ public class UsersController {
         repository.delete(repository.findBy_id(id));
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String createUsers (@Valid @RequestBody Users users) {
-        String response=verifyNew(users);
+    //@RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/create/{ans}", method = RequestMethod.GET)
+    public String createUsers (/*@Valid*/ /*@RequestBody Map<String, Object> users*/@PathVariable("ans") String information) {
+        System.out.println("here");
+        System.out.println(information);
+        /*String response=verifyNew(users);
         if(response.equals("Success")) {
             users.set_id(ObjectId.get());
             repository.save(users);
         }
-        return response;
+        return response;*/
+        return "";
     }
 
     @RequestMapping(value="/verify", method = RequestMethod.GET)
