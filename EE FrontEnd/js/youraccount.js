@@ -73,7 +73,7 @@ function verifyLoginSuccess(){
         },
         error: function(data){
             console.log("Error in verify login success");
-            alert("Success"+data);
+            alert("Failure"+data);
         }
     });
 }
