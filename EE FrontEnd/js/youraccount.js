@@ -34,10 +34,12 @@ function sendUserLoginDetails(){
         dataType: 'jsonp',
         success: function (data) {
             console.log("Success "+data);
+            alert("Successfully Created Account");
             alert(data);
         },
         error: function(data){
             console.log("Error in verify login success");
+            alert("Error Creating Account");
             alert(data);
         }
     });
@@ -69,10 +71,12 @@ function verifyLoginSuccess(){
         dataType: 'json',
         success: function (data) {
             console.log("Success: "+ data);
+            alert("Successfully Logged In");
             alert("Success"+data);
         },
         error: function(data){
             console.log("Error in verify login success");
+            alert("Incorrect Login Information");
             alert("Failure"+data);
         }
     });
