@@ -9,30 +9,37 @@ function sendUserLoginDetails(){
     var confirm_Password = document.getElementById("confirmPassword").value;
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    var query = "/users/";
+    var query = "/users/create";
     var URL = baseURL + query;
+
+    var dataa= {
+        "firstName" : first_Name,
+        "lastName" : last_Name,
+        "email" : email_,
+        "timeZone" : time_Zone,
+        "userName" : username_,
+        "password" : password_,
+        "confirmPassword" : confirm_Password
+    }
+    console.log(dataa);
 
     $.ajax({
         url: URL,
-        type: "post",
-        data: {
-            "firstName" : first_Name,
-            "lastName" : last_Name,
-            "email" : email_,
-            "timeZone" : time_Zone,
-            "userName" : username_,
-            "password" : password_,
-            "confirmPassword" : confirm_Password
-        },
+        type: 'GET',
+        data: JSON.stringify(dataa),
+        crossDomain: true,
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        dataType: "json", 
+        dataType: 'jsonp',
         success: function (data) {
-            console.log(data);
+            console.log("Success "+data);
+            alert(data);
+        },
+        error: function(data){
+            console.log("Error in verify login success");
             alert(data);
         }
-
     });
 }
 
@@ -40,13 +47,13 @@ function verifyLoginSuccess(){
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
 
-    var baseURL = "http://localhost:8080";
+    var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     var query = "/users/verify";
     var URL = baseURL + query;
 
     $.ajax({
         url: URL,
-        type: "post",
+        type: 'GET',
         data: {
             "firstName" : null,
             "lastName" : null,
@@ -59,10 +66,14 @@ function verifyLoginSuccess(){
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        dataType: "json", 
+        dataType: 'json',
         success: function (data) {
-            console.log(data);
-            alert(data);
+            console.log("Success: "+ data);
+            alert("Success"+data);
+        },
+        error: function(data){
+            console.log("Error in verify login success");
+            alert("Success"+data);
         }
     });
 }
