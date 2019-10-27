@@ -5,3 +5,6 @@ spring:
       database: election_essentials
     rest:
       base-path: /api
+
+server: 
+  port: 5000

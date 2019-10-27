@@ -53,15 +53,21 @@ public class UsersController {
     //@RequestMapping(value = "/create", method = RequestMethod.GET)
     @RequestMapping(value = "/create/{ans}", method = RequestMethod.GET)
     public String createUsers (/*@Valid*/ /*@RequestBody Map<String, Object> users*/@PathVariable("ans") String information) {
-        System.out.println("here");
-        System.out.println(information);
-        /*String response=verifyNew(users);
-        if(response.equals("Success")) {
-            users.set_id(ObjectId.get());
-            repository.save(users);
+        //Parsing string now
+        //public Users(ObjectId id, String firstName, String lastName, 
+        //String email, String timeZone, 
+        //String userName, String password, String confirmPassword/*, 
+        String [] args = information.split(",");
+        Users u = new Users(ObjectId.get(), args[0], args[1], args[2],args[3], args[4], args[5], args[6]);
+        String response = "";
+        if(verify(args[4], args[5]).equals("success")) {
+            repository.save(u);
+            response = "SUCCESS";
+        } else {
+            response = "INVALID LOGIN (USER ALREADY EXISTS)";
         }
-        return response;*/
-        return "";
+
+        return response;
     }
 
     @RequestMapping(value="/verify", method = RequestMethod.GET)
@@ -77,19 +83,10 @@ public class UsersController {
         List<Users> collection = repository.findAll();
         for(Users iter:collection){
             if(iter.getUserName().equals(userName)){
-                user = iter;
+                return "invalid";
             }
         }
-        if(user==null){
-            response = "Invalid. Unknown username";
-        } else{
-            if(user.getPassword().equals(password)){
-                response = "Success";
-            } else{
-                response = "Invalid password";
-            }
-        }
-        return response;
+        return "success";
     }
 
     public String verifyNew(Users user){

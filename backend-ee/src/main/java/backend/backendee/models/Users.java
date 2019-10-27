@@ -22,9 +22,8 @@ public class Users {
 
     public Users(){}
 
-    public Users(/*ObjectId id,*/ String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword/*, HashMap<String, String> issues*/){
-       // this._id=id;
-       // this._id=userName;
+    public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword/*, HashMap<String, String> issues*/){
+        this._id=id;
         this.firstName=firstName;
         this.lastName=lastName;
         this.timeZone=timeZone;
