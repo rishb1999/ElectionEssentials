@@ -68,14 +68,14 @@ function verifyLoginSuccess(){
 
     $.get(baseURL + query, function(data) {
         for(var x = 0; x < data.length; x++) {
-            if(data[x]["username"] == username_) {
+            if(data[x]["userName"] == username_) {
                 if(data[x]["password"] == password_) {
                     window.location.href = "politicalalignmentquiz.html";
                 } else {
-                    alert("INVALID LOGIN");
+                    alert("INVALID LOGIN (WRONG PASSWORD)");
                 }
             }else {
-                alert("INVALID LOGIN");
+                alert("INVALID LOGIN (WRONG USERNAME)");
             }
         }
    });
