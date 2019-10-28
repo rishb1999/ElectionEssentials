@@ -64,6 +64,7 @@ function verifyLoginSuccess(){
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     //var baseURL = "http://localhost:8080"
     var query = "/users/";
+    var found = false;
     //var URL = baseURL + query;
 
     $.get(baseURL + query, function(data) {
@@ -71,12 +72,14 @@ function verifyLoginSuccess(){
             if(data[x]["userName"] == username_) {
                 if(data[x]["password"] == password_) {
                     window.location.href = "politicalalignmentquiz.html";
+                    found = true;
                 } else {
                     alert("INVALID LOGIN (WRONG PASSWORD)");
                 }
-            }else {
-                alert("INVALID LOGIN (WRONG USERNAME)");
             }
+        }
+        if(found == false) {
+            alert("INVALID LOGIN (WRONG USERNAME)");
         }
    });
 
