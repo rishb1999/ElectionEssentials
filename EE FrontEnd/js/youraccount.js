@@ -41,6 +41,8 @@ function verifyLoginSuccess(){
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
 
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     var query = "/users/verify/";
     var dataa = username_+","+password_;
@@ -49,7 +51,7 @@ function verifyLoginSuccess(){
     console.log(baseURL + query);
 
     try{
-        $.get(baseURL + query, function(data) {
+        $.get(proxyurl + baseURL + query, function(data) {
             data = data.toLowerCase();
             console.log(data);
             response = data;
