@@ -23,7 +23,7 @@ public class Users {
 
     public Users(){}
 
-    public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword,Lis <String> issues){
+    public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword){
         this._id=id;
         this.firstName=firstName;
         this.lastName=lastName;
@@ -31,7 +31,6 @@ public class Users {
         this.userName=userName;
         this.password=password;
         this.confirmPassword=confirmPassword;
-        this.issues=issues;
     }
 
     public String get_id() { return _id.toHexString(); }

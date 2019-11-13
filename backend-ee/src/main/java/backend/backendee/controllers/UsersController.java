@@ -75,7 +75,7 @@ public class UsersController {
         //String email, String timeZone, 
         //String userName, String password, String confirmPassword/*, 
         String [] args = information.split(",");
-        Users u = new Users(ObjectId.get(), args[0], args[1], args[2],args[3], args[4], args[5], args[6]);
+        Users u = new Users(ObjectId.get(), args[0], args[1], args[2], args[3], args[4], args[5], args[6]);
         String response = verifyNew(u);
         if(response.equals("success")) {
             repository.save(u);
@@ -86,13 +86,13 @@ public class UsersController {
     public String verifyNew(Users user){
         for(Users iter:collection){
             if(iter.getUserName().equals(user.getUserName())){
-                return"Invalid. That username is already taken";;
+                return "Invalid. That username is already taken";
             }
             if(iter.getEmail().equals(user.getEmail())){
                 return "Invalid. That email is already taken";
             }
         }
-        if(user.getPassword().equals(user.getConfirmPassword())){
+        if(!user.getPassword().equals(user.getConfirmPassword())){
             return "Passwords do not match";
         }
         return "success";

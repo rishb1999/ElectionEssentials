@@ -24,7 +24,7 @@ function sendUserLoginDetails(){
     try{
         $.get(baseURL + query, function(data) {
              response = data;
-             if(data === "SUCCESS") {
+             if(data === "success") {
                  window.location.href = "login.html";
              } else{
                  alert(response);
