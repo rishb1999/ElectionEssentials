@@ -76,20 +76,19 @@ public class UsersController {
         //String userName, String password, String confirmPassword/*, 
         String [] args = information.split(",");
         Users u = new Users(ObjectId.get(), args[0], args[1], args[2],args[3], args[4], args[5], args[6]);
-        String response = "";
-        if(verify(args[4], args[5]).equals("success")) {
+        String response = verifyNew(u);
+        if(response.equals("success")) {
             repository.save(u);
-            response = "SUCCESS";
-        } else {
-            response = "INVALID LOGIN (USER ALREADY EXISTS)";
         }
-
         return response;
     }
 
-    @RequestMapping(value="/verify", method = RequestMethod.GET)
-    public String verifyUser(HttpServletResponse response, @Valid @RequestBody Users users) {
-        String response = verify(users.userName, users.password);
+    @RequestMapping(value="/verify/{ans}", method = RequestMethod.GET)
+    public String verifyUser(HttpServletResponse response, @PathVariable("ans") String login) {
+        String [] loginCred = login.split(",");
+        String userName = loginCred[0];
+        String passWord = loginCred[1];
+        String response = verify(userName, passWord);
         if(response.equals("success"){
             Cookie cookie = new Cookie(users.userName, "username");
             response.add(cookie);
@@ -98,8 +97,12 @@ public class UsersController {
     }
 
     public String verify(String userName, String password){
-        if(findUser(userName)==null){
-            return "invalid";
+        Users user = findUser(userName);
+        if(user==null){
+            return "INVALID USERNAME";
+        }
+        if(!user.getPassword()).equals(password)){
+            return "INVALID PASSWORD";
         }
         return "success";
     }
@@ -117,7 +120,7 @@ public class UsersController {
         } else if(!user.getPassword().equals(user.getConfirmPassword())){
             response = "Passwords do not match";
         } else{
-            response = "Success";
+            response = "success";
         }
         return response;
     }

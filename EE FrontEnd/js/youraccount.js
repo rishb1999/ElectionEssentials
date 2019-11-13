@@ -24,10 +24,10 @@ function sendUserLoginDetails(){
     try{
         $.get(baseURL + query, function(data) {
              response = data;
-             if(data == "SUCCESS") {
+             if(data === "SUCCESS") {
                  window.location.href = "login.html";
              } else{
-                 alert("USERNAME ALREADY EXISTS")
+                 alert(response);
              }
         });
     }catch(e) {
@@ -43,24 +43,30 @@ function verifyLoginSuccess(){
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     //var baseURL = "http://localhost:8080"
-    var query = "/users/verify";
+    var query = "/users/verify/"+username_+","+password_;
     var foundUsername = false;
     //var URL = baseURL + query;
 
     $.get(baseURL + query, function(data) {
-        for(var x = 0; x < data.length; x++) {
-            if(data[x]["userName"] == username_) {
-                if(data[x]["password"] == password_) {
-                    window.location.href = "politicalalignmentquiz.html";
-                } else {
-                    alert("INVALID LOGIN (WRONG PASSWORD)");
-                }
-                foundUsername = true;
-            }
+        response = data;
+        if(data === "success"){
+            window.location.href = "politicalalignmentquiz.html";
+        } else{
+            alert(response);
         }
-        if(foundUsername == false) {
-            alert("INVALID LOGIN (WRONG USERNAME)");
-        }
+        // for(var x = 0; x < data.length; x++) {
+        //     if(data[x]["userName"] == username_) {
+        //         if(data[x]["password"] == password_) {
+        //             window.location.href = "politicalalignmentquiz.html";
+        //         } else {
+        //             alert("INVALID LOGIN (WRONG PASSWORD)");
+        //         }
+        //         foundUsername = true;
+        //     }
+        // }
+        // if(foundUsername == false) {
+        //     alert("INVALID LOGIN (WRONG USERNAME)");
+        // }
    });
 
 }
