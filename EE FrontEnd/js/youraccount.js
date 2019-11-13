@@ -23,9 +23,10 @@ function sendUserLoginDetails(){
     console.log(baseURL + query);
     try{
         $.get(baseURL + query, function(data) {
+            data = data.toLowerCase();
             console.log(data);
              response = data;
-             if(data === "SUCCESS") {
+             if(data == "success") {
                  window.location.href = "login.html";
              } else{
                  alert(response + "this is wrong");
@@ -47,9 +48,10 @@ function verifyLoginSuccess(){
 
 
     $.get(baseURL + query, function(data) {
+        data = data.toLowerCase();
         console.log(data);
         response = data;
-        if(data === "success"){
+        if(data == "success"){
             window.location.href = "politicalalignmentquiz.html";
         } else{
             alert(response + "this is still wrong");

@@ -77,7 +77,7 @@ public class UsersController {
         String [] args = information.split(",");
         Users u = new Users(ObjectId.get(), args[0], args[1], args[2], args[3], args[4], args[5], args[6]);
         String response = verifyNew(u);
-        if(response.equals("SUCCESS")) {
+        if(response.equals("success")) {
             repository.save(u);
         }
         return response;
@@ -92,10 +92,10 @@ public class UsersController {
                 return "Invalid. That email is already taken";
             }
         }
-        if(!user.getPassword().equals(user.getConfirmPassword())){
+        if(!(user.getPassword().equals(user.getConfirmPassword())){
             return "Passwords do not match";
         }
-        return "SUCCESS";
+        return "success";
     }
 
     @RequestMapping(value="/verify/{ans}", method = RequestMethod.GET)
