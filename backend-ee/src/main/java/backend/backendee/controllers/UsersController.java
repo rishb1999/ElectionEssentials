@@ -77,7 +77,7 @@ public class UsersController {
         String [] args = information.split(",");
         Users u = new Users(ObjectId.get(), args[0], args[1], args[2], args[3], args[4], args[5], args[6]);
         String response = verifyNew(u);
-        if(response.equals("success")) {
+        if(response.equals("SUCCESS")) {
             repository.save(u);
         }
         return response;
@@ -95,7 +95,7 @@ public class UsersController {
         if(!user.getPassword().equals(user.getConfirmPassword())){
             return "Passwords do not match";
         }
-        return "success";
+        return "SUCCESS";
     }
 
     @RequestMapping(value="/verify/{ans}", method = RequestMethod.GET)
