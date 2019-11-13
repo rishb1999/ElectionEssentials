@@ -23,11 +23,12 @@ function sendUserLoginDetails(){
     console.log(baseURL + query);
     try{
         $.get(baseURL + query, function(data) {
+            console.log(data);
              response = data;
              if(data === "success") {
                  window.location.href = "login.html";
              } else{
-                 alert(response);
+                 alert(response + "this is wrong");
              }
         });
     }catch(e) {
@@ -42,17 +43,16 @@ function verifyLoginSuccess(){
     var password_ = document.getElementById("password").value;
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    //var baseURL = "http://localhost:8080"
     var query = "/users/verify/"+username_+","+password_;
-    var foundUsername = false;
-    //var URL = baseURL + query;
+
 
     $.get(baseURL + query, function(data) {
+        console.log(data);
         response = data;
         if(data === "success"){
             window.location.href = "politicalalignmentquiz.html";
         } else{
-            alert(response);
+            alert(response + "this is still wrong");
         }
         // for(var x = 0; x < data.length; x++) {
         //     if(data[x]["userName"] == username_) {
