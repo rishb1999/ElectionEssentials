@@ -25,7 +25,7 @@ function sendUserLoginDetails(){
         $.get(baseURL + query, function(data) {
              response = data;
              if(data == "SUCCESS") {
-                 window.location.href = "politicalalignmentquiz.html";
+                 window.location.href = "login.html";
              } else{
                  alert("USERNAME ALREADY EXISTS")
              }
@@ -43,7 +43,7 @@ function verifyLoginSuccess(){
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     //var baseURL = "http://localhost:8080"
-    var query = "/users/";
+    var query = "/users/verify";
     var foundUsername = false;
     //var URL = baseURL + query;
 

@@ -18,11 +18,12 @@ public class Users {
     public String userName;
     public String password;
     public String confirmPassword;
+    public List<String> issues;
 
 
     public Users(){}
 
-    public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword/*, HashMap<String, String> issues*/){
+    public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword,Lis <String> issues){
         this._id=id;
         this.firstName=firstName;
         this.lastName=lastName;
@@ -30,6 +31,7 @@ public class Users {
         this.userName=userName;
         this.password=password;
         this.confirmPassword=confirmPassword;
+        this.issues=issues;
     }
 
     public String get_id() { return _id.toHexString(); }
@@ -56,7 +58,7 @@ public class Users {
     public String getConfirmPassword() { return confirmPassword; }
     public void setConfirmPassword(String confirmPassword) { this.confirmPassword = confirmPassword; }
 
-    //public HashMap<String, String> getIssues() { return issues; }
-    //public void setIssues(HashMap<String, String> issues){ this.issues = issues};
+    public List<String> getIssues() { return issues; }
+    public void setIssues(List<String> issues){ this.issues = issues};
 
 }
