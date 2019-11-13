@@ -5,6 +5,13 @@ function getNews(){
     const newsapi = new NewsAPI('68e746d6fb344e0995830a55620da67f');
     var result;
 
+    var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
+    var preferences = "/users/preferences"
+
+    $.get(baseURL + issues, function(data){
+        alert(data);
+    });
+
     var topHeadlineCategories = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
     var keyWords;
 

@@ -88,8 +88,8 @@ public class UsersController {
     }
 
     @RequestMapping(value="/verify", method = RequestMethod.GET)
-    public String verifyUser(@Valid @RequestBody Users users) {
-        String response = verify(users.userName, users.password, HttpServletResponse response);
+    public String verifyUser(HttpServletResponse response, @Valid @RequestBody Users users) {
+        String response = verify(users.userName, users.password);
         if(response.equals("success"){
             Cookie cookie = new Cookie(users.userName, "username");
             response.add(cookie);
