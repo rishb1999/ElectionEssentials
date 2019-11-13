@@ -10,7 +10,6 @@ function sendUserLoginDetails(){
     var confirm_Password = document.getElementById("confirmPassword").value;
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    //var baseURL = "http://localhost:8080"
     var query = "/users/create/";
 
     while(time_Zone.includes(" ")) 
@@ -29,14 +28,13 @@ function sendUserLoginDetails(){
              if(data == "success") {
                  window.location.href = "login.html";
              } else{
-                 alert(response + "this is wrong");
+                 alert(response + " this is wrong");
              }
         });
     }catch(e) {
         console.log(e);
         console.log("YOURE AN IDIOT");
     }
-    console.log(response);
 }
 
 function verifyLoginSuccess(){
@@ -46,16 +44,24 @@ function verifyLoginSuccess(){
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     var query = "/users/verify/"+username_+","+password_;
 
+    console.log(baseURL + query);
+    try{
+        $.get(baseURL + query, function(data) {
+            data = data.toLowerCase();
+            console.log(data);
+            response = data;
+            if(data == "success"){
+                window.location.href = "politicalalignmentquiz.html";
+            } else {
+                alert(response + "this is still wrong");
+            }
+        });
+    } catch(e){
+        console.log(e);
+        alert(e);
+    }
 
-    $.get(baseURL + query, function(data) {
-        data = data.toLowerCase();
-        console.log(data);
-        response = data;
-        if(data == "success"){
-            window.location.href = "politicalalignmentquiz.html";
-        } else{
-            alert(response + "this is still wrong");
-        }
+
         // for(var x = 0; x < data.length; x++) {
         //     if(data[x]["userName"] == username_) {
         //         if(data[x]["password"] == password_) {
@@ -69,6 +75,5 @@ function verifyLoginSuccess(){
         // if(foundUsername == false) {
         //     alert("INVALID LOGIN (WRONG USERNAME)");
         // }
-   });
 
 }

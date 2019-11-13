@@ -5,6 +5,7 @@ import backend.backendee.repositories.UsersRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -40,8 +41,8 @@ public class UsersController {
     public List<Users> getAllUsers() { return collection; }
 
     @RequestMapping(value = "/setPreferences/{ans}", method = RequestMethod.GET)
-    public void setPreferences(HttpServletRequest request, @PathVariable("ans") String issues){
-        Cookie[] cookie = request.getCookies();
+    public void setPreferences(HttpServletRequest req, @PathVariable("ans") String issues){
+        Cookie[] cookie = req.getCookies();
         if (cookies != null) {
             String userName = cookie[0].getName();
             Users user = findUser(userName);
@@ -52,8 +53,8 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/getPreferences", method = RequestMethod.GET)
-    public List<String> getPreferences(HttpServletRequest request){
-        Cookie[] cookie = request.getCookies();
+    public List<String> getPreferences(HttpServletRequest req){
+        Cookie[] cookie = req.getCookies();
         if (cookies != null) {
             String userName = cookie[0].getName();
             Users user = findUser(userName);
@@ -99,14 +100,14 @@ public class UsersController {
     }
 
     @RequestMapping(value="/verify/{ans}", method = RequestMethod.GET)
-    public String verifyUser(HttpServletResponse response, @PathVariable("ans") String login) {
+    public String verifyUser(@PathVariable("ans") String login, HttpServletResponse resp) {
         String [] loginCred = login.split(",");
         String userName = loginCred[0];
         String passWord = loginCred[1];
         String response = verify(userName, passWord);
         if(response.equals("success"){
             Cookie cookie = new Cookie(users.userName, "username");
-            response.add(cookie);
+            resp.add(cookie);
         }
         return response;
     }
