@@ -39,17 +39,19 @@ public class UsersController {
     @RequestMapping(value="/", method = RequestMethod.GET)
     public List<Users> getAllUsers() { return collection; }
 
-    @RequestMapping(value = "/preferences", method = RequestMethod.POST)
-    public void setPreferences(HttpServletRequest request, @Valid @RequestBody List<String> issues){
+    @RequestMapping(value = "/setPreferences/{ans}", method = RequestMethod.GET)
+    public void setPreferences(HttpServletRequest request, @PathVariable("ans") String issues){
         Cookie[] cookie = request.getCookies();
         if (cookies != null) {
             String userName = cookie[0].getName();
             Users user = findUser(userName);
-            user.setIssues(issues);
+
+            List<String> Issues = issues.split(",");
+            user.setIssues(Issues);
         }
     }
 
-    @RequestMapping(value = "/preferences", method = RequestMethod.GET)
+    @RequestMapping(value = "/getPreferences", method = RequestMethod.GET)
     public List<String> getPreferences(HttpServletRequest request){
         Cookie[] cookie = request.getCookies();
         if (cookies != null) {
