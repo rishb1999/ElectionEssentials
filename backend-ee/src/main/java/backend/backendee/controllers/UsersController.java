@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.*;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/users")
 public class UsersController {

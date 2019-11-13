@@ -45,6 +45,7 @@ function verifyLoginSuccess(){
     var query = "/users/verify/"+username_+","+password_;
 
     console.log(baseURL + query);
+
     try{
         $.get(baseURL + query, function(data) {
             data = data.toLowerCase();
