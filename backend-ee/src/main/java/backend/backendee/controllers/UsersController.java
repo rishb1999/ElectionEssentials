@@ -83,6 +83,21 @@ public class UsersController {
         return response;
     }
 
+    public String verifyNew(Users user){
+        for(Users iter:collection){
+            if(iter.getUserName().equals(user.getUserName())){
+                return"Invalid. That username is already taken";;
+            }
+            if(iter.getEmail().equals(user.getEmail())){
+                return "Invalid. That email is already taken";
+            }
+        }
+        if(user.getPassword().equals(user.getConfirmPassword())){
+            return "Passwords do not match";
+        }
+        return "success";
+    }
+
     @RequestMapping(value="/verify/{ans}", method = RequestMethod.GET)
     public String verifyUser(HttpServletResponse response, @PathVariable("ans") String login) {
         String [] loginCred = login.split(",");
@@ -105,24 +120,6 @@ public class UsersController {
             return "INVALID PASSWORD";
         }
         return "success";
-    }
-
-    public String verifyNew(Users user){
-        String response="";
-        Users userr = findUser(user.userName());
-        String checkUserName = userr.userName();
-        String checkEmail = null;
-
-        if(user.getUserName().equals(checkUserName)) {
-            response = "Invalid. That username is already taken";
-        } else if(user.getEmail().equals(checkEmail)){
-            response = "Invalid. That email is already taken";
-        } else if(!user.getPassword().equals(user.getConfirmPassword())){
-            response = "Passwords do not match";
-        } else{
-            response = "success";
-        }
-        return response;
     }
 
     public Users findUser(String userName){
