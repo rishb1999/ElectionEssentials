@@ -30,19 +30,12 @@ public class UsersController {
 
 
     @RequestMapping(value="/username/{userName}", method = RequestMethod.POST)
-    public Users getUserByUserName(@PathVariable String userName){
-        List<Users> collection = repository.findAll();
-        for(Users user:collection){
-            if(user.getUserName().equals(userName)){
-                return user;
-            }
-        }
-        return null;
+    public Users getUserByUserName(@PathVariable("userName") String userName){
         return findUser(userName);
     }
 
     @RequestMapping(value="/id/{id}", method = RequestMethod.GET)
-    public Users getUserById(@PathVariable ObjectId id){ return repository.findBy_id(id); }
+    public Users getUserById(@PathVariable("id") ObjectId id){ return repository.findBy_id(id); }
 
     @RequestMapping(value="/", method = RequestMethod.GET)
     public List<Users> getAllUsers() { return collection; }
@@ -50,11 +43,11 @@ public class UsersController {
     @RequestMapping(value = "/setPreferences/{ans}", method = RequestMethod.GET)
     public void setPreferences(HttpServletRequest req, @PathVariable("ans") String issues) {
         Cookie[] cookie = req.getCookies();
-        if (cookies != null) {
+        if (cookie != null) {
             String userName = cookie[0].getName();
             Users user = findUser(userName);
 
-            List<String> Issues = issues.split(",");
+            List<String> Issues = Arrays.asList(issues.split(","));
             user.setIssues(Issues);
         }
     }
@@ -62,7 +55,7 @@ public class UsersController {
     @RequestMapping(value = "/getPreferences", method = RequestMethod.GET)
     public List<String> getPreferences(HttpServletRequest req){
         Cookie[] cookie = req.getCookies();
-        if (cookies != null) {
+        if (cookie != null) {
             String userName = cookie[0].getName();
             Users user = findUser(userName);
             return user.getIssues();
@@ -106,20 +99,21 @@ public class UsersController {
         return "success";
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @RequestMapping(value="/login/{ans}", method = RequestMethod.GET)
-    public String verifyUser(@PathVariable("ans") String login, HttpServletResponse resp) throws ServletException {
+    public String verifyUser(@PathVariable("ans") String login, HttpServletResponse resp) {
         String [] loginCred = login.split(",");
         String userName = loginCred[0];
         String passWord = loginCred[1];
         String response = verify(userName, passWord);
         if(response.equals("success"){
-            Cookie cookie = new Cookie(users.userName, "username");
+            Cookie cookie = new Cookie(userName, "username");
             cookie.setHttpOnly(true);
             //cookie.setSecure(true);
             //cookie.setDomain("http://ee461l-election-essentials.appspot.com");
             //cookie.setDomain("http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com/users");
             cookie.setPath("/users");
-            resp.add(cookie);
+            resp.addCookie(cookie);
         }
         return response;
     }
@@ -129,7 +123,7 @@ public class UsersController {
         if(user==null){
             return "INVALID USERNAME";
         }
-        if(!user.getPassword()).equals(password)){
+        if(!(user.getPassword().equals(password))){
             return "INVALID PASSWORD";
         }
         return "success";

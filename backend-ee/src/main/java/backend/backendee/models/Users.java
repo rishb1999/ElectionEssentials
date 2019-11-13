@@ -1,6 +1,6 @@
 package backend.backendee.models;
 
-import java.util.HashMap;
+import java.util.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -27,6 +27,7 @@ public class Users {
         this._id=id;
         this.firstName=firstName;
         this.lastName=lastName;
+        this.email=email;
         this.timeZone=timeZone;
         this.userName=userName;
         this.password=password;
