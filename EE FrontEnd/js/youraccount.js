@@ -1,3 +1,5 @@
+import * as $ from "core-js";
+
 let response;
 
 function sendUserLoginDetails(){
@@ -26,7 +28,7 @@ function sendUserLoginDetails(){
             console.log(data);
              response = data;
              if(data == "success") {
-                 window.location.href = "login.html";
+                 //window.location.href = "login.html";
              } else{
                  alert(response + " this is wrong");
              }
@@ -42,7 +44,9 @@ function verifyLoginSuccess(){
     var password_ = document.getElementById("password").value;
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    var query = "/users/verify/"+username_+","+password_;
+    var query = "/users/verify/";
+    var dataa = username_+","+password_;
+    query = query+dataa;
 
     console.log(baseURL + query);
 
