@@ -59,6 +59,6 @@ public class Users {
     public void setConfirmPassword(String confirmPassword) { this.confirmPassword = confirmPassword; }
 
     public List<String> getIssues() { return issues; }
-    public void setIssues(List<String> issues){ this.issues = issues};
+    public void setIssues(List<String> issues){ this.issues = issues; }
 
 }
