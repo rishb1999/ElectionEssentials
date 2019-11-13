@@ -106,7 +106,7 @@ public class UsersController {
         String userName = loginCred[0];
         String passWord = loginCred[1];
         String response = verify(userName, passWord);
-        if(response.equals("success"){
+        if(response.equals("success")){
             Cookie cookie = new Cookie(userName, "username");
             cookie.setHttpOnly(true);
             //cookie.setSecure(true);
