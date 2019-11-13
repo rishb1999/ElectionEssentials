@@ -11,6 +11,8 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.*;
 
+import java.net.*;
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/users")
@@ -107,6 +109,10 @@ public class UsersController {
         String response = verify(userName, passWord);
         if(response.equals("success"){
             Cookie cookie = new Cookie(users.userName, "username");
+            //cookie.setSecure(true);
+            //cookie.setDomain("http://ee461l-election-essentials.appspot.com");
+            //cookie.setDomain("http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com/users");
+            //cookie.setPath("/users");
             resp.add(cookie);
         }
         return response;
