@@ -1,26 +1,59 @@
 let response;
 
 function sendUserIssues() {
-    var criminal_justice = document.getElementById("criminal_justice").value;
-    var economy = document.getElementById("economy").value;
-    var education = document.getElementById("education").value;
-    var energy_and_environment = document.getElementById("energy_and_environment").value;
-    var gun_control = document.getElementById("gun_control").value;
-    var healthcare = document.getElementById("healthcare").value;
-    var immigration = document.getElementById("immigration").value;
-    var military = document.getElementById("military").value;
-    var taxes = document.getElementById("taxes").value;
-    var technology = document.getElementById("technology").value;
-    var trade = document.getElementById("trade").value;
+    var issues = "?issues=";
 
-    var currentLocation = window.location.href;
+    var criminal_justice = document.getElementById("criminal_justice").value;
+    if (criminal_justice === "Yes"){
+        issues.concat("criminal_justice");
+    }
+    var economy = document.getElementById("economy").value;
+    if (economy === "Yes"){
+        issues.concat(",economy");
+    }
+    var education = document.getElementById("education").value;
+    if (education === "Yes"){
+        issues.concat(",education");
+    }
+    var energy_and_environment = document.getElementById("energy_and_environment").value;
+    if (energy_and_environment === "Yes"){
+        issues.concat(",energy_and_environment");
+    }
+    var gun_control = document.getElementById("gun_control").value;
+    if (gun_control === "Yes"){
+        issues.concat(",gun_control");
+    }
+    var healthcare = document.getElementById("healthcare").value;
+    if (healthcare === "Yes"){
+        issues.concat(",healthcare");
+    }
+    var immigration = document.getElementById("immigration").value;
+    if (immigration === "Yes"){
+        issues.concat(",immigration");
+    }
+    var military = document.getElementById("military").value;
+    if (military === "Yes"){
+        issues.concat(",military");
+    }
+    var taxes = document.getElementById("taxes").value;
+    if (taxes === "Yes"){
+        issues.concat(",taxes");
+    }
+    var technology = document.getElementById("technology").value;
+    if (technology === "Yes"){
+        issues.concat(",technology");
+    }
+    var trade = document.getElementById("trade").value;
+    if (trade === "Yes"){
+        issues.concat(",trade");
+    }
+
 
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    var query = "blah";
 
 
-    $.get(baseURL + query, function(data){
-
+    $.get(baseURL + issues, function(data){
+        alert(data);
     });
 }
