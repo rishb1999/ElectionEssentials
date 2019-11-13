@@ -43,7 +43,7 @@ public class UsersController {
     public List<Users> getAllUsers() { return collection; }
 
     @RequestMapping(value = "/setPreferences/{ans}", method = RequestMethod.GET)
-    public void setPreferences(HttpServletRequest req, @PathVariable("ans") String issues){
+    public void setPreferences(HttpServletRequest req, @PathVariable("ans") String issues) {
         Cookie[] cookie = req.getCookies();
         if (cookies != null) {
             String userName = cookie[0].getName();
@@ -102,17 +102,18 @@ public class UsersController {
     }
 
     @RequestMapping(value="/verify/{ans}", method = RequestMethod.GET)
-    public String verifyUser(@PathVariable("ans") String login, HttpServletResponse resp) {
+    public String verifyUser(@PathVariable("ans") String login, HttpServletResponse resp) throws ServletException {
         String [] loginCred = login.split(",");
         String userName = loginCred[0];
         String passWord = loginCred[1];
         String response = verify(userName, passWord);
         if(response.equals("success"){
             Cookie cookie = new Cookie(users.userName, "username");
+            cookie.setHttpOnly(true);
             //cookie.setSecure(true);
             //cookie.setDomain("http://ee461l-election-essentials.appspot.com");
             //cookie.setDomain("http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com/users");
-            //cookie.setPath("/users");
+            cookie.setPath("/users");
             resp.add(cookie);
         }
         return response;
