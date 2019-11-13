@@ -12,6 +12,10 @@ import java.util.HashMap;
 import java.util.*;
 
 import java.net.*;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -101,7 +105,7 @@ public class UsersController {
         return "success";
     }
 
-    @RequestMapping(value="/verify/{ans}", method = RequestMethod.GET)
+    @RequestMapping(value="/login/{ans}", method = RequestMethod.GET)
     public String verifyUser(@PathVariable("ans") String login, HttpServletResponse resp) throws ServletException {
         String [] loginCred = login.split(",");
         String userName = loginCred[0];
@@ -138,4 +142,5 @@ public class UsersController {
         }
         return null;
     }
+
 }
