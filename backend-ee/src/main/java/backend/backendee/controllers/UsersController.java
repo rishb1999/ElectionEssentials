@@ -93,7 +93,7 @@ public class UsersController {
                 return "Invalid. That email is already taken";
             }
         }
-        if(!(user.getPassword().equals(user.getConfirmPassword())){
+        if(!(user.getPassword().equals(user.getConfirmPassword()))){
             return "Passwords do not match";
         }
         return "success";
