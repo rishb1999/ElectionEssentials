@@ -1,4 +1,5 @@
 let response;
+
 function sendUserLoginDetails(){
     var first_Name = document.getElementById("firstName").value;
     var last_Name = document.getElementById("lastName").value;
@@ -16,37 +17,17 @@ function sendUserLoginDetails(){
     {
   	    time_Zone = time_Zone.replace(" ", "%20");
     }
-
     var dataa= first_Name+ "," +last_Name+ "," + email_+ "," + time_Zone +"," + username_+ "," + password_ + "," + confirm_Password;
     query = query+dataa;
-   
-   /* $.ajax({
-        url: URL,
-        type: 'GET',
-        data: JSON.stringify(dataa),
-        crossDomain: true,
-        headers: {
-            "Access-Control-Allow-Origin" : "*"
-        },
-        dataType: 'jsonp',
-        success: function (data) {
-            console.log("Success "+data);
-            alert("Successfully Created Account");
-            alert(data);
-        },
-        error: function(data){
-            console.log("Error in verify login success");
-            //console.log(data);
-            alert("Error Creating Account");
-            alert(data);
-        }
-    });*/
+
     console.log(baseURL + query);
     try{
         $.get(baseURL + query, function(data) {
              response = data;
              if(data == "SUCCESS") {
                  window.location.href = "politicalalignmentquiz.html";
+             } else{
+                 alert("USERNAME ALREADY EXISTS")
              }
         });
     }catch(e) {
@@ -63,7 +44,7 @@ function verifyLoginSuccess(){
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
     //var baseURL = "http://localhost:8080"
     var query = "/users/";
-    var found = false;
+    var foundUsername = false;
     //var URL = baseURL + query;
 
     $.get(baseURL + query, function(data) {
@@ -74,10 +55,10 @@ function verifyLoginSuccess(){
                 } else {
                     alert("INVALID LOGIN (WRONG PASSWORD)");
                 }
-                found = true;
+                foundUsername = true;
             }
         }
-        if(found == false) {
+        if(foundUsername == false) {
             alert("INVALID LOGIN (WRONG USERNAME)");
         }
    });
