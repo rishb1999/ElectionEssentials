@@ -1,6 +1,8 @@
-let response;
+
 
 function sendUserLoginDetails(){
+    let response;
+
     var first_Name = document.getElementById("firstName").value;
     var last_Name = document.getElementById("lastName").value;
     var email_ = document.getElementById("email").value;
@@ -38,6 +40,8 @@ function sendUserLoginDetails(){
 }
 
 function verifyLoginSuccess(){
+    let response;
+    
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
 
