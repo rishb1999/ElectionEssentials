@@ -25,7 +25,7 @@ public class UsersController {
     @Autowired
     private UsersRepository repository;
 
-    private List<Users> collection = repository.findAll();
+    //private List<Users> collection = repository.findAll();
 
 
 
@@ -38,7 +38,9 @@ public class UsersController {
     public Users getUserById(@PathVariable("id") ObjectId id){ return repository.findBy_id(id); }
 
     @RequestMapping(value="/", method = RequestMethod.GET)
-    public List<Users> getAllUsers() { return collection; }
+    public List<Users> getAllUsers() {
+        return  repository.findAll(); //collection;
+    }
 
     @RequestMapping(value = "/setPreferences/{ans}", method = RequestMethod.GET)
     public void setPreferences(HttpServletRequest req, @PathVariable("ans") String issues) {
@@ -85,6 +87,7 @@ public class UsersController {
     }
 
     public String verifyNew(Users user){
+        List<Users> collection = repository.findAll();
         for(Users iter:collection){
             if(iter.getUserName().equals(user.getUserName())){
                 return "Invalid. That username is already taken";
@@ -130,6 +133,7 @@ public class UsersController {
     }
 
     public Users findUser(String userName){
+        List<Users>  collection = repository.findAll();
         for(Users iter:collection){
             if(iter.getUserName().equals(userName)){
                 return iter;
