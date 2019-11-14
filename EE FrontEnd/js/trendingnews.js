@@ -1,7 +1,6 @@
 
 
 function sendNews(){
-    console.log("got to send news");
     var issue = document.getElementById("news-select").value;
     console.log(issue);
 
@@ -11,8 +10,34 @@ function sendNews(){
     var req = new Request(url);
     fetch(req)
         .then(function(response) {
-            console.log(response.json());
+            return response.json();
         })
+        .then(function(myJSON) {
+            if(myJSON.status=="ok"){
+                var articles = myJSON.articles;
+                for (var i = 0; i < articles.length; i++){
+                    var listElement = document.createElement("LI");                           
+                    var a = document.createElement('a');
+                    var titleNode = document.createTextNode(articles[i].title+'\n');         
+                    a.appendChild(titleNode);
+                    a.href=articles[i].url;
+                    listElement.appendChild(a);                                        
+                    
+                    if(articles[i].author!=null){
+                        var authorNode = document.createTextNode(articles[i].author+'\n');
+                        listElement.appendChild(authorNode);
+                    }
+                    if(articles[i].description!=null){
+                        var descriptionNode = document.createTextNode(articles[i].description+'\n');
+                        listElement.appendChild(descriptionNode);
+                    }
+                    document.getElementById("news-list").appendChild(listElement);     
+                }
+                  
+            }else {
+                console.log("FAILED");
+            }
+        });
 }
 
 function getNews(){
