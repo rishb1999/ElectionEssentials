@@ -1,4 +1,20 @@
 
+
+function sendNews(){
+    console.log("got to send news");
+    var issue = document.getElementById("news-select").value;
+    console.log(issue);
+
+    var url = 'https://newsapi.org/v2/top-headlines?' +
+          'q=' + issue + '&'+
+          'apiKey=68e746d6fb344e0995830a55620da67f';
+    var req = new Request(url);
+    fetch(req)
+        .then(function(response) {
+            console.log(response.json());
+        })
+}
+
 function getNews(){
 
     const NewsAPI = require('newsapi');

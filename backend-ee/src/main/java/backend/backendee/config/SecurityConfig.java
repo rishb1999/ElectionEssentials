@@ -1,4 +1,4 @@
-package backend.backendee.config;
+/*package backend.backendee.config;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -26,4 +26,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .roles("USER");
     }
 
-}
+}*/
