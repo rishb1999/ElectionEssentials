@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CandidatesRepository extends MongoRepository<Candidates, String> {
-  Candidates findBy_id(ObjectId _id);
+  public Candidates findBy_id(ObjectId _id);
 }
