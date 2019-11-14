@@ -6,6 +6,7 @@ function sendNews(){
 
     var url = 'https://newsapi.org/v2/top-headlines?' +
           'q=' + issue + '&'+
+          'language=en&' +
           'apiKey=68e746d6fb344e0995830a55620da67f';
     var req = new Request(url);
     fetch(req)
