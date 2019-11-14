@@ -5,47 +5,47 @@ function sendUserIssues() {
 
     var criminal_justice = document.getElementById("criminal_justice").value;
     if (criminal_justice === "Yes"){
-        issues.concat("criminal_justice,");
+        issues += "criminal_justice,";
     }
     var economy = document.getElementById("economy").value;
     if (economy === "Yes"){
-        issues.concat("economy,");
+        issues+="economy,";
     }
     var education = document.getElementById("education").value;
     if (education === "Yes"){
-        issues.concat("education,");
+        issues+="education,";
     }
     var energy_and_environment = document.getElementById("energy_and_environment").value;
     if (energy_and_environment === "Yes"){
-        issues.concat("energy_and_environment,");
+        issues+="energy_and_environment,";
     }
     var gun_control = document.getElementById("gun_control").value;
     if (gun_control === "Yes"){
-        issues.concat("gun_control,");
+        issues+="gun_control,";
     }
     var healthcare = document.getElementById("healthcare").value;
     if (healthcare === "Yes"){
-        issues.concat("healthcare,");
+        issues+="healthcare,";
     }
     var immigration = document.getElementById("immigration").value;
     if (immigration === "Yes"){
-        issues.concat("immigration,");
+        issues+="immigration,";
     }
     var military = document.getElementById("military").value;
     if (military === "Yes"){
-        issues.concat("military,");
+        issues+="military,";
     }
     var taxes = document.getElementById("taxes").value;
     if (taxes === "Yes"){
-        issues.concat("taxes,");
+        issues+="taxes,";
     }
     var technology = document.getElementById("technology").value;
     if (technology === "Yes"){
-        issues.concat("technology,");
+        issues+="technology,";
     }
     var trade = document.getElementById("trade").value;
     if (trade === "Yes"){
-        issues.concat("trade,");
+        issues+="trade,";
     }
 
     issues = issues.substring(0,issues.length - 1);
@@ -58,9 +58,13 @@ function sendUserIssues() {
         alert("Please choose at least one issue");
     }
     else{
-        $.get(baseURL + issues, function(data){
-            alert(data);
-        });
+        try{
+            $.get(baseURL + issues, function(data){
+                alert(data);
+            });
+        } catch (e){
+            console.log(e);
+        }
     }
 
 }
