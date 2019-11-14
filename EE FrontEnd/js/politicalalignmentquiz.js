@@ -1,6 +1,6 @@
-let response;
 
 function sendUserIssues() {
+    let response;
     var issues = "";
 
     var criminal_justice = document.getElementById("criminal_justice").value;

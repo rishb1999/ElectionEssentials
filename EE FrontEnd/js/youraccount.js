@@ -1,5 +1,4 @@
 
-
 function sendUserLoginDetails(){
     let response;
 
@@ -41,7 +40,7 @@ function sendUserLoginDetails(){
 
 function verifyLoginSuccess(){
     let response;
-    
+
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
 
