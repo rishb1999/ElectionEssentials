@@ -43,7 +43,7 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/setPreferences/{ans}", method = RequestMethod.GET)
-    public void setPreferences(HttpServletRequest req, @PathVariable("ans") String issues) {
+    public String setPreferences(HttpServletRequest req, @PathVariable("ans") String issues) {
         Cookie[] cookie = req.getCookies();
         if (cookie != null) {
             String userName = cookie[0].getName();
@@ -51,7 +51,9 @@ public class UsersController {
 
             List<String> Issues = Arrays.asList(issues.split(","));
             user.setIssues(Issues);
+            return userName;
         }
+        return "NOTHING";
     }
 
     @RequestMapping(value = "/getPreferences", method = RequestMethod.GET)
