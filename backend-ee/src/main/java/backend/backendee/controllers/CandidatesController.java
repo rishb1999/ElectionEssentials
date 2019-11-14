@@ -15,6 +15,12 @@ import java.util.List;
 public class CandidatesController {
   @Autowired
   private CandidatesRepository repository;
+  
+  //////////////Mockito Setup/////////////////
+  public CandidatesController(CandidatesRepository repo) {
+      this.repository = repo;
+  }
+  //////////////Mockito Setup/////////////////
 
   @RequestMapping(value = "/view", method = RequestMethod.GET)
   public List<Candidates> getAllCandidates() {

@@ -1,7 +1,12 @@
 package backend.backendee.controllers;
 
+//Mockito Imports
+//import lombok.VisibleForTesting;
+//Mockito Imports
+
 import backend.backendee.models.Locations;
 import backend.backendee.repositories.LocationsRepository;
+
 import org.bson.types.ObjectId;
 //import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +21,14 @@ import java.util.*;
 public class LocationsController {
     @Autowired
     private LocationsRepository repository;
-
+    
+    /////////////////////////Begin Mockito Test Setups////////////////////////////////
+    //@VisibleForTesting
+    public LocationsController(LocationsRepository repo) {
+        this.repository = repo;
+    }
+    /////////////////////////End Mockito Test Setups////////////////////////////////
+    
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Locations> getAllLocations() { return repository.findAll(); }
 
