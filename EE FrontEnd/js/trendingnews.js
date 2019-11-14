@@ -12,6 +12,7 @@ function sendNews(){
     fetch(req)
         .then(function(response) {
             console.log(response.json());
+            console.log(response.data);
         })
 }
 
