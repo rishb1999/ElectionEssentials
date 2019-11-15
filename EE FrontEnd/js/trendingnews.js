@@ -159,7 +159,8 @@ $(document).ready(function(){
     
 });
 
-function sendNews(){
+function sendNews()
+{
     var issue = document.getElementById("news-select").value;
     console.log(issue);
 
@@ -173,31 +174,57 @@ function sendNews(){
             return response.json();
         })
         .then(function(myJSON) {
-            if(myJSON.status=="ok"){
-                document.getElementById("list-div").innerHTML="";
-                var list = document.createElement('ul');
-                var articles = myJSON.articles;
-                for (var i = 0; i < articles.length; i++){
-                    var listElement = document.createElement("LI");                           
-                    var a = document.createElement('a');
-                    var titleNode = document.createTextNode(articles[i].title+'\n');         
-                    a.appendChild(titleNode);
-                    a.href=articles[i].url;
-                    listElement.appendChild(a);                                        
-                    
-                    if(articles[i].author!=null){
-                        var authorNode = document.createTextNode(articles[i].author+'\n');
-                        listElement.appendChild(authorNode);
-                    }
-                    if(articles[i].description!=null){
-                        var descriptionNode = document.createTextNode(articles[i].description+'\n');
-                        listElement.appendChild(descriptionNode);
-                    }
-                    list.appendChild(listElement);     
-                }
-                document.getElementById("list-div").appendChild(list);
+            if(myJSON.status=="ok")
+            {
+                //var newsList = document.getElementById("list-div");
+                var newsList = $("#list-div");
+                
+                //Clear Div
+                //newsList.innerHTML = "";
+                newsList.html("");
+                
+                //Add Table to Div
+                newsList.append("<table class=\"table\" id = \"tableB\"><thead class=\"thead-dark\"><tr><th scope=\"col\">#</th><th scope=\"col\">News Articles</th></tr></thead><tbody id = \"tableBody\"></tbody></table>");
+                
+                //var tableBody = $("#tableBody");
+                
+                //Add Rows - Nes Articles
+                //tableBody.append("<tr><th scope=\"row\">1</th><td>TEST</td></tr>");
+                
+
+                
+//                var list = document.createElement('ul');
+//                var articles = myJSON.articles;
+//                for (var i = 0; i < articles.length; i++)
+//                {
+//                    var listElement = document.createElement("LI");                           
+//                    var a = document.createElement('a');
+//                    var titleNode = document.createTextNode(articles[i].title+'\n');         
+//                    a.appendChild(titleNode);
+//                    a.href=articles[i].url;
+//                    listElement.appendChild(a);                                        
+//                    
+//                    if(articles[i].author!=null)
+//                    {
+//                        var authorNode = document.createTextNode(articles[i].author+'\n');
+//                        listElement.appendChild(authorNode);
+//                    }
+//                    if(articles[i].description!=null)
+//                    {
+//                        var descriptionNode = document.createTextNode(articles[i].description+'\n');
+//                        listElement.appendChild(descriptionNode);
+//                    }
+//                    list.appendChild(listElement);     
+//                }
+//                
+//                
+//                
+//                
+//                document.getElementById("list-div").appendChild(list);
                   
-            }else {
+            }
+            else 
+            {
                 console.log("FAILED");
             }
         });
