@@ -44,10 +44,10 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/setPreferences/{ans}/{id}", method = RequestMethod.GET)
-    public void setPreferences(@PathVariable("ans") String issues, @PathVariable("id") String id) {
+    public void setPreferences(@PathVariable("ans") String issues, @PathVariable("id") ObjectId/*String*/ id) {
             System.out.println("input: " + issues);
-            System.out.println("input: " + id);
-            Users user = findUserbyId(id);
+            System.out.println("input: " + id.toString());
+            Users user = repository.findBy_id(id);//findUserbyId(id);
             System.out.println("username: " + user.getUserName());
             List<String> Issues = Arrays.asList(issues.split(","));
             user.setIssues(Issues);
@@ -55,8 +55,8 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/getPreferences/{id}", method = RequestMethod.GET)
-    public List<String> getPreferences(@PathVariable("id") ObjectId id){
-        Users user = repository.findBy_id(id);
+    public List<String> getPreferences(@PathVariable("id") /*String*/ ObjectId id){
+        Users user = repository.findBy_id(id);//findUserbyId(id);
         return user.getIssues();
     }
 
@@ -124,7 +124,7 @@ public class UsersController {
     }
 
     public Users findUser(String userName){
-        List<Users>  collection = repository.findAll();
+        List<Users> collection = repository.findAll();
         for(Users iter:collection){
             if(iter.getUserName().equals(userName)){
                 return iter;
@@ -133,7 +133,7 @@ public class UsersController {
         return null;
     }
 
-    public Users findUserbyId(String id){
+    /*public Users findUserbyId(String id){
         
         System.out.println("=======================================================");
         System.out.println("input id: " + id);
@@ -145,6 +145,6 @@ public class UsersController {
             }
         }
         return null;
-    }
+    }*/
 
 }
