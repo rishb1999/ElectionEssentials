@@ -2,23 +2,23 @@
 function loadOptions(){
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    var query = "/users/getPreferences";
+    var query = "/users/getPreferences/" + window.localStorage.id;
     
-    // try{
-    //     $.get(baseURL+query, function(data){
-    //         var select = document.getElementById("news-select");
-    //         select.options.length = data.length;
-    //         for(var i=0; i < data.length; i++){
-    //             var option = document.createElement("OPTION");
-    //             option.value = data[i];
-    //             option.label = data[i];
-    //             select.options[i] = option;
-    //         }
-    //     });
-    // } catch(e){
-    //     console.log(e);
-    //     alert("error getting pref");
-    // }
+     try{
+        fetch(baseURL+query, function(data){
+             var select = document.getElementById("news-select");
+             select.options.length = data.length;
+             for(var i=0; i < data.length; i++){
+                 var option = document.createElement("OPTION");
+                 option.value = data[i];
+                 option.label = data[i];
+                 select.options[i] = option;
+             }
+         });
+     } catch(e){
+         console.log(e);
+         alert("error getting pref");
+    }
 }
 
 

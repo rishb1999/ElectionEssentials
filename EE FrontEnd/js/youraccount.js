@@ -39,8 +39,6 @@ function sendUserLoginDetails(){
 }
 
 function verifyLoginSuccess(){
-    let response;
-
     var username_ = document.getElementById("username").value;
     var password_ = document.getElementById("password").value;
 
@@ -50,17 +48,19 @@ function verifyLoginSuccess(){
     query = query+dataa;
 
     console.log(baseURL + query);
-
     try{
         $.get(baseURL + query, function(data) {
-            data = data.toLowerCase();
             console.log(data);
-            response = data;
-            if(data == "success"){
-                window.location.href = "politicalalignmentquiz.html";
-            } else {
-                alert(response + "this is still wrong");
+            if(data === "INVALID USERNAME" || data === "INVALID PASSWORD"){
+                alert(data);
             }
+            else{
+                //set window local storage to user id
+                alert("success");
+                window.localStorage.setItem("id", data);
+                window.location.href = "politicalalignmentquiz.html";
+            }
+            
         });
     } catch(e){
         console.log(e);

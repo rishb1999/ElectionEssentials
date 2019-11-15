@@ -10,6 +10,7 @@ public class Users {
     @Id
     public ObjectId _id;
 
+    public String id;
 
     public String firstName;
     public String lastName;
@@ -25,6 +26,7 @@ public class Users {
 
     public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword){
         this._id=id;
+        this.id = id.toString();
         this.firstName=firstName;
         this.lastName=lastName;
         this.email=email;
@@ -33,6 +35,9 @@ public class Users {
         this.password=password;
         this.confirmPassword=confirmPassword;
     }
+
+    public String getIdString() { return this.id; }
+    public void setIdString(String id) { this.id = id; }
 
     public String get_id() { return _id.toHexString(); }
     public void set_id(ObjectId _id) { this._id = _id; }
