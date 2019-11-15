@@ -25,6 +25,56 @@ $(document).ready(function(){
     
     if (window.sessionStorage.getItem("id") == null)
     {
+        var select = document.getElementById("news-select");
+        var option = document.createElement("option");
+
+        option = document.createElement("option");
+        option.text = "Criminal Justice";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Economy";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Education";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Energy & Environment";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Gun Control";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Healthcare";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Immigration";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Infrastructure";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Military";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Taxes";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Technology";
+        select.add(option);
+
+        option = document.createElement("option");
+        option.text = "Trade";
+        select.add(option);
     }
     else
     {
