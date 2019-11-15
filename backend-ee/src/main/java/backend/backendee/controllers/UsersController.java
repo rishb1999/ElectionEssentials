@@ -55,7 +55,7 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/getPreferences/{id}", method = RequestMethod.GET)
-    public List<String> getPreferences(@PathVariable("ans") String id){
+    public List<String> getPreferences(@PathVariable("id") String id){
         Users user = findUserbyId(id);
         return user.getIssues();
     }

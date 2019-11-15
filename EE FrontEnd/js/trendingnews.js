@@ -5,7 +5,7 @@ function loadOptions(){
     var query = "/users/getPreferences/" + window.localStorage.id;
     
      try{
-         $.get(baseURL+query, function(data){
+        fetch(baseURL+query, function(data){
              var select = document.getElementById("news-select");
              select.options.length = data.length;
              for(var i=0; i < data.length; i++){
