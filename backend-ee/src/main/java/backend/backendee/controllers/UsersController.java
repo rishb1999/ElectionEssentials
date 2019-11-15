@@ -55,8 +55,8 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/getPreferences/{id}", method = RequestMethod.GET)
-    public List<String> getPreferences(@PathVariable("id") String id){
-        Users user = findUserbyId(id);
+    public List<String> getPreferences(@PathVariable("id") ObjectId id){
+        Users user = repository.findBy_id(id);
         return user.getIssues();
     }
 
