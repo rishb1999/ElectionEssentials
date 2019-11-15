@@ -29,12 +29,11 @@ function sendUserLoginDetails(){
              if(data == "success") {
                  window.location.href = "politicalalignmentquiz.html";
              } else{
-                 alert(response + " this is wrong");
+                 alert(response + " is incorrect");
              }
         });
     }catch(e) {
         console.log(e);
-        console.log("YOURE AN IDIOT");
     }
 }
 
@@ -56,8 +55,12 @@ function verifyLoginSuccess(){
             }
             else{
                 //set window local storage to user id
-                alert("success");
-                window.localStorage.setItem("id", data);
+                //alert("success");
+                window.sessionStorage.setItem("id", data);
+                
+                
+                window.sessionStorage.setItem("username", username_);
+                window.sessionStorage.setItem("password", password_);
                 window.location.href = "politicalalignmentquiz.html";
             }
             

@@ -61,7 +61,7 @@ function sendUserIssues() {
         try{
             $.get(query, function(data){
                 alert("Your preferences have been saved.");
-                window.location.href = "homepage.html";
+                window.location.href = "politicalalignmentquiz.html";
             });
         } catch (e){
             console.log(e);

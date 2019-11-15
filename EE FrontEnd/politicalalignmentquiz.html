@@ -14,7 +14,7 @@
         <!-- Website Image -->
         <link href="img/Logo.png" />
     </head>
-    <body>
+    <body onload="getPreferences()">
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="homepage.html">
@@ -206,13 +206,90 @@
                         <div class="col-md-8">
                           <input type="button" onclick="sendUserIssues()" class="btn btn-primary" value="Save Changes">
                           <span></span>
-                          <input type="reset" class="btn btn-default" value="Cancel">
+                          <input type="reset" class="btn btn-default" value="Cancel" onclick="returnHome()">
                         </div>
                       </div>
                     </form>
                   </div>
 
     <!-- Optional JavaScript -->
+        
+    <script>
+        function getPreferences(username, password)
+        {
+            //alert(window.sessionStorage.getItem("id"));
+            var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com/users/getPreferences/";
+
+            try
+            {
+                $.get(baseURL + window.sessionStorage.getItem("id"), function(data) {
+                    var str = data.slice();
+                    window.sessionStorage.setItem("issues", str);
+                    
+                    if (str.includes("criminal&justice"))
+                    {
+                        document.getElementById("criminal&justice").value = "Yes";
+                    }
+                    if (str.includes("economy"))
+                    {
+                        document.getElementById("economy").value = "Yes";
+                    }
+                    if (str.includes("education"))
+                    {
+                        document.getElementById("education").value = "Yes";
+                    }
+                    if (str.includes("energy&and&environment"))
+                    {
+                        document.getElementById("energy&and&environment").value = "Yes";
+                    }
+                    if (str.includes("gun&control"))
+                    {
+                        document.getElementById("gun&control").value = "Yes";
+                    }
+                    if (str.includes("healthcare"))
+                    {
+                        document.getElementById("healthcare").value = "Yes";
+                    }
+                    if (str.includes("immigration"))
+                    {
+                        document.getElementById("immigration").value = "Yes";
+                    }
+                    if (str.includes("infrastructure"))
+                    {
+                        document.getElementById("infrastructure").value = "Yes";
+                    }
+                    if (str.includes("military"))
+                    {
+                        document.getElementById("military").value = "Yes";
+                    }
+                    if (str.includes("taxes"))
+                    {
+                        document.getElementById("taxes").value = "Yes";
+                    }
+                    if (str.includes("technology"))
+                    {
+                        document.getElementById("technology").value = "Yes";
+                    }
+                    if (str.includes("trade"))
+                    {
+                        document.getElementById("trade").value = "Yes";
+                    }
+                });
+            } 
+            catch(e)
+            {
+                console.log(e);
+                alert(e);
+            }
+                
+        }
+        
+        function returnHome()
+        {
+            window.location.href = "homepage.html";
+        }
+    </script>
+        
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

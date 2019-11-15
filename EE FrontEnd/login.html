@@ -81,13 +81,21 @@
                   <div class="col-md-8">
                       <input type="button" id="login" onclick=verifyLoginSuccess() class="btn btn-primary" value="Login">
                       <span></span>
-                      <input type="reset" class="btn btn-default" value="Cancel">
+                      <input type="reset" class="btn btn-default" value="Cancel" onclick=returnHome()>
                   </div>
               </div>
             
           </div>
         </form>
         <!-- Optional JavaScript -->
+        
+        <script>
+            function returnHome()
+            {
+                window.location.href = "homepage.html";
+            }
+        </script>
+        
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
