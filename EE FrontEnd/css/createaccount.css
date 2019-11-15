@@ -1,0 +1,9 @@
+html {
+      height: 100%;
+      }
+
+div.jumbotron
+{
+    text-align: center;
+    padding: 15px;
+}

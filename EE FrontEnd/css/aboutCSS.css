@@ -1,0 +1,142 @@
+div.jumbotron
+{
+    text-align: center;
+    padding: 15px;
+    margin: 0px;
+}
+
+div.vision_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+p
+{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    color: black;
+}
+
+div.functionalities_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.list_descriptions
+{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    color: black;
+}
+
+#totalCommits
+{
+    font-weight: bold;
+}
+
+#totalIssues
+{
+    font-weight: bold;
+}
+
+#totalTests
+{
+    font-weight: bold;
+}
+
+div.team_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.team_name
+{
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+div.team_cards
+{
+    padding-bottom: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+div.card
+{
+    margin-left: 45px;
+    margin-bottom: 45px;
+}
+
+div.card img
+{
+    padding-top: 10px;
+    height: 250px;
+    width: 220px;
+    align-self: center;
+}
+
+div.card-body h3
+{
+    text-align: center;
+}
+
+div.card-body p
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+div.github_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.github_repo
+{
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+div.sources_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}
+
+div.team_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,30 @@
+html 
+{      
+    height: 100%;
+}
+
+div.jumbotron
+{
+    text-align: center;
+    padding: 15px;
+    margin: 0px;
+}
+
+div.search_jumbotron
+{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+div.search_jumbotron button
+{
+    margin-bottom: 10px;
+}
+
+#googleMap
+{
+    height: 700px;
+    width: 100%;
+}
