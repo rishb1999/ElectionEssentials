@@ -2,7 +2,7 @@
 function loadOptions(){
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com";
-    var query = "/users/getPreferences";
+    var query = "/users/getPreferences/" + window.localStorage.id;
     
      try{
          $.get(baseURL+query, function(data){
