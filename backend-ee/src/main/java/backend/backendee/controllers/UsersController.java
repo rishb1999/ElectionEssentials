@@ -5,6 +5,7 @@ import backend.backendee.repositories.UsersRepository;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
 
@@ -42,29 +43,21 @@ public class UsersController {
         return  repository.findAll(); //collection;
     }
 
-    @RequestMapping(value = "/setPreferences/{ans}", method = RequestMethod.GET)
-    public String setPreferences(HttpServletRequest req, @PathVariable("ans") String issues) {
-        Cookie[] cookie = req.getCookies();
-        if (cookie != null) {
-            String userName = cookie[0].getName();
-            Users user = findUser(userName);
-
+    @RequestMapping(value = "/setPreferences/{ans}/{id}", method = RequestMethod.GET)
+    public void setPreferences(@PathVariable("ans") String issues, @PathVariable("id") String id) {
+            System.out.println("input: " + issues);
+            System.out.println("input: " + id);
+            Users user = findUserbyId(id);
+            System.out.println("username: " + user.getUserName());
             List<String> Issues = Arrays.asList(issues.split(","));
             user.setIssues(Issues);
-            return userName;
-        }
-        return "NOTHING";
+            repository.save(user);
     }
 
-    @RequestMapping(value = "/getPreferences", method = RequestMethod.GET)
-    public List<String> getPreferences(HttpServletRequest req){
-        Cookie[] cookie = req.getCookies();
-        if (cookie != null) {
-            String userName = cookie[0].getName();
-            Users user = findUser(userName);
-            return user.getIssues();
-        }
-        return null;
+    @RequestMapping(value = "/getPreferences/{id}", method = RequestMethod.GET)
+    public List<String> getPreferences(@PathVariable("ans") String id){
+        Users user = findUserbyId(id);
+        return user.getIssues();
     }
 
     @RequestMapping(value = "/del/{id}", method = RequestMethod.DELETE)
@@ -112,13 +105,9 @@ public class UsersController {
         String passWord = loginCred[1];
         String response = verify(userName, passWord);
         if(response.equals("success")){
-            Cookie cookie = new Cookie(userName, "username");
-            cookie.setHttpOnly(true);
-            //cookie.setSecure(true);
-            //cookie.setDomain("http://ee461l-election-essentials.appspot.com");
-            //cookie.setDomain("http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com/users");
-            cookie.setPath("/users");
-            resp.addCookie(cookie);
+            Users user = findUser(userName);
+            String id = user.id;
+            return id;
         }
         return response;
     }
@@ -138,6 +127,20 @@ public class UsersController {
         List<Users>  collection = repository.findAll();
         for(Users iter:collection){
             if(iter.getUserName().equals(userName)){
+                return iter;
+            }
+        }
+        return null;
+    }
+
+    public Users findUserbyId(String id){
+        
+        System.out.println("=======================================================");
+        System.out.println("input id: " + id);
+        List<Users>  collection = repository.findAll();
+        for(Users iter:collection){
+            System.out.println("iter id: " + iter.getIdString());
+            if(iter.getIdString().equals(id)){
                 return iter;
             }
         }
