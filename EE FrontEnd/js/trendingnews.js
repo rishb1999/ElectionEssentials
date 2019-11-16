@@ -181,46 +181,42 @@ function sendNews()
                 
                 //Clear Div
                 //newsList.innerHTML = "";
-                newsList.html("");
-                
-                //Add Table to Div
-                newsList.append("<table class=\"table\" id = \"tableB\"><thead class=\"thead-dark\"><tr><th scope=\"col\">#</th><th scope=\"col\">News Articles</th></tr></thead><tbody id = \"tableBody\"></tbody></table>");
-                
-                //var tableBody = $("#tableBody");
-                
-                //Add Rows - Nes Articles
-                //tableBody.append("<tr><th scope=\"row\">1</th><td>TEST</td></tr>");
-                
+                newsList.html("");         
 
+                //Create List Element
+                var list = document.createElement('ul');
+                //Add list-group class to list element
+                list.classList.add("list-group");
                 
-//                var list = document.createElement('ul');
-//                var articles = myJSON.articles;
-//                for (var i = 0; i < articles.length; i++)
-//                {
-//                    var listElement = document.createElement("LI");                           
-//                    var a = document.createElement('a');
-//                    var titleNode = document.createTextNode(articles[i].title+'\n');         
-//                    a.appendChild(titleNode);
-//                    a.href=articles[i].url;
-//                    listElement.appendChild(a);                                        
-//                    
-//                    if(articles[i].author!=null)
-//                    {
-//                        var authorNode = document.createTextNode(articles[i].author+'\n');
-//                        listElement.appendChild(authorNode);
-//                    }
-//                    if(articles[i].description!=null)
-//                    {
-//                        var descriptionNode = document.createTextNode(articles[i].description+'\n');
-//                        listElement.appendChild(descriptionNode);
-//                    }
-//                    list.appendChild(listElement);     
-//                }
-//                
-//                
-//                
-//                
-//                document.getElementById("list-div").appendChild(list);
+                var articles = myJSON.articles;
+                for (var i = 0; i < articles.length; i++)
+                {
+                    //Create List Item Element
+                    var listElement = document.createElement("li");
+                    //Add list-group-item class to list item element
+                    listElement.classList.add("list-group-item");
+                    var a = document.createElement("a");
+                    var titleNode = document.createTextNode(articles[i].title+'\n');         
+                    a.appendChild(titleNode);
+                    a.href=articles[i].url;
+                    listElement.appendChild(a);                                        
+                    
+                    if(articles[i].author != null)
+                    {
+                        var authorNode = document.createTextNode(articles[i].author+'\n');
+                        listElement.appendChild(authorNode);
+                    }
+                    if(articles[i].description!=null)
+                    {
+                        var descriptionNode = document.createTextNode(articles[i].description+'\n');
+                        listElement.appendChild(descriptionNode);
+                    }
+                    //Add Article to List
+                    list.appendChild(listElement);     
+                }         
+                
+                //Add List to Div
+                document.getElementById("list-div").appendChild(list);
                   
             }
             else 
