@@ -17,8 +17,8 @@
     <body>
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="homepage.html">
-                <img src="img/Logo.png" width="40" height="40" alt="">
+            <a class="navbar-brand" href="../homepage.html">
+                <img src="../img/Logo.png" width="40" height="40" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,8 +34,9 @@
                     <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Create Account</a>
-                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="../youraccount.html">Create Account</a>
+                            <a class="dropdown-item" href="../login.html">Login</a>
+                            <a class="dropdown-item" onclick="removeSessionData()">Logout</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -73,7 +74,6 @@
         </a>
 
         <div class = "biopic">
-           <p> 
             <ul>
                 <li> Name: Pete Buttigieg </li>
                 <li> Political Party: Democratic </li>
@@ -123,11 +123,18 @@
 
                     Buttigieg was elected Mayor of South Bend in 2011 and reelected in 2015. Before his reelection, he publicly came out as gay. On April 14, 2019, Buttigieg announced his candidacy in the 2020 United States presidential election, after having formed an exploratory committee in January 2019.His platform includes support for reducing income inequality, pro-environmental policies, cooperation between the Democratic Party and organized labor, universal background checks for firearms purchases, the Equality Act, and preserving the DACA program for children of illegal immigrants. Buttigieg also supports reforms that would end gerrymandering, overturn the Citizens United v. FEC decision, and abolish the Electoral College. He has called for an impeachment inquiry into Donald Trump. </li>
             </ul>
-          </p>
         </div>
 
 
         <!-- Optional JavaScript -->
+        
+        <script>
+            function removeSessionData()
+            {
+                sessionStorage.clear();
+            }
+        </script>
+        
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
