@@ -17,8 +17,8 @@
     <body>
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="homepage.html">
-                <img src="img/Logo.png" width="40" height="40" alt="">
+            <a class="navbar-brand" href="../homepage.html">
+                <img src="../img/Logo.png" width="40" height="40" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,8 +34,9 @@
                     <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Create Account</a>
-                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="../youraccount.html">Create Account</a>
+                            <a class="dropdown-item" href="../login.html">Login</a>
+                            <a class="dropdown-item" onclick="removeSessionData()">Logout</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -71,7 +72,6 @@
         </a>
 
         <div class = "biopic">
-           <p> 
             <ul>
                 <li> Name: Joe Walsh</li>
                 <li> Political Party: Republican </li>
@@ -96,11 +96,18 @@ Born and raised in the Chicago metropolitan area, Walsh began his career as a so
 
 During his time in Congress, Walsh was criticized for his often personal attacks against members of the Democratic Party and, specifically, President Barack Obama. He accused the president of abandoning the U.S.–Israel alliance and bankrupting the country. Walsh maintained a no-compromise approach to legislating that included rejecting any tax increases. He consistently voted against raising the federal debt ceiling and authored a balanced budget amendment to the United States Constitution. Walsh rejected the scientific consensus on climate change and supported tougher border control. Later, during his presidential campaign, Walsh expressed regret for some of the comments and stances he made during his time in Congress.</li>
             </ul>
-          </p>
         </div>
 
 
         <!-- Optional JavaScript -->
+        
+        <script>
+            function removeSessionData()
+            {
+                sessionStorage.clear();
+            }
+        </script>
+        
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

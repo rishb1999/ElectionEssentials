@@ -17,8 +17,8 @@
     <body>
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="homepage.html">
-                <img src="img/Logo.png" width="40" height="40" alt="">
+            <a class="navbar-brand" href="../homepage.html">
+                <img src="../img/Logo.png" width="40" height="40" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,8 +34,9 @@
                     <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Create Account</a>
-                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="../youraccount.html">Create Account</a>
+                            <a class="dropdown-item" href="../login.html">Login</a>
+                            <a class="dropdown-item" onclick="removeSessionData()">Logout</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -71,7 +72,6 @@
         </a>
 
         <div class = "biopic">
-           <p> 
             <ul>
                 <li> Name: Joe Sestak</li>
                 <li> Political Party: Democratic </li>
@@ -107,11 +107,18 @@ Graduating second in his class at the United States Naval Academy, Sestak served
 
 Sestak was elected to the House of Representatives in 2006 in a heavily Republican district,[5] and reelected in 2008 by a 20% margin.[6] He declined to run for reelection in 2010, instead running for the Senate. In the Democratic primary he defeated incumbent Senator Arlen Specter, 54% to 46%, but he lost the general election to Republican nominee Pat Toomey. Sestak sought a rematch with Toomey in the 2016 election, but lost the primary to Katie McGinty by just under ten points,[7] in the closest and costliest Senate primary of the 2016 cycle, while facing opposition from prominent Democrats.[8][9]</li>
             </ul>
-          </p>
         </div>
 
 
         <!-- Optional JavaScript -->
+        
+        <script>
+            function removeSessionData()
+            {
+                sessionStorage.clear();
+            }
+        </script>
+        
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
