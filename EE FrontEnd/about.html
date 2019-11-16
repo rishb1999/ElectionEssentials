@@ -38,6 +38,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="youraccount.html">Create Account</a>
                             <a class="dropdown-item" href="login.html">Login</a>
+                            <a class="dropdown-item" onclick="removeSessionData()">Logout</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -187,7 +188,7 @@
                 <h2>GitHub Statistics</h2>
                 <li id = "totalCommits">Total Number of Commits:</li>
                 <li id = "totalIssues">Total Number of Issues:</li>
-                <li id = "totalTests">Total Number of Unit Tests: 9</li>
+                <li id = "totalTests">Total Number of Unit Tests: 24</li>
             </ol>
         </div>
         
@@ -334,6 +335,11 @@
                 {
                 }
             });
+            
+            function removeSessionData()
+            {
+                sessionStorage.clear();
+            }
         </script>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

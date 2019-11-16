@@ -52,7 +52,7 @@ function sendUserIssues() {
 
 
     var baseURL = "http://database-env.tpry6djxqe.us-east-2.elasticbeanstalk.com/users/setPreferences/";
-    var query = baseURL + issues + "/" + window.localStorage.getItem("id");
+    var query = baseURL + issues + "/" + window.sessionStorage.getItem("id");
 
     if(issues === ""){
         alert("Please choose at least one issue");
