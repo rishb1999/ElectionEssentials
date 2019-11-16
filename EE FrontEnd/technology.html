@@ -36,6 +36,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="youraccount.html">Create Account</a>
                             <a class="dropdown-item" href="login.html">Login</a>
+                            <a class="dropdown-item" onclick="removeSessionData()">Logout</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -210,6 +211,14 @@
                   </div>
 
         <!-- Optional JavaScript -->
+        
+        <script>
+            function removeSessionData()
+            {
+                sessionStorage.clear();
+            }
+        </script>
+        
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/trendingnews.js"> </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
