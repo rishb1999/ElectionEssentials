@@ -181,7 +181,25 @@ function sendNews()
                 
                 //Clear Div
                 //newsList.innerHTML = "";
-                newsList.html("");         
+                newsList.html("");      
+                
+                //News Artciles Title
+                var titleList = document.createElement('ul');
+                titleList.classList.add("list-group");
+                var titleListElement = document.createElement("li");
+                titleListElement.classList.add("list-group-item");
+                var titleTextNode = document.createTextNode("News Articles");
+                var bold = document.createElement("strong");
+                //bold.style.textAlign = "center";
+                bold.appendChild(titleTextNode);
+                titleListElement.appendChild(bold);
+                titleList.appendChild(titleListElement);
+                
+                titleList.style.textAlign = "center";
+                titleList.style.fontSize = "30px";
+                
+                document.getElementById("list-div").appendChild(titleList);
+                
 
                 //Create List Element
                 var list = document.createElement('ul');
@@ -196,19 +214,19 @@ function sendNews()
                     //Add list-group-item class to list item element
                     listElement.classList.add("list-group-item");
                     var a = document.createElement("a");
-                    var titleNode = document.createTextNode(articles[i].title+'\n');         
+                    var titleNode = document.createTextNode(articles[i].title + "\n");         
                     a.appendChild(titleNode);
                     a.href=articles[i].url;
                     listElement.appendChild(a);                                        
                     
                     if(articles[i].author != null)
                     {
-                        var authorNode = document.createTextNode(articles[i].author+'\n');
+                        var authorNode = document.createTextNode(" | " + articles[i].author + "\n");
                         listElement.appendChild(authorNode);
                     }
                     if(articles[i].description!=null)
                     {
-                        var descriptionNode = document.createTextNode(articles[i].description+'\n');
+                        var descriptionNode = document.createTextNode(" | " + articles[i].description + "\n");
                         listElement.appendChild(descriptionNode);
                     }
                     //Add Article to List
