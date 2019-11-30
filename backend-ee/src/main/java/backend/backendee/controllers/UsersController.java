@@ -5,19 +5,12 @@ import backend.backendee.repositories.UsersRepository;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.*;
 
-import java.net.*;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -26,9 +19,7 @@ public class UsersController {
     @Autowired
     private UsersRepository repository;
 
-    //private List<Users> collection = repository.findAll();
-
-
+    private List<Users> collection;
 
     @RequestMapping(value="/username/{userName}", method = RequestMethod.POST)
     public Users getUserByUserName(@PathVariable("userName") String userName){
@@ -40,14 +31,14 @@ public class UsersController {
 
     @RequestMapping(value="/", method = RequestMethod.GET)
     public List<Users> getAllUsers() {
-        return  repository.findAll(); //collection;
+        return  repository.findAll();
     }
 
     @RequestMapping(value = "/setPreferences/{ans}/{id}", method = RequestMethod.GET)
-    public void setPreferences(@PathVariable("ans") String issues, @PathVariable("id") ObjectId/*String*/ id) {
+    public void setPreferences(@PathVariable("ans") String issues, @PathVariable("id") ObjectId id) {
             System.out.println("input: " + issues);
             System.out.println("input: " + id.toString());
-            Users user = repository.findBy_id(id);//findUserbyId(id);
+            Users user = repository.findBy_id(id);
             System.out.println("username: " + user.getUserName());
             List<String> Issues = Arrays.asList(issues.split(","));
             user.setIssues(Issues);
@@ -55,8 +46,8 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/getPreferences/{id}", method = RequestMethod.GET)
-    public List<String> getPreferences(@PathVariable("id") /*String*/ ObjectId id){
-        Users user = repository.findBy_id(id);//findUserbyId(id);
+    public List<String> getPreferences(@PathVariable("id") ObjectId id){
+        Users user = repository.findBy_id(id);
         return user.getIssues();
     }
 
@@ -65,13 +56,13 @@ public class UsersController {
         repository.delete(repository.findBy_id(id));
     }
 
-    //@RequestMapping(value = "/create", method = RequestMethod.GET)
     @RequestMapping(value = "/create/{ans}", method = RequestMethod.GET)
-    public String createUsers (/*@Valid*/ /*@RequestBody Map<String, Object> users*/@PathVariable("ans") String information) {
+    public String createUsers (@PathVariable("ans") String information) {
         //Parsing string now
         //public Users(ObjectId id, String firstName, String lastName, 
         //String email, String timeZone, 
-        //String userName, String password, String confirmPassword/*, 
+        //String userName, String password, String confirmPassword/*,
+        collection = repository.findAll(); // updating local varable
         String [] args = information.split(",");
         Users u = new Users(ObjectId.get(), args[0], args[1], args[2], args[3], args[4], args[5], args[6]);
         String response = verifyNew(u);
@@ -81,8 +72,7 @@ public class UsersController {
         return response;
     }
 
-    public String verifyNew(Users user){
-        List<Users> collection = repository.findAll();
+    private String verifyNew(Users user){
         for(Users iter:collection){
             if(iter.getUserName().equals(user.getUserName())){
                 return "Invalid. That username is already taken";
@@ -100,31 +90,35 @@ public class UsersController {
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @RequestMapping(value="/login/{ans}", method = RequestMethod.GET)
     public String verifyUser(@PathVariable("ans") String login, HttpServletResponse resp) {
+        collection = repository.findAll(); // updating local variable
         String [] loginCred = login.split(",");
         String userName = loginCred[0];
         String passWord = loginCred[1];
-        String response = verify(userName, passWord);
+        ArrayList<String> reply = verify(userName, passWord); // index 0 holds response, index 1 hold id string if verified
+        String response = reply.get(0);
         if(response.equals("success")){
-            Users user = findUser(userName);
-            String id = user.id;
-            return id;
+            return reply.get(1);
         }
         return response;
     }
 
-    public String verify(String userName, String password){
+    private ArrayList<String> verify(String userName, String password){
+        ArrayList<String> reply = new ArrayList<>(2);
         Users user = findUser(userName);
         if(user==null){
-            return "INVALID USERNAME";
+            reply.add("INVALID USERNAME");
         }
-        if(!(user.getPassword().equals(password))){
-            return "INVALID PASSWORD";
+        else if(!(user.getPassword().equals(password))){
+            reply.add("INVALID PASSWORD");
         }
-        return "success";
+        else{
+            reply.add("success");
+            reply.add(user.getIdString());
+        }
+        return reply;
     }
 
-    public Users findUser(String userName){
-        List<Users> collection = repository.findAll();
+    private Users findUser(String userName){
         for(Users iter:collection){
             if(iter.getUserName().equals(userName)){
                 return iter;
@@ -132,19 +126,5 @@ public class UsersController {
         }
         return null;
     }
-
-    /*public Users findUserbyId(String id){
-        
-        System.out.println("=======================================================");
-        System.out.println("input id: " + id);
-        List<Users>  collection = repository.findAll();
-        for(Users iter:collection){
-            System.out.println("iter id: " + iter.getIdString());
-            if(iter.getIdString().equals(id)){
-                return iter;
-            }
-        }
-        return null;
-    }*/
 
 }

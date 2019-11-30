@@ -10,8 +10,8 @@ public class Candidates {
   @Id
   public ObjectId _id;
  
-  public String name;
-  public HashMap<String, String> views;
+  private String name;
+  private HashMap<String, String> views;
  
   // Constructors
   public Candidates() {}

@@ -10,30 +10,30 @@ public class Users {
     @Id
     public ObjectId _id;
 
-    public String id;
+    private String id;
 
-    public String firstName;
-    public String lastName;
-    public String email;
-    public String timeZone;
-    public String userName;
-    public String password;
-    public String confirmPassword;
-    public List<String> issues;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String timeZone;
+    private String userName;
+    private String password;
+    private String confirmPassword;
+    private List<String> issues;
 
 
     public Users(){}
 
     public Users(ObjectId id, String firstName, String lastName, String email, String timeZone, String userName, String password, String confirmPassword){
-        this._id=id;
+        this._id = id;
         this.id = id.toString();
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.email=email;
-        this.timeZone=timeZone;
-        this.userName=userName;
-        this.password=password;
-        this.confirmPassword=confirmPassword;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.timeZone = timeZone;
+        this.userName = userName;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public String getIdString() { return this.id; }
