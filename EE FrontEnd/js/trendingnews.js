@@ -21,64 +21,83 @@ function loadOptions(){
     }
 }
 
+var options;
+
+function displayOptions(options){
+    var select = document.getElementById("news-select");
+    var option = document.createElement("option");
+
+    options.forEach(function(element){
+        option = document.createElement("option");
+        option.text = element;
+        select.add(option);
+    });
+}
+
 $(document).ready(function(){
     
     if (window.sessionStorage.getItem("id") == null)
     {
-        var select = document.getElementById("news-select");
-        var option = document.createElement("option");
+        options = ["Criminal Justice", "Economy", "Education", "Energy & Environment",
+            "Gun Control", "Healthcare", "Immigration", "Infrastructure", "Military",
+            "Taxes", "Technology", "Trade"];
 
-        option = document.createElement("option");
-        option.text = "Criminal Justice";
-        select.add(option);
+        displayOptions(options);
 
-        option = document.createElement("option");
-        option.text = "Economy";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Education";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Energy & Environment";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Gun Control";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Healthcare";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Immigration";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Infrastructure";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Military";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Taxes";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Technology";
-        select.add(option);
-
-        option = document.createElement("option");
-        option.text = "Trade";
-        select.add(option);
+        // option = document.createElement("option");
+        // option.text = "Criminal Justice";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Economy";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Education";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Energy & Environment";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Gun Control";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Healthcare";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Immigration";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Infrastructure";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Military";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Taxes";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Technology";
+        // select.add(option);
+        //
+        // option = document.createElement("option");
+        // option.text = "Trade";
+        // select.add(option);
     }
     else
     {
+
         var str = window.sessionStorage.getItem("issues");
+
+        // var userPref = str.split(",");
     
         var select = document.getElementById("news-select");
         var option = document.createElement("option");

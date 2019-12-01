@@ -61,6 +61,7 @@ function verifyLoginSuccess(){
                 
                 window.sessionStorage.setItem("username", username_);
                 window.sessionStorage.setItem("password", password_);
+                // alert("Login Successful");
                 window.location.href = "politicalalignmentquiz.html";
             }
             
