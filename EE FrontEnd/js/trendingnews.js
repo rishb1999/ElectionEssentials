@@ -21,7 +21,8 @@ function loadOptions(){
     }
 }
 
-var options;
+var options= [];
+
 
 function displayOptions(options){
     var select = document.getElementById("news-select");
@@ -94,11 +95,28 @@ $(document).ready(function(){
     }
     else
     {
-
         var str = window.sessionStorage.getItem("issues");
 
-        options = str.split(",");
+        var issuesMap = new Map([["criminal&justice", "Criminal Justice"], ["economy", "Economy"],
+            ["education", "Education"], ["energy&and&environment", "Energy & Environment"],
+            ["gun&control", "Gun Control"], ["healthcare", "Healthcare"],
+            ["immigration","Immigration"], ["infrastructure", "Infrastructure"],
+            ["military", "Military"], ["taxes", "Taxes"],
+            ["technology", "Technology"], ["trade", "Trade"]]);
+
+        console.log(issuesMap);
+
+        var userPref = str.split(",");
+
+        userPref.forEach(function(element){
+            options.push(issuesMap.get(element));
+        });
+
+        console.log(options)
+
         displayOptions(options);
+
+        console.log("WEE GOOODDD");
     
         // var select = document.getElementById("news-select");
         // var option = document.createElement("option");
