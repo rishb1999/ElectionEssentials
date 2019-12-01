@@ -97,83 +97,84 @@ $(document).ready(function(){
 
         var str = window.sessionStorage.getItem("issues");
 
-        // var userPref = str.split(",");
+        options = str.split(",");
+        displayOptions(options);
     
-        var select = document.getElementById("news-select");
-        var option = document.createElement("option");
-
-        if (str.includes("criminal&justice"))
-        {
-            option = document.createElement("option");
-            option.text = "Criminal Justice";
-            select.add(option);
-        }    
-        if (str.includes("economy"))
-        {
-            option = document.createElement("option");
-            option.text = "Economy";
-            select.add(option);
-        }
-        if (str.includes("education"))
-        {
-            option = document.createElement("option");
-            option.text = "Education";
-            select.add(option);
-        }
-        if (str.includes("energy&and&environment"))
-        {
-            option = document.createElement("option");
-            option.text = "Energy & Environment";
-            select.add(option);
-        }
-        if (str.includes("gun&control"))
-        {
-            option = document.createElement("option");
-            option.text = "Gun Control";
-            select.add(option);
-        }
-        if (str.includes("healthcare"))
-        {
-            option = document.createElement("option");
-            option.text = "Healthcare";
-            select.add(option);
-        }
-        if (str.includes("immigration"))
-        {
-            option = document.createElement("option");
-            option.text = "Immigration";
-            select.add(option);
-        }
-        if (str.includes("infrastructure"))
-        {
-            option = document.createElement("option");
-            option.text = "Infrastructure";
-            select.add(option);
-        }
-        if (str.includes("military"))
-        {
-            option = document.createElement("option");
-            option.text = "Military";
-            select.add(option);
-        }
-        if (str.includes("taxes"))
-        {
-            option = document.createElement("option");
-            option.text = "Taxes";
-            select.add(option);
-        }
-        if (str.includes("technology"))
-        {
-            option = document.createElement("option");
-            option.text = "Technology";
-            select.add(option);
-        }
-        if (str.includes("trade"))
-        {
-            option = document.createElement("option");
-            option.text = "Trade";
-            select.add(option);
-        }
+        // var select = document.getElementById("news-select");
+        // var option = document.createElement("option");
+        //
+        // if (str.includes("criminal&justice"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Criminal Justice";
+        //     select.add(option);
+        // }
+        // if (str.includes("economy"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Economy";
+        //     select.add(option);
+        // }
+        // if (str.includes("education"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Education";
+        //     select.add(option);
+        // }
+        // if (str.includes("energy&and&environment"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Energy & Environment";
+        //     select.add(option);
+        // }
+        // if (str.includes("gun&control"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Gun Control";
+        //     select.add(option);
+        // }
+        // if (str.includes("healthcare"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Healthcare";
+        //     select.add(option);
+        // }
+        // if (str.includes("immigration"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Immigration";
+        //     select.add(option);
+        // }
+        // if (str.includes("infrastructure"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Infrastructure";
+        //     select.add(option);
+        // }
+        // if (str.includes("military"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Military";
+        //     select.add(option);
+        // }
+        // if (str.includes("taxes"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Taxes";
+        //     select.add(option);
+        // }
+        // if (str.includes("technology"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Technology";
+        //     select.add(option);
+        // }
+        // if (str.includes("trade"))
+        // {
+        //     option = document.createElement("option");
+        //     option.text = "Trade";
+        //     select.add(option);
+        // }
     }
     
 });

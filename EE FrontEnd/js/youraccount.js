@@ -61,7 +61,7 @@ function verifyLoginSuccess(){
                 
                 window.sessionStorage.setItem("username", username_);
                 window.sessionStorage.setItem("password", password_);
-                // alert("Login Successful");
+                alert("Login Successful");
                 window.location.href = "politicalalignmentquiz.html";
             }
             
@@ -86,4 +86,10 @@ function verifyLoginSuccess(){
         //     alert("INVALID LOGIN (WRONG USERNAME)");
         // }
 
+}
+
+function removeSessionData() {
+    alert("Logout Successful");
+    sessionStorage.clear();
+    window.location.href = "homepage.html";
 }
