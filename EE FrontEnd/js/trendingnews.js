@@ -23,7 +23,6 @@ function loadOptions(){
 
 var options= [];
 
-
 function displayOptions(options){
     var select = document.getElementById("news-select");
     var option = document.createElement("option");
@@ -104,19 +103,14 @@ $(document).ready(function(){
             ["military", "Military"], ["taxes", "Taxes"],
             ["technology", "Technology"], ["trade", "Trade"]]);
 
-        console.log(issuesMap);
-
         var userPref = str.split(",");
 
         userPref.forEach(function(element){
             options.push(issuesMap.get(element));
         });
 
-        console.log(options)
-
         displayOptions(options);
 
-        console.log("WEE GOOODDD");
     
         // var select = document.getElementById("news-select");
         // var option = document.createElement("option");
