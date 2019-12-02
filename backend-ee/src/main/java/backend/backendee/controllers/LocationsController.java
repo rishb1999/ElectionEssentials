@@ -54,7 +54,7 @@ public class LocationsController {
     public List<Locations> getLocationInformation(@PathVariable("address") String address) {
         List<Locations> addresses = new ArrayList<Locations>();
         String key = "AIzaSyAxjoIRnvdnptgtzIdQvnDeM-rnviFq-D0";
-        String uri = "https://www.googleapis.com/civicinfo/v2/voterinfo?address=" + address + "&key=" + key; 
+        String uri = "https://www.googleapis.com/civicinfo/v2/voterinfo?address=" + address + "&electionId=2000&key=" + key; 
         RestTemplate restTemplate = new RestTemplate();
         String result = "";
         try {
