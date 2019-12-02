@@ -7,7 +7,7 @@ class SearchText(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.browser = webdriver.Chrome('/usr/local/bin/chromedriver')
+        inst.browser = webdriver.Chrome('/home/rishabh/Desktop/chromedriver')
         time.sleep(2)
         inst.browser.maximize_window()
         # navigate to the application home page
