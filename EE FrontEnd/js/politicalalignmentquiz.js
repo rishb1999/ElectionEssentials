@@ -55,12 +55,12 @@ function sendUserIssues() {
     var query = baseURL + issues + "/" + window.sessionStorage.getItem("id");
 
     if(issues === ""){
-        //alert("Please choose at least one issue");
+        alert("Please choose at least one issue");
     }
     else{
         try{
             $.get(query, function(data){
-                //alert("Your preferences have been saved.");
+                alert("Your preferences have been saved.");
                 window.location.href = "politicalalignmentquiz.html";
             });
         } catch (e){
