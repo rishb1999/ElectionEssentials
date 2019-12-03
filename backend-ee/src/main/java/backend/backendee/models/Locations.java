@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Locations {
     @Id
     public ObjectId _id;
-    public String name;
+    private String name;
 
 //    class Coordinates{
 //        int latitude;
@@ -27,7 +27,7 @@ public class Locations {
 //        public void setLongitude(int longitude){ this.longitude = longitude; }
 //    }
 
-    public String address;
+    private String address;
     //Add a date?
 
     public Locations() {}
